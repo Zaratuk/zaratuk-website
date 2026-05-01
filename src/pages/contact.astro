@@ -1,0 +1,79 @@
+---
+import BaseLayout from '@layouts/BaseLayout.astro';
+---
+
+<BaseLayout
+  title="Contact | Zaratük Consulting"
+  description="Contact Zaratük Consulting with questions, feedback, or ideas for custom Power BI visuals."
+>
+  <section class="relative overflow-hidden bg-[radial-gradient(circle_at_20%_12%,rgba(107,174,110,0.16),transparent_34%),radial-gradient(circle_at_82%_18%,rgba(242,200,17,0.10),transparent_28%),#f5f5f7] py-16 sm:py-24">
+    <div class="pointer-events-none absolute inset-0 opacity-[0.18] [background-image:radial-gradient(rgba(15,45,31,0.18)_1px,transparent_1px)] [background-size:22px_22px]"></div>
+    <div class="relative mx-auto grid max-w-7xl gap-12 px-4 sm:px-6 lg:grid-cols-[0.9fr_1.1fr] lg:px-8 lg:items-center">
+      <div>
+        <p class="inline-flex rounded-lg border border-forest-700/25 bg-emerald-50 px-3 py-1.5 text-xs font-semibold uppercase tracking-[0.18em] text-forest-900">
+          Contact
+        </p>
+        <h1 class="mt-6 text-5xl font-semibold leading-[1.03] tracking-normal text-[#1d1d1f] sm:text-7xl">
+          Have an idea for a custom visual?
+        </h1>
+        <p class="mt-6 max-w-2xl text-xl leading-8 text-slate-600">
+          Reach out with questions, product suggestions, or Power BI workflows where a purpose-built pbiviz could make the data easier to validate, monitor, or explain.
+        </p>
+        <div class="mt-9 flex flex-col gap-3 sm:flex-row">
+          <a class="inline-flex h-12 items-center justify-center rounded-lg bg-forest-950 px-6 text-sm font-semibold text-white transition hover:bg-forest-900" href="mailto:info@zaratuk.com?subject=Custom%20Power%20BI%20visual%20idea">
+            Email info@zaratuk.com
+          </a>
+          <a class="inline-flex h-12 items-center justify-center rounded-lg border border-forest-950 bg-white px-6 text-sm font-semibold text-forest-950 transition hover:bg-emerald-50" href="/products/">
+            View products
+          </a>
+        </div>
+      </div>
+
+      <div class="rounded-lg border border-black/10 bg-white p-6 shadow-[0_24px_80px_rgba(0,0,0,0.08)]">
+        <p class="text-sm font-semibold uppercase tracking-[0.18em] text-slate-500">Good reasons to reach out</p>
+        <div class="mt-6 grid gap-3">
+          <div class="rounded-lg bg-slate-50 p-5">
+            <h2 class="font-semibold text-[#1d1d1f]">Questions about Data Health Panel</h2>
+            <p class="mt-2 text-sm leading-6 text-slate-600">
+              Ask about installation, field mapping, AppSource plans, or whether the visual fits your data quality workflow.
+            </p>
+          </div>
+          <div class="rounded-lg bg-slate-50 p-5">
+            <h2 class="font-semibold text-[#1d1d1f]">Suggestions for new visuals</h2>
+            <p class="mt-2 text-sm leading-6 text-slate-600">
+              Share a reporting pain point, validation need, operational signal, or AI compute metric you wish Power BI handled better.
+            </p>
+          </div>
+          <div class="rounded-lg bg-slate-50 p-5">
+            <h2 class="font-semibold text-[#1d1d1f]">Custom pbiviz product work</h2>
+            <p class="mt-2 text-sm leading-6 text-slate-600">
+              Talk through a custom visual for your team, especially when standard visuals do not capture the logic behind your operations.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-rule bg-white py-16">
+    <div class="mx-auto grid max-w-7xl gap-10 px-4 sm:px-6 lg:grid-cols-[0.85fr_1.15fr] lg:px-8">
+      <div>
+        <p class="text-sm font-semibold uppercase tracking-[0.18em] text-slate-500">What to include</p>
+        <h2 class="mt-4 text-4xl font-semibold tracking-normal text-[#1d1d1f]">
+          A short note is enough to start.
+        </h2>
+      </div>
+      <div class="grid gap-3">
+        <div class="rounded-lg bg-[#f5f5f7] p-5 text-sm leading-6 text-slate-700">
+          The Power BI problem or workflow you want to improve.
+        </div>
+        <div class="rounded-lg bg-[#f5f5f7] p-5 text-sm leading-6 text-slate-700">
+          The fields, measures, rules, or operational signals the visual would need to understand.
+        </div>
+        <div class="rounded-lg bg-[#f5f5f7] p-5 text-sm leading-6 text-slate-700">
+          Whether you are looking for a product suggestion, a prototype, or a custom visual for your organization.
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
