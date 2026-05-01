@@ -1,0 +1,41 @@
+# Zaratük Consulting
+
+> Zaratük Consulting builds custom Power BI visuals that help teams improve data quality, validation, operational monitoring, and reporting clarity inside Power BI.
+
+Zaratük Consulting is a product-focused Power BI custom visual developer. The company creates installable pbiviz tools for analysts, BI developers, data engineers, IT operations teams, and data governance teams that need clearer signals about the data behind reports.
+
+Core positioning:
+- Custom Power BI visuals built for better data decisions
+- Power BI custom visuals for operational intelligence
+- Power BI visuals that solve data quality and reporting problems
+- Purpose-built pbiviz products for monitoring, validating, and explaining data assets
+
+Primary product:
+- Data Health Panel is a free Power BI custom visual that scores data health across completeness, freshness, uniqueness, and category validity. It shows a weighted 0-100 score, KPI tiles, and a plain-English diagnostic issue list directly inside Power BI reports.
+
+Coming soon:
+- Token Analytics Panel is a planned Power BI custom visual for understanding token usage, model consumption, AI compute patterns, and AI cost context inside Power BI.
+
+Contact:
+- Email: info@zaratuk.ca
+
+## Core Pages
+
+- [Homepage](https://zaratuk.com/): Overview of Zaratük Consulting and its focus on custom Power BI visuals for data quality, validation, and operational reporting.
+- [Products](https://zaratuk.com/products/): Catalog of Power BI custom visual products, including Data Health Panel and upcoming products.
+- [About](https://zaratuk.com/about/): Company positioning around Power BI as an IT operational layer and custom visuals for operational intelligence.
+- [Contact](https://zaratuk.com/contact/): Contact page for product questions, feedback, and custom visual suggestions.
+
+## Products
+
+- [Data Health Panel](https://zaratuk.com/products/data-health-panel/): Free Power BI custom visual for completeness, freshness, uniqueness, category validity, and diagnostic data quality issues.
+- [Data Health Panel documentation](https://zaratuk.com/docs/data-health-panel/): Installation, field roles, scoring logic, formatting controls, use cases, and AppSource-oriented validation notes.
+
+## Downloads
+
+- [Data Health Panel pbiviz package](https://zaratuk.com/downloads/data-health-panel.pbiviz): Installable Power BI custom visual package.
+- [Data Health Panel sample CSV](https://zaratuk.com/downloads/data-health-panel-sample.csv): Sample data for testing the visual in Power BI.
+
+## Optional
+
+- [Sitemap](https://zaratuk.com/sitemap-index.xml): XML sitemap for all indexable pages.
