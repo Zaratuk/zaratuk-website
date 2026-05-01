@@ -1,0 +1,26 @@
+---
+import ScatterLogo from './ScatterLogo.astro';
+---
+
+<header class="sticky top-0 z-30 border-b border-black/10 surface">
+  <nav class="mx-auto flex max-w-7xl items-center justify-between px-4 py-4 sm:px-6 lg:px-8" aria-label="Main navigation">
+    <ScatterLogo />
+    <div class="hidden items-center gap-8 text-sm font-medium text-slate-600 md:flex">
+      <a class="transition hover:text-forest-950" href="/products/">Products</a>
+      <a class="transition hover:text-forest-950" href="/about/">About</a>
+    </div>
+    <details class="relative md:hidden">
+      <summary class="flex h-10 w-10 cursor-pointer list-none items-center justify-center rounded-lg bg-white text-[#1d1d1f] shadow-[inset_0_0_0_1px_rgba(0,0,0,0.08)]" aria-label="Open navigation menu">
+        <span class="sr-only">Menu</span>
+        <span class="grid gap-1.5">
+          <span class="block h-0.5 w-5 bg-current"></span>
+          <span class="block h-0.5 w-5 bg-current"></span>
+        </span>
+      </summary>
+      <div class="absolute right-0 mt-3 grid min-w-44 gap-1 rounded-lg border border-black/10 bg-white p-2 text-sm font-semibold text-slate-700 shadow-[0_18px_60px_rgba(0,0,0,0.12)]">
+        <a class="rounded-lg px-4 py-3 hover:bg-slate-50" href="/products/">Products</a>
+        <a class="rounded-lg px-4 py-3 hover:bg-slate-50" href="/about/">About</a>
+      </div>
+    </details>
+  </nav>
+</header>

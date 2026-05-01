@@ -1,0 +1,27 @@
+---
+import BaseLayout from '@layouts/BaseLayout.astro';
+import ProductCard from '@components/ProductCard.astro';
+import products from '@data/products.json';
+---
+
+<BaseLayout
+  title="Power BI Visual Products | Zaratuk Consulting"
+  description="Browse installable Power BI visuals from Zaratuk Consulting for data quality, validation, and reporting clarity."
+>
+  <section class="bg-[#f5f5f7] py-16 sm:py-24">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="mx-auto max-w-4xl text-center">
+        <p class="text-sm font-semibold uppercase tracking-[0.18em] text-slate-500">Product catalog</p>
+        <h1 class="mt-4 text-5xl font-semibold leading-[1.03] tracking-normal text-[#1d1d1f] sm:text-7xl">
+          Power BI Custom Visuals for Data Quality and Reporting Clarity.
+        </h1>
+        <p class="mx-auto mt-6 max-w-2xl text-xl leading-8 text-slate-600">
+          Focused pbiviz products for data quality, AI compute clarity, and operational reporting inside Power BI.
+        </p>
+      </div>
+      <div class="mt-14 grid gap-5 md:grid-cols-2">
+        {products.map((product, index) => <ProductCard product={product} featured={index === 0} />)}
+      </div>
+    </div>
+  </section>
+</BaseLayout>

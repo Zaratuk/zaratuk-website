@@ -1,0 +1,26 @@
+---
+const { size = 'md', showWordmark = true } = Astro.props;
+
+const markSize = size === 'lg' ? 'h-14 w-14' : 'h-9 w-9';
+const wordmarkSize = size === 'lg' ? 'text-2xl' : 'text-base';
+---
+
+<a href="/" class="inline-flex items-center gap-3 text-forest-950" aria-label="Zaratuk Consulting home">
+  <span class={`relative block ${markSize}`} aria-hidden="true">
+    <span class="absolute left-[10%] top-[2%] h-[15%] w-[15%] rounded-full bg-forest-700"></span>
+    <span class="absolute left-[34%] top-0 h-[22%] w-[22%] rounded-full bg-forest-950"></span>
+    <span class="absolute right-[16%] top-[4%] h-[18%] w-[18%] rounded-full bg-powerbi-500"></span>
+    <span class="absolute left-[55%] top-[28%] h-[18%] w-[18%] rounded-full bg-forest-950"></span>
+    <span class="absolute left-[42%] top-[43%] h-[16%] w-[16%] rounded-full bg-forest-400"></span>
+    <span class="absolute left-[28%] top-[59%] h-[21%] w-[21%] rounded-full bg-forest-950"></span>
+    <span class="absolute left-[9%] top-[78%] h-[19%] w-[19%] rounded-full bg-forest-700"></span>
+    <span class="absolute left-[38%] bottom-0 h-[23%] w-[23%] rounded-full bg-forest-400"></span>
+    <span class="absolute right-[10%] bottom-[4%] h-[17%] w-[17%] rounded-full bg-forest-950"></span>
+  </span>
+  {showWordmark && (
+    <span class="flex flex-col leading-none">
+      <span class={`${wordmarkSize} font-semibold tracking-normal`}>Zaratuk</span>
+      <span class="mt-1 text-[0.62rem] font-semibold uppercase tracking-[0.32em] text-forest-700">Consulting</span>
+    </span>
+  )}
+</a>

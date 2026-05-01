@@ -1,0 +1,135 @@
+[
+  {
+    "slug": "data-health-panel",
+    "name": "Data Health Panel",
+    "fullName": "Data Health Panel (Power BI Visual)",
+    "tag": "Power BI Visual (.pbiviz)",
+    "category": "Data Quality",
+    "status": "MVP package - v1.1.0.0",
+    "pricing": "Free",
+    "description": "A Power BI custom visual that evaluates whether data can be trusted by showing a weighted 0-100 health score, four quality KPI tiles, and a plain-English diagnostic issue list.",
+    "shortDescription": "Score completeness, freshness, uniqueness, and category validity directly inside Power BI reports.",
+    "downloadUrl": "/downloads/data-health-panel.pbiviz",
+    "sampleDataUrl": "/downloads/data-health-panel-sample.csv",
+    "appSourceUrl": "#appsource",
+    "documentationUrl": "#documentation",
+    "scoreFormula": "0.4 * Completeness + 0.25 * Freshness + 0.2 * Uniqueness + 0.15 * Validity",
+    "showFieldRoles": true,
+    "showFormattingControls": true,
+    "whatItDoesTitle": "A clear signal for the health of the data behind the report.",
+    "whatItDoesText": "Data Health Panel evaluates selected fields across completeness, freshness, uniqueness, and category validity. It gives teams a concise health score, focused quality indicators, and diagnostic issues without turning the report page into a troubleshooting maze.",
+    "featuresTitle": "Designed to clarify data trust.",
+    "fieldRolesTitle": "Purpose-built inputs for quality checks.",
+    "formattingControlsTitle": "Quiet controls for report-ready layouts.",
+    "howToUseTitle": "Add the visual, map the fields, review the signal.",
+    "useCasesTitle": "Built for teams responsible for trusted data.",
+    "ctaTitle": "Add a trust signal to your report data.",
+    "ctaText": "Download the current Data Health Panel package for free. Documentation and Microsoft AppSource slots are prepared for the production release path.",
+    "fieldRoles": [
+      {
+        "name": "Fields to Check Completeness",
+        "limit": "Up to 20 fields",
+        "description": "Fields where blanks or nulls reduce the completeness score."
+      },
+      {
+        "name": "Fields to Check Uniqueness",
+        "limit": "Up to 20 fields",
+        "description": "Identifier fields where repeated values reduce the uniqueness score."
+      },
+      {
+        "name": "Field to Check Freshness",
+        "limit": "1 date field",
+        "description": "A date field used to evaluate how old the dataset is."
+      },
+      {
+        "name": "Fields to Validate Categories",
+        "limit": "Up to 20 fields",
+        "description": "Category fields checked for blanks, low-frequency values, and fragmentation."
+      }
+    ],
+    "formattingControls": [
+      "Show or hide the health score, KPI tiles, and issue list.",
+      "Adjust base font size for report layouts.",
+      "Configure fresh hours, stale hours, blank thresholds, low-frequency thresholds, fragmentation thresholds, and row limits.",
+      "Override good, warning, and bad score colors."
+    ],
+    "features": [
+      {
+        "title": "Weighted Data Health Score",
+        "does": "Computes a 0-100 score from completeness, freshness, uniqueness, and validity using intent-driven Power BI field buckets.",
+        "matters": "Gives report users a single trust signal before they interpret operational metrics."
+      },
+      {
+        "title": "Completeness Checks",
+        "does": "Measures the average percent of non-blank values across fields selected for completeness.",
+        "matters": "Makes missing values visible inside the Power BI report instead of hiding quality checks in a separate workflow."
+      },
+      {
+        "title": "Freshness Evaluation",
+        "does": "Compares the latest selected date against fresh and stale hour thresholds.",
+        "matters": "Helps IT and BI teams see when a Power BI report is relying on stale operational data."
+      },
+      {
+        "title": "Uniqueness Detection",
+        "does": "Calculates distinct-value rates and flags duplicate identifier values, with row limits for distinct-count performance.",
+        "matters": "Reduces duplicate-driven reporting errors such as double counting cases, tickets, or transactions."
+      },
+      {
+        "title": "Category Validity Review",
+        "does": "Checks category fields for blanks, low-frequency categories, and high fragmentation.",
+        "matters": "Surfaces operational taxonomy issues that can make filters, slicers, and status dashboards harder to trust."
+      },
+      {
+        "title": "Plain-English Issue List",
+        "does": "Ranks diagnostic messages by severity and links issues to the related quality dimension.",
+        "matters": "Turns quality scoring into actionable report feedback for analysts, BI developers, and operations teams."
+      }
+    ],
+    "steps": [
+      "Import the Data Health Panel .pbiviz package into Power BI Desktop.",
+      "Add Data Health Panel to the report canvas.",
+      "Assign fields into the intent-driven buckets: completeness, uniqueness, freshness, and category validity.",
+      "Tune display, threshold, and color settings from the Power BI formatting pane.",
+      "Review the health score, KPI tiles, and diagnostic issue list directly in the report."
+    ],
+    "useCases": ["Data Analysts", "BI Developers", "IT Operations", "Data Governance"]
+  },
+  {
+    "slug": "token-analytics-panel",
+    "name": "Token Analytics Panel",
+    "fullName": "Token Analytics Panel (Power BI Visual)",
+    "tag": "Power BI Visual",
+    "category": "AI Compute Analytics",
+    "status": "Coming soon",
+    "pricing": "Free",
+    "description": "A Power BI custom visual concept for understanding token usage, model consumption, and compute patterns across AI tools and workflows.",
+    "shortDescription": "Give teams clearer visibility into token usage and AI compute inside Power BI.",
+    "downloadUrl": "#download",
+    "appSourceUrl": "#appsource",
+    "documentationUrl": "#documentation",
+    "features": [
+      {
+        "title": "Token Usage Breakdown",
+        "does": "Summarizes prompt, completion, and total token usage by tool, model, team, workflow, or time period.",
+        "matters": "Helps Power BI users see where AI compute is being consumed instead of treating token usage as an invisible backend detail."
+      },
+      {
+        "title": "AI Compute Clarity",
+        "does": "Highlights usage spikes, high-consumption workflows, and model-level compute patterns.",
+        "matters": "Gives data teams and operations teams better visibility into the drivers behind AI-tool cost and performance."
+      },
+      {
+        "title": "Cost Context",
+        "does": "Connects token metrics with estimated spend, budgets, and usage thresholds.",
+        "matters": "Makes AI adoption easier to govern when teams need to understand compute impact across products and internal tools."
+      }
+    ],
+    "steps": [
+      "Connect token usage exports or telemetry tables to Power BI.",
+      "Add Token Analytics Panel to the report canvas.",
+      "Map token, model, tool, cost, and time fields.",
+      "Review usage patterns, compute spikes, and budget signals inside the report."
+    ],
+    "useCases": ["AI Operations", "Data Analysts", "BI Developers", "Finance Operations"]
+  }
+]

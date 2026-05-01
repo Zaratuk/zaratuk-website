@@ -1,0 +1,72 @@
+---
+import BaseLayout from '@layouts/BaseLayout.astro';
+import FeatureBlock from '@components/FeatureBlock.astro';
+import VisualPreview from '@components/VisualPreview.astro';
+---
+
+<BaseLayout
+  title="About | Zaratuk Consulting"
+  description="Zaratuk Consulting creates Power BI custom visuals that help teams use Power BI as an IT operational layer for data quality, validation, and reporting clarity."
+>
+  <section class="bg-white py-16 sm:py-20">
+    <div class="mx-auto grid max-w-7xl gap-12 px-4 sm:px-6 lg:grid-cols-[0.95fr_1.05fr] lg:px-8 lg:items-center">
+      <div>
+        <p class="text-sm font-semibold uppercase tracking-[0.18em] text-forest-700">About Zaratuk</p>
+        <h1 class="mt-4 text-4xl font-semibold tracking-normal text-forest-950 sm:text-6xl">
+          Power BI visuals for the operational side of analytics.
+        </h1>
+        <p class="mt-6 text-lg leading-8 text-slate-600">
+          We create pbiviz products that help teams unlock more of Power BI: not only as a reporting surface, but as an IT operational layer for monitoring data quality, validating business rules, and making report issues visible where work happens.
+        </p>
+      </div>
+      <VisualPreview />
+    </div>
+  </section>
+
+  <section class="section-rule bg-slate-50 py-16">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="max-w-3xl">
+        <p class="text-sm font-semibold uppercase tracking-[0.18em] text-forest-700">Product direction</p>
+        <h2 class="mt-4 text-3xl font-semibold tracking-normal text-forest-950 sm:text-4xl">
+          We build custom visuals that make Power BI more useful for operational control.
+        </h2>
+      </div>
+      <div class="mt-10 grid gap-4 md:grid-cols-3">
+        <FeatureBlock
+          eyebrow="Power BI operations"
+          title="Operational Signals"
+          body="pbiviz tools that surface data freshness, exceptions, missing values, and integrity issues directly inside Power BI reports."
+        />
+        <FeatureBlock
+          eyebrow="Power BI governance"
+          title="Embedded Validation"
+          body="Custom visuals that let BI and IT teams expose validation rules beside the measures, dimensions, and dashboards they support."
+        />
+        <FeatureBlock
+          eyebrow="Power BI adoption"
+          title="Reporting Trust"
+          body="Focused product experiences that help users understand whether a dashboard is ready for decisions or needs attention."
+        />
+      </div>
+    </div>
+  </section>
+
+  <section class="section-rule bg-white py-16">
+    <div class="mx-auto grid max-w-7xl gap-10 px-4 sm:px-6 lg:grid-cols-[0.8fr_1.2fr] lg:px-8">
+      <div>
+        <p class="text-sm font-semibold uppercase tracking-[0.18em] text-forest-700">Why Power BI</p>
+        <h2 class="mt-4 text-3xl font-semibold tracking-normal text-forest-950">
+          Power BI can be more than the final report.
+        </h2>
+      </div>
+      <div class="space-y-5 text-base leading-8 text-slate-600">
+        <p>
+          Many teams already rely on Power BI as the place where operational data becomes visible. Our goal is to extend that surface with installable visuals that help teams detect quality issues, validate key fields, and understand report reliability without leaving the report canvas.
+        </p>
+        <p>
+          That means building Power BI products with clear behavior, practical configuration, and a strong focus on the daily work of analysts, BI developers, IT teams, and operations teams.
+        </p>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

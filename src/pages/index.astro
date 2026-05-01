@@ -1,0 +1,63 @@
+---
+import BaseLayout from '@layouts/BaseLayout.astro';
+import Hero from '@components/Hero.astro';
+import FeatureBlock from '@components/FeatureBlock.astro';
+---
+
+<BaseLayout>
+  <Hero />
+
+  <section id="visuals" class="section-rule bg-white py-20">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="max-w-3xl">
+        <p class="text-sm font-semibold uppercase tracking-[0.18em] text-forest-700">What we build</p>
+        <h2 class="mt-4 text-3xl font-semibold tracking-normal text-forest-950 sm:text-4xl">
+          Installable Power BI visuals for data quality and reporting clarity.
+        </h2>
+      </div>
+      <div class="mt-10 grid gap-4 md:grid-cols-3">
+        <FeatureBlock
+          eyebrow="Power BI data quality"
+          title="Data Quality Visuals"
+          body="Power BI visuals that expose missing values, stale records, and quality gaps where analysts already work."
+        />
+        <FeatureBlock
+          eyebrow="Power BI validation"
+          title="Validation & Integrity Tools"
+          body="Custom pbiviz tools for checking required fields, duplicate keys, and integrity rules inside report pages."
+        />
+        <FeatureBlock
+          eyebrow="Power BI analysis"
+          title="Analytical Enhancements for Power BI"
+          body="Focused visuals that make report issues easier to see, explain, and fix before decisions are made."
+        />
+      </div>
+    </div>
+  </section>
+
+  <section class="section-rule bg-slate-50 py-20">
+    <div class="mx-auto grid max-w-7xl gap-10 px-4 sm:px-6 lg:grid-cols-[0.9fr_1.1fr] lg:px-8">
+      <div>
+        <p class="text-sm font-semibold uppercase tracking-[0.18em] text-forest-700">Why it matters</p>
+        <h2 class="mt-4 text-3xl font-semibold tracking-normal text-forest-950 sm:text-4xl">
+          Power BI depends on the quality of the data underneath it.
+        </h2>
+      </div>
+      <div class="grid gap-4">
+        <div class="border-l-2 border-forest-400 bg-white px-5 py-4">
+          <h3 class="font-semibold text-forest-950">Expose issues before they become report problems</h3>
+          <p class="mt-2 text-sm leading-6 text-slate-600">The numbers shown to managers and analysts are only the final layer. Data engineers and analysts need fast ways to see missing values, duplicates, stale records, and category drift closer to the source of the report.</p>
+        </div>
+        <div class="border-l-2 border-forest-400 bg-white px-5 py-4">
+          <h3 class="font-semibold text-forest-950">Make Power BI useful for operational data checks</h3>
+          <p class="mt-2 text-sm leading-6 text-slate-600">Custom visuals can turn Power BI into a practical monitoring surface for data pipelines, semantic models, and operational datasets, not just a presentation layer for finished KPIs.</p>
+        </div>
+        <div class="border-l-2 border-forest-400 bg-white px-5 py-4">
+          <h3 class="font-semibold text-forest-950">Help technical teams capture data issues in context</h3>
+          <p class="mt-2 text-sm leading-6 text-slate-600">When checks live inside the report canvas, data engineers, BI developers, and analysts can identify problems while looking at the same fields, filters, and business context used by the report.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</BaseLayout>
