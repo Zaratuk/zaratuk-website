@@ -24,24 +24,30 @@ const isComingSoon = product.status?.toLowerCase() === 'coming soon';
     )}
   </div>
   {featured && (
-    <div class="mt-8 border border-forest-950/10 bg-slate-50 p-4 lg:mt-0">
-      <div class="aspect-[4/3] border border-dashed border-forest-950/20 bg-white p-4">
+    <div class="mt-8 rounded-lg border border-black/10 bg-slate-50 p-4 lg:mt-0">
+      <div class="aspect-[4/3] rounded-lg bg-white p-4 shadow-[inset_0_0_0_1px_rgba(0,0,0,0.06)]">
         <div class="flex h-full flex-col justify-between">
           <div class="flex items-center justify-between">
-            <span class="text-xs font-semibold uppercase tracking-[0.18em] text-forest-700">Power BI visual</span>
+            <span class="text-xs font-semibold uppercase tracking-[0.18em] text-forest-700">{product.tag}</span>
             <span class="h-3 w-3 rounded-full bg-forest-400"></span>
           </div>
-          <div>
-            <div class="h-2 w-full bg-slate-200">
-              <div class="h-2 w-[82%] bg-forest-700"></div>
+          {product.iconUrl ? (
+            <div class="flex flex-1 items-center justify-center py-5">
+              <img class="h-32 w-32 rounded-2xl shadow-[0_18px_40px_rgba(0,0,0,0.16)]" src={product.iconUrl} alt={`${product.name} icon`} loading="lazy" />
             </div>
-            <div class="mt-4 grid grid-cols-4 gap-2">
-              <span class="h-16 bg-forest-400/60"></span>
-              <span class="h-24 bg-forest-700/80"></span>
-              <span class="h-12 bg-forest-950/90"></span>
-              <span class="h-20 bg-slate-300"></span>
+          ) : (
+            <div>
+              <div class="h-2 w-full bg-slate-200">
+                <div class="h-2 w-[82%] bg-forest-700"></div>
+              </div>
+              <div class="mt-4 grid grid-cols-4 gap-2">
+                <span class="h-16 bg-forest-400/60"></span>
+                <span class="h-24 bg-forest-700/80"></span>
+                <span class="h-12 bg-forest-950/90"></span>
+                <span class="h-20 bg-slate-300"></span>
+              </div>
             </div>
-          </div>
+          )}
         </div>
       </div>
     </div>
