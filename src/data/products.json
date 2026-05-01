@@ -13,7 +13,7 @@
     "sampleDataUrl": "/downloads/data-health-panel-sample.csv",
     "iconUrl": "/products/data-health-panel-zaratuk-icon.svg",
     "appSourceUrl": "#appsource",
-    "documentationUrl": "#documentation",
+    "documentationUrl": "/docs/data-health-panel/",
     "scoreFormula": "0.4 * Completeness + 0.25 * Freshness + 0.2 * Uniqueness + 0.15 * Validity",
     "showFieldRoles": true,
     "showFormattingControls": true,
