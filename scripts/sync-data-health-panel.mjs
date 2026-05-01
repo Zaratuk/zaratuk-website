@@ -43,23 +43,33 @@ async function findPbiviz(distDir) {
 const workDir = await mkdtemp(path.join(tmpdir(), 'data-health-panel-'));
 
 try {
-  const cloneDir = path.join(workDir, 'repo');
-  console.log(`Pulling Data Health Panel source from ${repoUrl}`);
-  run('git', ['clone', '--depth', '1', withToken(repoUrl), cloneDir]);
+  try {
+    const cloneDir = path.join(workDir, 'repo');
+    console.log(`Pulling Data Health Panel source from ${repoUrl}`);
+    run('git', ['clone', '--depth', '1', withToken(repoUrl), cloneDir]);
 
-  run('npm', ['ci'], { cwd: cloneDir });
-  run('npm', ['run', 'package'], { cwd: cloneDir });
+    run('npm', ['ci'], { cwd: cloneDir });
+    run('npm', ['run', 'package'], { cwd: cloneDir });
 
-  await mkdir(outputDir, { recursive: true });
-  const pbivizPath = await findPbiviz(path.join(cloneDir, 'dist'));
-  await copyFile(pbivizPath, packageOutput);
+    await mkdir(outputDir, { recursive: true });
+    const pbivizPath = await findPbiviz(path.join(cloneDir, 'dist'));
+    await copyFile(pbivizPath, packageOutput);
 
-  const samplePath = path.join(cloneDir, 'sample-data/data-health-panel-sample.csv');
-  if (existsSync(samplePath)) {
-    await copyFile(samplePath, sampleOutput);
+    const samplePath = path.join(cloneDir, 'sample-data/data-health-panel-sample.csv');
+    if (existsSync(samplePath)) {
+      await copyFile(samplePath, sampleOutput);
+    }
+
+    console.log(`Synced ${packageOutput}`);
+  } catch (error) {
+    if (!existsSync(packageOutput)) {
+      throw error;
+    }
+
+    console.warn('Could not sync Data Health Panel from GitHub.');
+    console.warn('Using the committed .pbiviz package instead.');
+    console.warn('Set DATA_HEALTH_PANEL_GITHUB_TOKEN in CI to pull from the private source repo during builds.');
   }
-
-  console.log(`Synced ${packageOutput}`);
 } finally {
   await rm(workDir, { recursive: true, force: true });
 }
