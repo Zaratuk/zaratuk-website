@@ -4,8 +4,8 @@ import Footer from '@components/Footer.astro';
 import '@styles/global.css';
 
 const {
-  title = 'Zaratuk Consulting | Power BI Visuals',
-  description = 'Zaratuk Consulting builds Power BI visuals that solve data quality, validation, and reporting clarity problems.'
+  title = 'Zaratük Consulting | Power BI Visuals',
+  description = 'Zaratük Consulting builds Power BI visuals that solve data quality, validation, and reporting clarity problems.'
 } = Astro.props;
 
 const canonicalUrl = new URL(Astro.url.pathname, Astro.site).toString();
@@ -27,7 +27,7 @@ const canonicalUrl = new URL(Astro.url.pathname, Astro.site).toString();
     <meta property="og:description" content={description} />
     <meta property="og:type" content="website" />
     <meta property="og:url" content={canonicalUrl} />
-    <meta property="og:site_name" content="Zaratuk Consulting" />
+    <meta property="og:site_name" content="Zaratük Consulting" />
     <meta name="twitter:card" content="summary" />
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
