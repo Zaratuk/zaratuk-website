@@ -5,7 +5,8 @@
   "type": "module",
   "scripts": {
     "dev": "astro dev",
-    "build": "astro build",
+    "sync:pbiviz": "node scripts/sync-data-health-panel.mjs",
+    "build": "npm run sync:pbiviz && astro build",
     "preview": "astro preview"
   },
   "dependencies": {
