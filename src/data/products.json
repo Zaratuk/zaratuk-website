@@ -101,7 +101,7 @@
     "fullName": "Pipeline Health Monitor (Power BI Visual)",
     "tag": "Power BI Visual",
     "category": "Pipeline Monitoring",
-    "status": "Free Edition - v1.0.0.0",
+    "status": "Free Edition - v1.0.0.2",
     "pricing": "Free",
     "description": "A Power BI custom visual that monitors pipeline run health by showing latest status, duration, SLA health, anomaly warnings, and duration trends for operational datasets.",
     "shortDescription": "Monitor pipeline status, duration, SLA health, and basic anomalies directly inside Power BI.",

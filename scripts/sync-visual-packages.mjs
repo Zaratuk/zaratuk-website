@@ -25,6 +25,7 @@ const visualSources = [
   {
     name: 'Pipeline Health Monitor',
     repoUrl: process.env.DATA_PIPELINE_HEALTH_REPO_URL ?? 'https://github.com/Zaratuk/Data_Pipeline_Health.git',
+    ref: process.env.DATA_PIPELINE_HEALTH_REF ?? '2cd3eff63784c39530699ae601171efccab7f12a',
     token: process.env.DATA_PIPELINE_HEALTH_GITHUB_TOKEN ?? fallbackToken,
     tokenHint: 'DATA_PIPELINE_HEALTH_GITHUB_TOKEN',
     packageScript: 'build',
@@ -61,6 +62,20 @@ function run(command, args, options = {}) {
   }
 }
 
+function cloneSource(source, cloneDir) {
+  const repoUrl = withToken(source.repoUrl, source.token);
+
+  if (!source.ref) {
+    run('git', ['clone', '--depth', '1', repoUrl, cloneDir]);
+    return;
+  }
+
+  run('git', ['init', cloneDir]);
+  run('git', ['remote', 'add', 'origin', repoUrl], { cwd: cloneDir });
+  run('git', ['fetch', '--depth', '1', 'origin', source.ref], { cwd: cloneDir });
+  run('git', ['checkout', '--detach', 'FETCH_HEAD'], { cwd: cloneDir });
+}
+
 async function findPbiviz(distDir) {
   const files = await readdir(distDir);
   const pbivizFiles = files.filter((file) => file.endsWith('.pbiviz')).sort();
@@ -89,8 +104,9 @@ async function syncVisual(source) {
   try {
     try {
       const cloneDir = path.join(workDir, 'repo');
-      console.log(`Pulling ${source.name} source from ${source.repoUrl}`);
-      run('git', ['clone', '--depth', '1', withToken(source.repoUrl, source.token), cloneDir]);
+      const sourceLabel = source.ref ? `${source.repoUrl} at ${source.ref}` : source.repoUrl;
+      console.log(`Pulling ${source.name} source from ${sourceLabel}`);
+      cloneSource(source, cloneDir);
 
       run('npm', ['ci'], { cwd: cloneDir });
       run('npm', ['run', source.packageScript], { cwd: cloneDir });
