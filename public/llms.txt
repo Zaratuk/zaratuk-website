@@ -35,9 +35,9 @@ Contact:
 
 ## Downloads
 
-- [Data Health Panel pbiviz package](https://zaratuk.com/downloads/data-health-panel.pbiviz): Installable Power BI custom visual package.
+- [Data Health Panel pbiviz package](https://zaratuk.com/download/data-health-panel.pbiviz): Installable Power BI custom visual package.
 - [Data Health Panel sample CSV](https://zaratuk.com/downloads/data-health-panel-sample.csv): Sample data for testing the visual in Power BI.
-- [Pipeline Health Monitor pbiviz package](https://zaratuk.com/downloads/pipeline-health-monitor.pbiviz): Installable Power BI custom visual package.
+- [Pipeline Health Monitor pbiviz package](https://zaratuk.com/download/pipeline-health-monitor.pbiviz): Installable Power BI custom visual package.
 - [Pipeline Health Monitor sample CSV](https://zaratuk.com/downloads/pipeline-runs.csv): Sample pipeline run data with SLA fields.
 
 ## Optional
