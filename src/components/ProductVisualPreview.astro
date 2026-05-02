@@ -30,23 +30,21 @@ const isPipelineHealth = product.slug === 'pipeline-health-monitor';
     </div>
   </div>
 ) : isDataHealth ? (
-  <div class="rounded-lg border border-black/10 bg-white shadow-[0_24px_80px_rgba(0,0,0,0.08)]">
-    <div class="flex items-center justify-between border-b border-black/10 px-5 py-4">
-      <div class="flex items-center gap-3">
-        <img class="h-10 w-10 rounded-xl" src={product.iconUrl} alt={`${product.name} icon`} />
-        <div>
-          <p class="text-xs font-semibold uppercase tracking-[0.18em] text-slate-500">{product.name}</p>
-          <p class="mt-1 text-xs text-slate-500">Data quality score and issue list</p>
-        </div>
+  <div class="overflow-hidden rounded-lg border border-black/10 bg-white shadow-[0_24px_80px_rgba(0,0,0,0.10)]">
+    <div class="flex items-center justify-between border-b border-black/10 px-4 py-3">
+      <div class="flex gap-2">
+        <span class="h-2.5 w-2.5 rounded-full bg-slate-300"></span>
+        <span class="h-2.5 w-2.5 rounded-full bg-slate-300"></span>
+        <span class="h-2.5 w-2.5 rounded-full bg-forest-400"></span>
       </div>
-      <span class="h-2.5 w-2.5 rounded-full bg-forest-400"></span>
+      <span class="text-xs font-medium text-slate-500">Data Health Panel.pbiviz</span>
     </div>
-    <div class="bg-[#f5f5f7] p-3 sm:p-5">
+    <div class="bg-[#f8fafc] p-3 sm:p-5">
       <div class="overflow-x-auto rounded-lg border border-black/10 bg-white">
         <img
           class="block w-[58rem] max-w-none md:w-full"
           src="/products/data-health-panel-screenshot.png"
-          alt="Screenshot of Data Health Panel showing a health score, quality metrics, and diagnostic issue list"
+          alt="Screenshot of the Data Health Panel Power BI custom visual showing a score, KPI cards, and issue list"
           loading="eager"
         />
       </div>
