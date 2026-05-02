@@ -96,6 +96,111 @@
     "useCases": ["Data Analysts", "BI Developers", "IT Operations", "Data Governance"]
   },
   {
+    "slug": "pipeline-health-monitor",
+    "name": "Pipeline Health Monitor",
+    "fullName": "Pipeline Health Monitor (Power BI Visual)",
+    "tag": "Power BI Visual",
+    "category": "Pipeline Monitoring",
+    "status": "Free Edition - v1.0.0.0",
+    "pricing": "Free",
+    "description": "A Power BI custom visual that monitors pipeline run health by showing latest status, duration, SLA health, anomaly warnings, and duration trends for operational datasets.",
+    "shortDescription": "Monitor pipeline status, duration, SLA health, and basic anomalies directly inside Power BI.",
+    "downloadUrl": "/downloads/pipeline-health-monitor.pbiviz",
+    "sampleDataUrl": "/downloads/pipeline-runs.csv",
+    "iconUrl": "/products/pipeline-health-monitor-icon.png",
+    "appSourceUrl": "#appsource",
+    "documentationUrl": "https://github.com/Zaratuk/Data_Pipeline_Health#readme",
+    "scoreFormula": "Latest Duration > Average Prior Completed Duration x 1.5",
+    "showFieldRoles": true,
+    "showFormattingControls": true,
+    "whatItDoesTitle": "A compact operational view of pipeline health inside Power BI.",
+    "whatItDoesText": "Pipeline Health Monitor groups raw pipeline run rows by pipeline, identifies the latest run by maximum start time, and shows current status, run duration, optional SLA status, duration trend, and basic anomaly warnings without leaving the Power BI report canvas.",
+    "featuresTitle": "Designed for pipeline monitoring workflows.",
+    "fieldRolesTitle": "Field roles aligned to pipeline run telemetry.",
+    "formattingControlsTitle": "Simple controls for operational dashboards.",
+    "howToUseTitle": "Map run fields, then review pipeline health.",
+    "useCasesTitle": "Built for teams watching operational pipelines.",
+    "ctaTitle": "Add pipeline health monitoring to Power BI.",
+    "ctaText": "Download the free Pipeline Health Monitor package and use the sample pipeline run data to test status, duration, SLA, and anomaly behavior inside Power BI.",
+    "fieldRoles": [
+      {
+        "name": "Pipeline Name",
+        "limit": "1 field",
+        "description": "Pipeline, job, workflow, or process name used to group run history."
+      },
+      {
+        "name": "Run ID",
+        "limit": "1 field",
+        "description": "Unique run identifier. Duplicate Run IDs are deduplicated per pipeline."
+      },
+      {
+        "name": "Status",
+        "limit": "1 field",
+        "description": "Raw run status text. Matching is case-insensitive and supports partial values such as SUCCESS, FAILED - timeout, and In Progress."
+      },
+      {
+        "name": "Start Time",
+        "limit": "1 field",
+        "description": "Run start timestamp. Rows without Start Time are ignored."
+      },
+      {
+        "name": "End Time",
+        "limit": "1 field",
+        "description": "Run end timestamp. Blank End Time is treated as Running."
+      },
+      {
+        "name": "Expected Completion Time",
+        "limit": "Optional",
+        "description": "Optional SLA timestamp. When omitted, the SLA Status column is hidden."
+      }
+    ],
+    "formattingControls": [
+      "Configure success, failure, and running status colors.",
+      "Show or hide the duration sparkline.",
+      "Enable compact mode for dense operational report layouts."
+    ],
+    "features": [
+      {
+        "title": "Latest Run Health",
+        "does": "Groups runs by pipeline and identifies the latest run using the maximum Start Time.",
+        "matters": "Gives Power BI users a current operational signal for each pipeline instead of forcing them to scan raw run logs."
+      },
+      {
+        "title": "Status Normalization",
+        "does": "Interprets common success, failure, running, and unknown status values from raw text.",
+        "matters": "Keeps pipeline health readable even when upstream tools use slightly different status labels."
+      },
+      {
+        "title": "Duration and Trend Sparkline",
+        "does": "Shows latest duration and a compact sparkline for the last five runs by duration.",
+        "matters": "Helps teams see whether a pipeline is slowing down before it becomes a visible reporting issue."
+      },
+      {
+        "title": "SLA Status",
+        "does": "Displays On Time or Late when Expected Completion Time is mapped.",
+        "matters": "Turns Power BI into a practical surface for monitoring operational reporting commitments."
+      },
+      {
+        "title": "Basic Anomaly Warning",
+        "does": "Flags the latest run when its duration is more than 1.5 times the average prior completed duration.",
+        "matters": "Surfaces performance drift directly inside reports without requiring a separate monitoring tool."
+      },
+      {
+        "title": "Duplicate Run Deduplication",
+        "does": "Deduplicates repeated Run IDs per pipeline before evaluating the latest status and duration.",
+        "matters": "Reduces noise from duplicate ingestion or repeated updates in pipeline telemetry tables."
+      }
+    ],
+    "steps": [
+      "Import the Pipeline Health Monitor .pbiviz package into Power BI Desktop.",
+      "Add Pipeline Health Monitor to the report canvas.",
+      "Map Pipeline Name, Run ID, Status, Start Time, and End Time fields.",
+      "Optionally map Expected Completion Time to enable SLA Status.",
+      "Review latest status, duration, SLA health, anomaly warnings, and duration trends directly in the report."
+    ],
+    "useCases": ["Data Engineers", "BI Developers", "IT Operations", "Platform Teams"]
+  },
+  {
     "slug": "token-analytics-panel",
     "name": "Token Analytics Panel",
     "fullName": "Token Analytics Panel (Power BI Visual)",

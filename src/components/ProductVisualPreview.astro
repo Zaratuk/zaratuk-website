@@ -1,0 +1,89 @@
+---
+import VisualPreview from '@components/VisualPreview.astro';
+
+const { product } = Astro.props;
+const isPipelineHealth = product.slug === 'pipeline-health-monitor';
+
+const pipelineRows = [
+  {
+    name: 'Inventory Daily',
+    status: 'Success',
+    sla: 'Late',
+    duration: '55m',
+    statusClass: 'bg-emerald-50 text-emerald-700',
+    slaClass: 'bg-amber-50 text-amber-700',
+    bars: ['h-3', 'h-4', 'h-3', 'h-4', 'h-12']
+  },
+  {
+    name: 'Customer Sync',
+    status: 'Running',
+    sla: 'On Time',
+    duration: '31m',
+    statusClass: 'bg-amber-50 text-amber-700',
+    slaClass: 'bg-emerald-50 text-emerald-700',
+    bars: ['h-5', 'h-4', 'h-6', 'h-5', 'h-7']
+  },
+  {
+    name: 'Billing API',
+    status: 'Failed',
+    sla: 'Late',
+    duration: '16m',
+    statusClass: 'bg-red-50 text-red-700',
+    slaClass: 'bg-red-50 text-red-700',
+    bars: ['h-2', 'h-3', 'h-2', 'h-3', 'h-8']
+  }
+];
+---
+
+{isPipelineHealth ? (
+  <div class="rounded-lg border border-black/10 bg-white shadow-[0_24px_80px_rgba(0,0,0,0.08)]">
+    <div class="flex items-center justify-between border-b border-black/10 px-5 py-4">
+      <div class="flex items-center gap-3">
+        <img class="h-10 w-10 rounded-xl" src={product.iconUrl} alt={`${product.name} icon`} />
+        <div>
+          <p class="text-xs font-semibold uppercase tracking-[0.18em] text-slate-500">{product.name}</p>
+          <p class="mt-1 text-xs text-slate-500">Operational pipeline status</p>
+        </div>
+      </div>
+      <span class="h-2.5 w-2.5 rounded-full bg-forest-400"></span>
+    </div>
+
+    <div class="grid gap-3 p-4 sm:grid-cols-3">
+      <div class="rounded-lg bg-[#f5f5f7] p-4">
+        <p class="text-xs text-slate-500">Pipelines</p>
+        <p class="mt-3 text-3xl font-semibold text-[#1d1d1f]">5</p>
+      </div>
+      <div class="rounded-lg bg-red-50 p-4">
+        <p class="text-xs text-red-700">Failed</p>
+        <p class="mt-3 text-3xl font-semibold text-red-700">1</p>
+      </div>
+      <div class="rounded-lg bg-amber-50 p-4">
+        <p class="text-xs text-amber-700">Late SLA</p>
+        <p class="mt-3 text-3xl font-semibold text-amber-700">2</p>
+      </div>
+    </div>
+
+    <div class="border-t border-black/10 p-4">
+      <p class="text-xs font-semibold uppercase tracking-[0.18em] text-slate-500">Latest runs</p>
+      <div class="mt-3 grid gap-2">
+        {pipelineRows.map((row) => (
+          <div class="grid gap-3 rounded-lg bg-slate-50 px-3 py-3 text-sm text-slate-700 sm:grid-cols-[1fr_auto_auto_5rem] sm:items-center">
+            <div>
+              <p class="font-semibold text-[#1d1d1f]">{row.name}</p>
+              <p class="mt-1 text-xs text-slate-500">Duration {row.duration}</p>
+            </div>
+            <span class={`w-fit rounded-md px-2 py-1 text-xs font-semibold ${row.statusClass}`}>{row.status}</span>
+            <span class={`w-fit rounded-md px-2 py-1 text-xs font-semibold ${row.slaClass}`}>{row.sla}</span>
+            <div class="flex h-12 items-end gap-1" aria-hidden="true">
+              {row.bars.map((bar) => (
+                <span class={`${bar} w-2 rounded-full bg-forest-400/70`}></span>
+              ))}
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </div>
+) : (
+  <VisualPreview />
+)}

@@ -1,7 +1,7 @@
 ---
 import BaseLayout from '@layouts/BaseLayout.astro';
 import ProductFeatureList from '@components/ProductFeatureList.astro';
-import VisualPreview from '@components/VisualPreview.astro';
+import ProductVisualPreview from '@components/ProductVisualPreview.astro';
 import products from '@data/products.json';
 
 export function getStaticPaths() {
@@ -53,9 +53,6 @@ const showFormattingControls = Boolean(product.showFormattingControls && formatt
           <a class="inline-flex h-12 items-center justify-center rounded-lg bg-forest-950 px-6 text-sm font-semibold text-white transition hover:bg-forest-900" href={product.downloadUrl} download>
             Download pbiviz
           </a>
-          <a class="inline-flex h-12 items-center justify-center rounded-lg bg-white px-6 text-sm font-semibold text-[#1d1d1f] shadow-[inset_0_0_0_1px_rgba(0,0,0,0.08)] transition hover:shadow-[inset_0_0_0_1px_rgba(0,0,0,0.2)]" href="#how-to-use">
-            Install in Power BI
-          </a>
           {product.sampleDataUrl && (
             <a class="inline-flex h-12 items-center justify-center rounded-lg bg-white px-6 text-sm font-semibold text-[#1d1d1f] shadow-[inset_0_0_0_1px_rgba(0,0,0,0.08)] transition hover:shadow-[inset_0_0_0_1px_rgba(0,0,0,0.2)]" href={product.sampleDataUrl} download>
               Sample data
@@ -63,7 +60,7 @@ const showFormattingControls = Boolean(product.showFormattingControls && formatt
           )}
         </div>
       </div>
-      <VisualPreview />
+      <ProductVisualPreview product={product} />
     </div>
   </section>
 

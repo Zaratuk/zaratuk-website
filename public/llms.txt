@@ -12,6 +12,7 @@ Core positioning:
 
 Primary product:
 - Data Health Panel is a free Power BI custom visual that scores data health across completeness, freshness, uniqueness, and category validity. It shows a weighted 0-100 score, KPI tiles, and a plain-English diagnostic issue list directly inside Power BI reports.
+- Pipeline Health Monitor is a free Power BI custom visual that monitors pipeline run health by showing latest status, duration, SLA health, anomaly warnings, and duration trends for operational datasets.
 
 Coming soon:
 - Token Analytics Panel is a planned Power BI custom visual for understanding token usage, model consumption, AI compute patterns, and AI cost context inside Power BI.
@@ -29,12 +30,15 @@ Contact:
 ## Products
 
 - [Data Health Panel](https://zaratuk.com/products/data-health-panel/): Free Power BI custom visual for completeness, freshness, uniqueness, category validity, and diagnostic data quality issues.
+- [Pipeline Health Monitor](https://zaratuk.com/products/pipeline-health-monitor/): Free Power BI custom visual for pipeline status, run duration, SLA health, basic anomalies, and duration trend monitoring.
 - [Data Health Panel documentation](https://zaratuk.com/docs/data-health-panel/): Installation, field roles, scoring logic, formatting controls, use cases, and AppSource-oriented validation notes.
 
 ## Downloads
 
 - [Data Health Panel pbiviz package](https://zaratuk.com/downloads/data-health-panel.pbiviz): Installable Power BI custom visual package.
 - [Data Health Panel sample CSV](https://zaratuk.com/downloads/data-health-panel-sample.csv): Sample data for testing the visual in Power BI.
+- [Pipeline Health Monitor pbiviz package](https://zaratuk.com/downloads/pipeline-health-monitor.pbiviz): Installable Power BI custom visual package.
+- [Pipeline Health Monitor sample CSV](https://zaratuk.com/downloads/pipeline-runs.csv): Sample pipeline run data with SLA fields.
 
 ## Optional
 
