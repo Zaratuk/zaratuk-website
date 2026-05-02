@@ -5,7 +5,6 @@ import path from 'node:path';
 import { spawnSync } from 'node:child_process';
 
 const outputDir = path.resolve('public/downloads');
-const productsDir = path.resolve('public/products');
 const fallbackToken = process.env.GITHUB_TOKEN ?? process.env.GH_TOKEN;
 
 const visualSources = [
@@ -32,8 +31,8 @@ const visualSources = [
     packageOutput: path.join(outputDir, 'pipeline-health-monitor.pbiviz'),
     copies: [
       {
-        source: 'assets/icon.png',
-        output: path.join(productsDir, 'pipeline-health-monitor-icon.png')
+        source: 'assets/icon.svg',
+        output: path.join(productsDir, 'pipeline-health-monitor-zaratuk-icon.svg')
       },
       {
         source: 'sample-data/pipeline-runs.csv',

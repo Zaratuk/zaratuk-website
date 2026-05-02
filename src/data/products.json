@@ -107,7 +107,7 @@
     "shortDescription": "Monitor pipeline status, duration, SLA health, and basic anomalies directly inside Power BI.",
     "downloadUrl": "/downloads/pipeline-health-monitor.pbiviz",
     "sampleDataUrl": "/downloads/pipeline-runs.csv",
-    "iconUrl": "/products/pipeline-health-monitor-icon.png",
+    "iconUrl": "/products/pipeline-health-monitor-zaratuk-icon.svg",
     "appSourceUrl": "#appsource",
     "documentationUrl": "https://github.com/Zaratuk/Data_Pipeline_Health#readme",
     "scoreFormula": "Latest Duration > Average Prior Completed Duration x 1.5",
