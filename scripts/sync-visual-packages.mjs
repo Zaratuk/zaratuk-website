@@ -31,10 +31,6 @@ const visualSources = [
     packageOutput: path.join(outputDir, 'pipeline-health-monitor.pbiviz'),
     copies: [
       {
-        source: 'assets/icon.svg',
-        output: path.join(productsDir, 'pipeline-health-monitor-zaratuk-icon.svg')
-      },
-      {
         source: 'sample-data/pipeline-runs.csv',
         output: path.join(outputDir, 'pipeline-runs.csv')
       },
