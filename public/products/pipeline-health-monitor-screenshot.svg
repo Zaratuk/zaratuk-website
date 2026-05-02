@@ -1,0 +1,85 @@
+<svg viewBox="0 0 1180 310" width="1180" height="310" role="img" xmlns="http://www.w3.org/2000/svg">
+  <title>Pipeline Health Monitor Power BI visual screenshot</title>
+  <desc>A table showing pipeline name, status indicator, last run time, duration, SLA status, and trend sparklines.</desc>
+
+  <rect width="1180" height="310" fill="#ffffff"/>
+  <rect x="0" y="0" width="1180" height="32" fill="#f8fafc"/>
+
+  <g font-family="Inter, Arial, sans-serif" font-size="10" fill="#0f172a">
+    <text x="8" y="20">Pipeline Name</text>
+    <text x="347" y="20">Status Indicator</text>
+    <text x="528" y="20">Last Run Time</text>
+    <text x="718" y="20">Duration</text>
+    <text x="870" y="20">SLA Status</text>
+    <text x="1005" y="20">Trend Sparkline</text>
+  </g>
+
+  <g stroke="#e5e7eb" stroke-width="1">
+    <line x1="0" y1="32" x2="1180" y2="32"/>
+    <line x1="0" y1="78" x2="1180" y2="78"/>
+    <line x1="0" y1="124" x2="1180" y2="124"/>
+    <line x1="0" y1="170" x2="1180" y2="170"/>
+    <line x1="0" y1="216" x2="1180" y2="216"/>
+    <line x1="0" y1="262" x2="1180" y2="262"/>
+    <line x1="0" y1="308" x2="1180" y2="308"/>
+  </g>
+
+  <g font-family="Inter, Arial, sans-serif" font-size="10">
+    <text x="8" y="58" fill="#111827">Billing API</text>
+    <circle cx="351" cy="53" r="5" fill="#dc3545"/>
+    <text x="365" y="58" fill="#dc3545">Failed</text>
+    <text x="528" y="58" fill="#111827">May 01, 01:00 a.m.</text>
+    <text x="718" y="58" fill="#111827">16m</text>
+    <path d="M748,58 l5,-9 l5,9 z" fill="none" stroke="#dc3545" stroke-width="1.4"/>
+    <text x="870" y="58" fill="#dc3545">Late</text>
+    <polyline points="1008,63 1040,58 1086,51 1145,42" fill="none" stroke="#2563eb" stroke-width="2"/>
+    <circle cx="1008" cy="63" r="3" fill="#2563eb"/>
+    <circle cx="1145" cy="42" r="3" fill="#2563eb"/>
+
+    <text x="8" y="104" fill="#111827">Inventory Daily</text>
+    <circle cx="351" cy="99" r="5" fill="#198754"/>
+    <text x="365" y="104" fill="#198754">Success</text>
+    <text x="528" y="104" fill="#111827">Apr 30, 05:00 a.m.</text>
+    <text x="718" y="104" fill="#111827">55m</text>
+    <path d="M748,104 l5,-9 l5,9 z" fill="none" stroke="#dc3545" stroke-width="1.4"/>
+    <text x="870" y="104" fill="#dc3545">Late</text>
+    <polyline points="1008,109 1042,108 1076,110 1112,109 1144,88" fill="none" stroke="#2563eb" stroke-width="2"/>
+    <circle cx="1008" cy="109" r="3" fill="#2563eb"/>
+    <circle cx="1042" cy="108" r="3" fill="#2563eb"/>
+    <circle cx="1076" cy="110" r="3" fill="#2563eb"/>
+    <circle cx="1112" cy="109" r="3" fill="#2563eb"/>
+    <circle cx="1144" cy="88" r="3" fill="#2563eb"/>
+
+    <text x="8" y="150" fill="#111827">Customer Sync</text>
+    <circle cx="351" cy="145" r="5" fill="#c99a00"/>
+    <text x="365" y="150" fill="#8a6d00">Running</text>
+    <text x="528" y="150" fill="#111827">May 01, 08:30 a.m.</text>
+    <text x="718" y="150" fill="#111827">14h 8m</text>
+    <text x="870" y="150" fill="#dc3545">Late</text>
+    <circle cx="1008" cy="145" r="4" fill="#2563eb"/>
+
+    <text x="8" y="196" fill="#111827">Warehouse Load</text>
+    <circle cx="351" cy="191" r="5" fill="#c99a00"/>
+    <text x="365" y="196" fill="#8a6d00">Running</text>
+    <text x="528" y="196" fill="#111827">May 01, 07:45 a.m.</text>
+    <text x="718" y="196" fill="#111827">14h 53m</text>
+    <text x="870" y="196" fill="#dc3545">Late</text>
+    <circle cx="1008" cy="191" r="4" fill="#2563eb"/>
+
+    <text x="8" y="242" fill="#111827">Single Run Pipeline</text>
+    <circle cx="351" cy="237" r="5" fill="#198754"/>
+    <text x="365" y="242" fill="#198754">Success</text>
+    <text x="528" y="242" fill="#111827">May 01, 04:00 a.m.</text>
+    <text x="718" y="242" fill="#111827">4m</text>
+    <text x="870" y="242" fill="#198754">On Time</text>
+    <circle cx="1008" cy="237" r="4" fill="#2563eb"/>
+
+    <text x="8" y="288" fill="#111827">Marketing Leads</text>
+    <circle cx="351" cy="283" r="5" fill="#198754"/>
+    <text x="365" y="288" fill="#198754">Success</text>
+    <text x="528" y="288" fill="#111827">May 01, 02:00 a.m.</text>
+    <text x="718" y="288" fill="#111827">6m</text>
+    <text x="870" y="288" fill="#198754">On Time</text>
+    <circle cx="1008" cy="283" r="4" fill="#2563eb"/>
+  </g>
+</svg>
