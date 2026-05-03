@@ -42,5 +42,53 @@ const structuredDataJson = structuredData ? JSON.stringify(structuredData) : '';
       <slot />
     </main>
     <Footer />
+    <script>
+      (() => {
+        const formatDownloads = (count) => `${count.toLocaleString()} ${count === 1 ? 'download' : 'downloads'}`;
+
+        const renderDownloadCounts = async () => {
+          const nodes = Array.from(document.querySelectorAll('[data-download-count]'));
+
+          if (!nodes.length) {
+            return;
+          }
+
+          try {
+            const response = await fetch('/api/public-download-counts', {
+              headers: {
+                accept: 'application/json'
+              }
+            });
+
+            if (!response.ok) {
+              return;
+            }
+
+            const data = await response.json();
+            const totalsByProduct = new Map((data.products ?? []).map((product) => [product.key, product.total]));
+
+            nodes.forEach((node) => {
+              const productKey = node.getAttribute('data-download-count');
+              const total = totalsByProduct.get(productKey);
+
+              if (typeof total !== 'number') {
+                return;
+              }
+
+              node.textContent = formatDownloads(total);
+              node.closest('[data-download-count-wrapper]')?.classList.remove('hidden');
+            });
+          } catch {
+            // Keep counters hidden if the public counts endpoint is unavailable.
+          }
+        };
+
+        if (document.readyState === 'loading') {
+          document.addEventListener('DOMContentLoaded', renderDownloadCounts, { once: true });
+        } else {
+          renderDownloadCounts();
+        }
+      })();
+    </script>
   </body>
 </html>

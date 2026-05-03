@@ -25,7 +25,7 @@ In the Cloudflare Pages project settings:
 
 ## Reading Counts
 
-After deployment, request:
+After deployment, request the private admin endpoint:
 
 ```text
 https://zaratuk.com/api/download-counts?token=YOUR_TOKEN
@@ -42,6 +42,14 @@ The endpoint returns totals and daily counts for:
 - Data Health Panel
 - Pipeline Health Monitor
 - LLM Usage Monitor
+
+The public website uses a smaller public endpoint for exact display counts:
+
+```text
+https://zaratuk.com/api/public-download-counts
+```
+
+That endpoint returns only product names, slugs, and exact total downloads.
 
 ## Notes
 
