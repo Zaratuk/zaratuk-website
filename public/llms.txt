@@ -1,22 +1,20 @@
 # Zaratük Consulting
 
-> Zaratük Consulting builds custom Power BI visuals that help teams improve data quality, validation, operational monitoring, and reporting clarity inside Power BI.
+> Zaratük Consulting builds custom Power BI visuals and connectors that help teams improve data quality, operational monitoring, LLM usage visibility, and reporting clarity inside Power BI.
 
-Zaratük Consulting is a product-focused Power BI custom visual developer. The company creates installable pbiviz tools for analysts, BI developers, data engineers, IT operations teams, and data governance teams that need clearer signals about the data behind reports.
+Zaratük Consulting is a product-focused Power BI custom visual and custom connector developer. The company creates installable pbiviz and mez tools for analysts, BI developers, data engineers, IT operations teams, AI operations teams, and data governance teams that need clearer signals about the data behind reports.
 
 Core positioning:
 - Custom Power BI visuals built for better data decisions
 - Power BI custom visuals for operational intelligence
 - Power BI visuals that solve data quality and reporting problems
+- Power BI custom connectors for LLM usage monitoring and token cost reporting
 - Purpose-built pbiviz products for monitoring, validating, and explaining data assets
 
 Primary product:
 - Data Health Panel is a free Power BI custom visual that scores data health across completeness, freshness, uniqueness, and category validity. It shows a weighted 0-100 score, KPI tiles, and a plain-English diagnostic issue list directly inside Power BI reports.
 - Pipeline Health Monitor is a free Power BI custom visual that monitors pipeline run health by showing latest status, duration, SLA health, anomaly warnings, and duration trends for operational datasets.
-- LLM Usage Monitor is a free Power BI custom connector that brings organization-level LLM token usage, request volume, model consumption, and cost data into Power BI.
-
-Coming soon:
-- Token Analytics Panel is a planned Power BI custom visual for understanding token usage, model consumption, AI compute patterns, and AI cost context inside Power BI.
+- LLM Usage Monitor is a free Power BI custom connector that brings organization-level LLM token usage, request volume, model consumption, and cost data into Power BI. It is installed as LLMUsageMonitor.mez in the Power BI Desktop Custom Connectors folder and supports OpenAI and Anthropic organization Admin API usage reporting.
 
 Contact:
 - Email: info@zaratuk.ca
@@ -24,7 +22,7 @@ Contact:
 ## Core Pages
 
 - [Homepage](https://zaratuk.com/): Overview of Zaratük Consulting and its focus on custom Power BI visuals for data quality, validation, and operational reporting.
-- [Products](https://zaratuk.com/products/): Catalog of Power BI custom visual products, including Data Health Panel and upcoming products.
+- [Products](https://zaratuk.com/products/): Catalog of Power BI custom visual and connector products, including Data Health Panel, Pipeline Health Monitor, and LLM Usage Monitor.
 - [About](https://zaratuk.com/about/): Company positioning around Power BI as an IT operational layer and custom visuals for operational intelligence.
 - [Contact](https://zaratuk.com/contact/): Contact page for product questions, feedback, and custom visual suggestions.
 

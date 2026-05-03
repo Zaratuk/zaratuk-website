@@ -1,10 +1,38 @@
 ---
 import BaseLayout from '@layouts/BaseLayout.astro';
+
+const documentationStructuredData = {
+  '@context': 'https://schema.org',
+  '@type': 'TechArticle',
+  headline: 'LLM Usage Monitor Power BI custom connector documentation',
+  description: 'Install and use LLM Usage Monitor, a Power BI custom connector for OpenAI and Anthropic organization-level token usage, model consumption, request volume, and cost reporting.',
+  about: [
+    'Power BI custom connector',
+    'LLM usage monitoring',
+    'token usage reporting',
+    'LLM cost analytics',
+    'Power BI Custom Connectors folder',
+    'OpenAI organization Admin API',
+    'Anthropic organization Admin API'
+  ],
+  mainEntityOfPage: new URL('/docs/llm-usage-monitor/', Astro.site).toString(),
+  isPartOf: {
+    '@type': 'WebSite',
+    name: 'Zaratük Consulting',
+    url: Astro.site?.toString()
+  },
+  publisher: {
+    '@type': 'Organization',
+    name: 'Zaratük Consulting',
+    url: Astro.site?.toString()
+  }
+};
 ---
 
 <BaseLayout
   title="LLM Usage Monitor Documentation | Zaratük Consulting"
-  description="Documentation for LLM Usage Monitor, a Power BI custom connector for monitoring LLM token usage, model consumption, request volume, and cost."
+  description="Documentation for LLM Usage Monitor, a Power BI custom connector for OpenAI and Anthropic organization-level token usage, model consumption, request volume, and cost reporting."
+  structuredData={documentationStructuredData}
 >
   <section class="bg-[#f5f5f7] py-16 sm:py-24">
     <div class="mx-auto grid max-w-7xl gap-12 px-4 sm:px-6 lg:grid-cols-[0.9fr_1.1fr] lg:px-8 lg:items-center">

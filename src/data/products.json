@@ -201,45 +201,6 @@
     "useCases": ["Data Engineers", "BI Developers", "IT Operations", "Platform Teams"]
   },
   {
-    "slug": "token-analytics-panel",
-    "name": "Token Analytics Panel",
-    "fullName": "Token Analytics Panel (Power BI Visual)",
-    "tag": "Power BI Visual",
-    "category": "AI Compute Analytics",
-    "status": "Coming soon",
-    "pricing": "Free",
-    "description": "A Power BI custom visual concept for understanding token usage, model consumption, and compute patterns across AI tools and workflows.",
-    "shortDescription": "Give teams clearer visibility into token usage and AI compute inside Power BI.",
-    "iconUrl": "/products/token-analytics-zaratuk-icon.svg",
-    "downloadUrl": "#download",
-    "appSourceUrl": "#appsource",
-    "documentationUrl": "#documentation",
-    "features": [
-      {
-        "title": "Token Usage Breakdown",
-        "does": "Summarizes prompt, completion, and total token usage by tool, model, team, workflow, or time period.",
-        "matters": "Helps Power BI users see where AI compute is being consumed instead of treating token usage as an invisible backend detail."
-      },
-      {
-        "title": "AI Compute Clarity",
-        "does": "Highlights usage spikes, high-consumption workflows, and model-level compute patterns.",
-        "matters": "Gives data teams and operations teams better visibility into the drivers behind AI-tool cost and performance."
-      },
-      {
-        "title": "Cost Context",
-        "does": "Connects token metrics with estimated spend, budgets, and usage thresholds.",
-        "matters": "Makes AI adoption easier to govern when teams need to understand compute impact across products and internal tools."
-      }
-    ],
-    "steps": [
-      "Connect token usage exports or telemetry tables to Power BI.",
-      "Add Token Analytics Panel to the report canvas.",
-      "Map token, model, tool, cost, and time fields.",
-      "Review usage patterns, compute spikes, and budget signals inside the report."
-    ],
-    "useCases": ["AI Operations", "Data Analysts", "BI Developers", "Finance Operations"]
-  },
-  {
     "slug": "llm-usage-monitor",
     "name": "LLM Usage Monitor",
     "fullName": "LLM Usage Monitor (Power BI Custom Connector)",
@@ -247,14 +208,15 @@
     "category": "LLM Usage Monitoring",
     "status": "MVP connector",
     "pricing": "Free",
-    "description": "A Power BI custom connector that helps analysts monitor organization-level LLM token usage, model consumption, request volume, and cost across supported providers.",
-    "shortDescription": "Connect Power BI to LLM usage and cost data so analysts can monitor tokens, models, requests, and spend.",
+    "description": "A Power BI custom connector for LLM usage monitoring that helps analysts track organization-level token usage, model consumption, request volume, and cost across OpenAI and Anthropic admin APIs.",
+    "shortDescription": "Monitor LLM token usage, model consumption, requests, and cost in Power BI with a custom connector.",
     "downloadUrl": "/download/llm-usage-monitor.mez",
     "downloadLabel": "Download .mez",
     "packageLabel": "Get the connector",
     "iconUrl": "/products/llm-usage-monitor-zaratuk-icon.svg",
     "documentationUrl": "/docs/llm-usage-monitor/",
     "repositoryUrl": "https://github.com/Zaratuk/LLMUsageConnector",
+    "showHeroPreview": false,
     "showFieldRoles": true,
     "showFormattingControls": false,
     "inputSectionLabel": "Connector inputs",

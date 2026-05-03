@@ -5,10 +5,12 @@ import '@styles/global.css';
 
 const {
   title = 'Zaratük Consulting | Power BI Visuals',
-  description = 'Zaratük Consulting builds Power BI visuals that solve data quality, validation, and reporting clarity problems.'
+  description = 'Zaratük Consulting builds Power BI visuals that solve data quality, validation, and reporting clarity problems.',
+  structuredData
 } = Astro.props;
 
 const canonicalUrl = new URL(Astro.url.pathname, Astro.site).toString();
+const structuredDataJson = structuredData ? JSON.stringify(structuredData) : '';
 ---
 
 <!doctype html>
@@ -31,6 +33,7 @@ const canonicalUrl = new URL(Astro.url.pathname, Astro.site).toString();
     <meta name="twitter:card" content="summary" />
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
+    {structuredDataJson && <script type="application/ld+json" set:html={structuredDataJson} />}
     <title>{title}</title>
   </head>
   <body>
