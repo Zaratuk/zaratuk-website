@@ -28,6 +28,7 @@ const steps = product.steps.length
   : ['Import the .pbiviz package into Power BI.', 'Add the visual to a report page.', 'Configure checks for the dataset.', 'Review results directly in the report.'];
 const fieldRoles = product.fieldRoles ?? [];
 const formattingControls = product.formattingControls ?? [];
+const securityScan = product.securityScan;
 const showFieldRoles = Boolean(product.showFieldRoles && fieldRoles.length);
 const showFormattingControls = Boolean(product.showFormattingControls && formattingControls.length);
 const downloadLabel = product.downloadLabel ?? 'Download pbiviz';
@@ -65,7 +66,9 @@ const productStructuredData = {
     'Power BI custom visual',
     'LLM usage monitoring',
     'token usage reporting',
-    'LLM cost analytics'
+    'LLM cost analytics',
+    securityScan?.provider,
+    securityScan ? '0 security issues' : undefined
   ].filter(Boolean).join(', ')
 };
 ---
@@ -129,6 +132,41 @@ const productStructuredData = {
       <ProductFeatureList features={features} />
     </div>
   </section>
+
+  {securityScan && (
+    <section class="section-rule bg-white py-20">
+      <div class="mx-auto grid max-w-7xl gap-10 px-4 sm:px-6 lg:grid-cols-[0.85fr_1.15fr] lg:px-8">
+        <div>
+          <p class="text-sm font-semibold uppercase tracking-[0.18em] text-slate-500">Security signal</p>
+          <h2 class="mt-4 text-4xl font-semibold tracking-normal text-[#1d1d1f]">
+            Independent scan reported 0 issues.
+          </h2>
+          <p class="mt-4 text-sm leading-6 text-slate-600">
+            {securityScan.provider} scan result for the connector repository.
+          </p>
+        </div>
+        <div class="rounded-lg border border-black/10 bg-[#f5f5f7] p-6">
+          <div class="flex flex-wrap items-center gap-3">
+            <span class="rounded-lg bg-emerald-50 px-3 py-1.5 text-xs font-semibold uppercase tracking-[0.16em] text-forest-700">
+              0 issues
+            </span>
+            <span class="rounded-lg bg-white px-3 py-1.5 text-xs font-semibold text-slate-600">
+              Compliant checks
+            </span>
+          </div>
+          <p class="mt-5 text-base leading-7 text-slate-700">{securityScan.summary}</p>
+          <div class="mt-6 grid gap-2 sm:grid-cols-2">
+            {securityScan.checks.map((check) => (
+              <div class="rounded-lg bg-white px-4 py-3 text-sm font-semibold text-[#1d1d1f] shadow-[0_10px_30px_rgba(0,0,0,0.04)]">
+                {check}
+              </div>
+            ))}
+          </div>
+          <p class="mt-5 text-xs leading-5 text-slate-500">{securityScan.note}</p>
+        </div>
+      </div>
+    </section>
+  )}
 
   {showFieldRoles && (
     <section class="section-rule bg-white py-20">

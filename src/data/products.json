@@ -228,6 +228,21 @@
     "useCasesTitle": "Built for teams responsible for AI usage visibility.",
     "ctaTitle": "Start monitoring LLM usage from Power BI.",
     "ctaText": "Download the free beta LLM Usage Monitor .mez connector and follow the documentation to add it to your Power BI custom connector folder.",
+    "securityScan": {
+      "provider": "Aikido Security",
+      "summary": "The LLMUsageConnector repository scan reported 0 issues across monitored security checks.",
+      "note": "This scan is a helpful third-party signal for the repository, but it does not replace your organization's own review of beta software, connector behavior, and credential handling.",
+      "checks": [
+        "Open source dependency monitoring",
+        "Exposed secrets monitoring",
+        "License management",
+        "SAST",
+        "Infrastructure as Code",
+        "Supply-chain malware",
+        "Mobile issues",
+        "GitHub access control issues"
+      ]
+    },
     "fieldRoles": [
       {
         "name": "Provider",

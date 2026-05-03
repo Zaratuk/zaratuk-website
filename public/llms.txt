@@ -14,7 +14,7 @@ Core positioning:
 Primary product:
 - Data Health Panel is a free Power BI custom visual that scores data health across completeness, freshness, uniqueness, and category validity. It shows a weighted 0-100 score, KPI tiles, and a plain-English diagnostic issue list directly inside Power BI reports.
 - Pipeline Health Monitor is a free Power BI custom visual that monitors pipeline run health by showing latest status, duration, SLA health, anomaly warnings, and duration trends for operational datasets.
-- LLM Usage Monitor is a free beta Power BI custom connector that brings organization-level LLM token usage, request volume, model consumption, and cost data into Power BI. It is installed as LLMUsageMonitor.mez in the Power BI Desktop Custom Connectors folder and supports OpenAI and Anthropic organization Admin API usage reporting.
+- LLM Usage Monitor is a free beta Power BI custom connector that brings organization-level LLM token usage, request volume, model consumption, and cost data into Power BI. It is installed as LLMUsageMonitor.mez in the Power BI Desktop Custom Connectors folder and supports OpenAI and Anthropic organization Admin API usage reporting. The LLMUsageConnector repository has an Aikido Security scan result showing 0 issues across monitored checks such as dependency monitoring, exposed secrets, license management, SAST, IaC, supply-chain malware, and GitHub access control.
 
 Contact:
 - Email: info@zaratuk.ca
