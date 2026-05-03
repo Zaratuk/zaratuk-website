@@ -14,7 +14,7 @@ Core positioning:
 Primary product:
 - Data Health Panel is a free Power BI custom visual that scores data health across completeness, freshness, uniqueness, and category validity. It shows a weighted 0-100 score, KPI tiles, and a plain-English diagnostic issue list directly inside Power BI reports.
 - Pipeline Health Monitor is a free Power BI custom visual that monitors pipeline run health by showing latest status, duration, SLA health, anomaly warnings, and duration trends for operational datasets.
-- LLM Usage Monitor is a free Power BI custom connector that brings organization-level LLM token usage, request volume, model consumption, and cost data into Power BI. It is installed as LLMUsageMonitor.mez in the Power BI Desktop Custom Connectors folder and supports OpenAI and Anthropic organization Admin API usage reporting.
+- LLM Usage Monitor is a free beta Power BI custom connector that brings organization-level LLM token usage, request volume, model consumption, and cost data into Power BI. It is installed as LLMUsageMonitor.mez in the Power BI Desktop Custom Connectors folder and supports OpenAI and Anthropic organization Admin API usage reporting.
 
 Contact:
 - Email: info@zaratuk.ca
@@ -30,9 +30,9 @@ Contact:
 
 - [Data Health Panel](https://zaratuk.com/products/data-health-panel/): Free Power BI custom visual for completeness, freshness, uniqueness, category validity, and diagnostic data quality issues.
 - [Pipeline Health Monitor](https://zaratuk.com/products/pipeline-health-monitor/): Free Power BI custom visual for pipeline status, run duration, SLA health, basic anomalies, and duration trend monitoring.
-- [LLM Usage Monitor](https://zaratuk.com/products/llm-usage-monitor/): Free Power BI custom connector for organization-level LLM token usage, cost, model consumption, and request reporting.
+- [LLM Usage Monitor](https://zaratuk.com/products/llm-usage-monitor/): Free beta Power BI custom connector for organization-level LLM token usage, cost, model consumption, and request reporting.
 - [Data Health Panel documentation](https://zaratuk.com/docs/data-health-panel/): Installation, field roles, scoring logic, formatting controls, use cases, and AppSource-oriented validation notes.
-- [LLM Usage Monitor documentation](https://zaratuk.com/docs/llm-usage-monitor/): Installation, custom connector folder setup, provider requirements, authentication notes, and exposed tables.
+- [LLM Usage Monitor documentation](https://zaratuk.com/docs/llm-usage-monitor/): Beta connector installation, custom connector folder setup, provider requirements, authentication notes, and exposed tables.
 
 ## Downloads
 
@@ -40,7 +40,7 @@ Contact:
 - [Data Health Panel sample CSV](https://zaratuk.com/downloads/data-health-panel-sample.csv): Sample data for testing the visual in Power BI.
 - [Pipeline Health Monitor pbiviz package](https://zaratuk.com/download/pipeline-health-monitor.pbiviz): Installable Power BI custom visual package.
 - [Pipeline Health Monitor sample CSV](https://zaratuk.com/downloads/pipeline-runs.csv): Sample pipeline run data with SLA fields.
-- [LLM Usage Monitor mez package](https://zaratuk.com/download/llm-usage-monitor.mez): Installable Power BI custom connector package.
+- [LLM Usage Monitor mez package](https://zaratuk.com/download/llm-usage-monitor.mez): Installable beta Power BI custom connector package.
 
 ## Optional
 
