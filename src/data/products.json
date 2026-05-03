@@ -233,14 +233,38 @@
       "summary": "The LLMUsageConnector repository scan reported 0 issues across monitored security checks.",
       "note": "This scan is a helpful third-party signal for the repository, but it does not replace your organization's own review of beta software, connector behavior, and credential handling.",
       "checks": [
-        "Open source dependency monitoring",
-        "Exposed secrets monitoring",
-        "License management",
-        "SAST",
-        "Infrastructure as Code",
-        "Supply-chain malware",
-        "Mobile issues",
-        "GitHub access control issues"
+        {
+          "name": "Open source dependency monitoring",
+          "description": "Monitors third-party dependencies and lockfiles for known vulnerabilities."
+        },
+        {
+          "name": "Exposed secrets monitoring",
+          "description": "Checks whether secrets have been accidentally exposed in the source repository."
+        },
+        {
+          "name": "License management",
+          "description": "Reviews dependency licenses for usage and compliance concerns."
+        },
+        {
+          "name": "SAST",
+          "description": "Runs static application security testing on the connector code."
+        },
+        {
+          "name": "Infrastructure as Code",
+          "description": "Checks infrastructure-as-code files where monitored files are present."
+        },
+        {
+          "name": "Supply-chain malware",
+          "description": "Checks dependencies for known malicious package signals."
+        },
+        {
+          "name": "Mobile issues",
+          "description": "Checks mobile manifest issues where monitored mobile files are present."
+        },
+        {
+          "name": "GitHub access control issues",
+          "description": "Monitors repository access and source-code security controls."
+        }
       ]
     },
     "fieldRoles": [
