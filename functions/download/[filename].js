@@ -8,6 +8,11 @@ const DOWNLOADS = {
     filePath: '/downloads/pipeline-health-monitor.pbiviz',
     product: 'pipeline-health-monitor',
     name: 'Pipeline Health Monitor'
+  },
+  'llm-usage-monitor.mez': {
+    filePath: '/downloads/llm-usage-monitor.mez',
+    product: 'llm-usage-monitor',
+    name: 'LLM Usage Monitor'
   }
 };
 

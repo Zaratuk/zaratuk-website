@@ -43,6 +43,17 @@ const visualSources = [
   }
 ];
 
+const connectorSources = [
+  {
+    name: 'LLM Usage Monitor',
+    repoUrl: process.env.LLM_USAGE_CONNECTOR_REPO_URL ?? 'https://github.com/Zaratuk/LLMUsageConnector.git',
+    token: process.env.LLM_USAGE_CONNECTOR_GITHUB_TOKEN ?? fallbackToken,
+    tokenHint: 'LLM_USAGE_CONNECTOR_GITHUB_TOKEN',
+    packageSource: 'dist/LLMUsageMonitor.mez',
+    packageOutput: path.join(outputDir, 'llm-usage-monitor.mez')
+  }
+];
+
 function withToken(url, token) {
   if (!token || !url.startsWith('https://github.com/')) {
     return url;
@@ -134,4 +145,40 @@ async function syncVisual(source) {
 
 for (const source of visualSources) {
   await syncVisual(source);
+}
+
+async function syncConnector(source) {
+  const workDir = await mkdtemp(path.join(tmpdir(), `${path.basename(source.packageOutput, '.mez')}-`));
+
+  try {
+    try {
+      const cloneDir = path.join(workDir, 'repo');
+      console.log(`Pulling ${source.name} source from ${source.repoUrl}`);
+      cloneSource(source, cloneDir);
+
+      const packagePath = path.join(cloneDir, source.packageSource);
+      if (!existsSync(packagePath)) {
+        throw new Error(`No connector package found at ${source.packageSource}`);
+      }
+
+      await mkdir(path.dirname(source.packageOutput), { recursive: true });
+      await copyFile(packagePath, source.packageOutput);
+
+      console.log(`Synced ${source.packageOutput}`);
+    } catch (error) {
+      if (!existsSync(source.packageOutput)) {
+        throw error;
+      }
+
+      console.warn(`Could not sync ${source.name} from GitHub.`);
+      console.warn('Using the committed connector package instead.');
+      console.warn(`Set ${source.tokenHint} in CI if the source repo requires authentication during builds.`);
+    }
+  } finally {
+    await rm(workDir, { recursive: true, force: true });
+  }
+}
+
+for (const source of connectorSources) {
+  await syncConnector(source);
 }

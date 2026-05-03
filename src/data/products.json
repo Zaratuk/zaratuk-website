@@ -238,5 +238,91 @@
       "Review usage patterns, compute spikes, and budget signals inside the report."
     ],
     "useCases": ["AI Operations", "Data Analysts", "BI Developers", "Finance Operations"]
+  },
+  {
+    "slug": "llm-usage-monitor",
+    "name": "LLM Usage Monitor",
+    "fullName": "LLM Usage Monitor (Power BI Custom Connector)",
+    "tag": "Power BI Custom Connector",
+    "category": "LLM Usage Monitoring",
+    "status": "MVP connector",
+    "pricing": "Free",
+    "description": "A Power BI custom connector that helps analysts monitor organization-level LLM token usage, model consumption, request volume, and cost across supported providers.",
+    "shortDescription": "Connect Power BI to LLM usage and cost data so analysts can monitor tokens, models, requests, and spend.",
+    "downloadUrl": "/download/llm-usage-monitor.mez",
+    "downloadLabel": "Download .mez",
+    "packageLabel": "Get the connector",
+    "iconUrl": "/products/llm-usage-monitor-zaratuk-icon.svg",
+    "documentationUrl": "/docs/llm-usage-monitor/",
+    "repositoryUrl": "https://github.com/Zaratuk/LLMUsageConnector",
+    "showFieldRoles": true,
+    "showFormattingControls": false,
+    "inputSectionLabel": "Connector inputs",
+    "whatItDoesTitle": "A Power BI connector for the token and cost data behind AI usage.",
+    "whatItDoesText": "LLM Usage Monitor brings organization-level LLM usage APIs into Power BI as clean tables for usage, costs, models, API keys, projects, and service tiers. It is designed for analysts who need to explain where AI consumption is coming from, which models drive cost, and how usage changes over time.",
+    "featuresTitle": "Designed to make LLM usage visible in Power BI.",
+    "fieldRolesTitle": "Inputs and tables aligned to LLM operations.",
+    "howToUseTitle": "Install the connector, choose a provider, then load usage tables.",
+    "useCasesTitle": "Built for teams responsible for AI usage visibility.",
+    "ctaTitle": "Start monitoring LLM usage from Power BI.",
+    "ctaText": "Download the free LLM Usage Monitor .mez connector and follow the documentation to add it to your Power BI custom connector folder.",
+    "fieldRoles": [
+      {
+        "name": "Provider",
+        "limit": "OpenAI or Anthropic",
+        "description": "Select OpenAI (Organization Admin API) or Anthropic (Organization Admin API only) from the connector prompt."
+      },
+      {
+        "name": "Admin API Key",
+        "limit": "Required",
+        "description": "Use an organization admin key with access to usage and cost reporting APIs. Standard runtime API keys are not enough."
+      },
+      {
+        "name": "Usage Tables",
+        "limit": "6 tables",
+        "description": "Load Usage, Costs, Models, UsageByApiKey, UsageByProject, and UsageByServiceTier into Power BI."
+      }
+    ],
+    "features": [
+      {
+        "title": "Daily Usage and Cost Tables",
+        "does": "Exposes daily token usage, request volume, and cost as typed Power BI tables.",
+        "matters": "Gives analysts a reliable model for tracking LLM usage without manually exporting billing screens or API reports."
+      },
+      {
+        "title": "Provider Selection",
+        "does": "Supports OpenAI organization admin APIs and Anthropic organization admin APIs from one connector entry point.",
+        "matters": "Lets Power BI reports compare usage patterns across supported LLM providers while keeping provider-specific API details behind the connector."
+      },
+      {
+        "title": "Model-Level Visibility",
+        "does": "Breaks usage down by model with input tokens, output tokens, total tokens, and requests.",
+        "matters": "Helps teams see which models are driving adoption and cost instead of treating LLM spend as one blended number."
+      },
+      {
+        "title": "API Key, Project, and Service Tier Views",
+        "does": "Provides separate tables for usage by API key, provider project, and service tier when the provider API returns those dimensions.",
+        "matters": "Supports chargeback, operational review, and governance workflows for teams managing shared AI infrastructure."
+      },
+      {
+        "title": "Power BI Credential Store Authentication",
+        "does": "Uses Power BI Key authentication so provider admin keys are entered through the credential prompt instead of stored in source files.",
+        "matters": "Keeps sensitive credentials out of reports, connector code, and documentation."
+      },
+      {
+        "title": "Refresh-Oriented Connector Design",
+        "does": "Uses a stable data source kind, static base URLs, relative paths, typed schemas, and retry handling for common transient API failures.",
+        "matters": "Makes the connector easier to operate in Power BI workflows that need repeatable refresh behavior."
+      }
+    ],
+    "steps": [
+      "Download the LLMUsageMonitor.mez connector package.",
+      "Copy the .mez file into Documents\\Microsoft Power BI Desktop\\Custom Connectors.",
+      "Restart Power BI Desktop and enable custom connectors under Security options if required.",
+      "Open Get Data, search for LLM Token Usage, and select the connector.",
+      "Choose OpenAI or Anthropic as the provider and paste the matching organization Admin API key.",
+      "Load the usage, cost, model, API key, project, and service tier tables needed for your report."
+    ],
+    "useCases": ["Data Analysts", "AI Operations", "BI Developers", "Finance Operations", "Platform Teams"]
   }
 ]

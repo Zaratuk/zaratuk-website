@@ -1,0 +1,181 @@
+---
+import BaseLayout from '@layouts/BaseLayout.astro';
+---
+
+<BaseLayout
+  title="LLM Usage Monitor Documentation | Zaratük Consulting"
+  description="Documentation for LLM Usage Monitor, a Power BI custom connector for monitoring LLM token usage, model consumption, request volume, and cost."
+>
+  <section class="bg-[#f5f5f7] py-16 sm:py-24">
+    <div class="mx-auto grid max-w-7xl gap-12 px-4 sm:px-6 lg:grid-cols-[0.9fr_1.1fr] lg:px-8 lg:items-center">
+      <div>
+        <p class="inline-flex rounded-lg border border-forest-700/25 bg-emerald-50 px-3 py-1.5 text-xs font-semibold uppercase tracking-[0.18em] text-forest-900">
+          Documentation
+        </p>
+        <h1 class="mt-6 text-5xl font-semibold leading-[1.03] tracking-normal text-[#1d1d1f] sm:text-7xl">
+          LLM Usage Monitor
+        </h1>
+        <p class="mt-6 max-w-2xl text-xl leading-8 text-slate-600">
+          A Power BI custom connector for analysts who need to monitor organization-level LLM token usage, request volume, model consumption, and cost.
+        </p>
+        <div class="mt-9 flex flex-col gap-3 sm:flex-row">
+          <a class="inline-flex h-12 items-center justify-center rounded-lg bg-forest-950 px-6 text-sm font-semibold text-white transition hover:bg-forest-900" href="/download/llm-usage-monitor.mez" download>
+            Download .mez
+          </a>
+          <a class="inline-flex h-12 items-center justify-center rounded-lg border border-forest-950 bg-white px-6 text-sm font-semibold text-forest-950 transition hover:bg-emerald-50" href="/products/llm-usage-monitor/">
+            Back to product
+          </a>
+        </div>
+      </div>
+      <div class="rounded-lg border border-black/10 bg-white p-6 shadow-[0_24px_80px_rgba(0,0,0,0.08)]">
+        <p class="text-sm font-semibold uppercase tracking-[0.18em] text-slate-500">Connector output</p>
+        <pre class="mt-5 overflow-x-auto rounded-lg bg-[#1d1d1f] p-5 text-sm leading-7 text-white"><code>Usage
+Costs
+Models
+UsageByApiKey
+UsageByProject
+UsageByServiceTier</code></pre>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-rule bg-white py-20">
+    <div class="mx-auto grid max-w-7xl gap-10 px-4 sm:px-6 lg:grid-cols-[0.85fr_1.15fr] lg:px-8">
+      <div>
+        <p class="text-sm font-semibold uppercase tracking-[0.18em] text-slate-500">Use case</p>
+        <h2 class="mt-4 text-4xl font-semibold tracking-normal text-[#1d1d1f]">
+          Understand the AI usage behind the work.
+        </h2>
+      </div>
+      <div class="grid gap-3">
+        <article class="rounded-lg bg-[#f5f5f7] p-5">
+          <h3 class="font-semibold text-[#1d1d1f]">Token and request monitoring</h3>
+          <p class="mt-2 text-sm leading-6 text-slate-600">Track input tokens, output tokens, total tokens, and request volume by day so teams can see how LLM usage is changing over time.</p>
+        </article>
+        <article class="rounded-lg bg-[#f5f5f7] p-5">
+          <h3 class="font-semibold text-[#1d1d1f]">Cost visibility</h3>
+          <p class="mt-2 text-sm leading-6 text-slate-600">Bring daily cost data into Power BI so analysts and finance operations teams can review spend patterns without manually collecting reports.</p>
+        </article>
+        <article class="rounded-lg bg-[#f5f5f7] p-5">
+          <h3 class="font-semibold text-[#1d1d1f]">Operational clarity</h3>
+          <p class="mt-2 text-sm leading-6 text-slate-600">Break usage down by model, API key, provider project, and service tier where the provider API makes those dimensions available.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-rule bg-[#f5f5f7] py-20">
+    <div class="mx-auto grid max-w-7xl gap-10 px-4 sm:px-6 lg:grid-cols-[0.85fr_1.15fr] lg:px-8">
+      <div>
+        <p class="text-sm font-semibold uppercase tracking-[0.18em] text-slate-500">Install</p>
+        <h2 class="mt-4 text-4xl font-semibold tracking-normal text-[#1d1d1f]">
+          Add the connector to Power BI Desktop.
+        </h2>
+      </div>
+      <ol class="grid gap-3">
+        {[
+          'Download LLMUsageMonitor.mez.',
+          'Create the folder Documents\\Microsoft Power BI Desktop\\Custom Connectors if it does not already exist.',
+          'Copy LLMUsageMonitor.mez into that Custom Connectors folder.',
+          'Restart Power BI Desktop.',
+          'Open File > Options and settings > Options > Security and enable custom data extensions if Power BI blocks uncertified connectors.',
+          'Restart Power BI Desktop again after changing the security setting.'
+        ].map((step, index) => (
+          <li class="grid grid-cols-[3rem_1fr] items-center rounded-lg bg-white shadow-[0_10px_30px_rgba(0,0,0,0.04)]">
+            <span class="flex h-full items-center justify-center text-sm font-semibold text-forest-700">{index + 1}</span>
+            <span class="px-4 py-4 text-sm font-medium text-slate-700">{step}</span>
+          </li>
+        ))}
+      </ol>
+    </div>
+  </section>
+
+  <section class="section-rule bg-white py-20">
+    <div class="mx-auto grid max-w-7xl gap-10 px-4 sm:px-6 lg:grid-cols-[0.85fr_1.15fr] lg:px-8">
+      <div>
+        <p class="text-sm font-semibold uppercase tracking-[0.18em] text-slate-500">Connect</p>
+        <h2 class="mt-4 text-4xl font-semibold tracking-normal text-[#1d1d1f]">
+          Choose a provider and authenticate.
+        </h2>
+      </div>
+      <div class="grid gap-3">
+        <div class="rounded-lg bg-[#f5f5f7] p-5 text-sm leading-6 text-slate-700">
+          In Power BI Desktop, select <span class="font-semibold text-[#1d1d1f]">Get Data</span>, search for <span class="font-semibold text-[#1d1d1f]">LLM Token Usage</span>, and select the connector.
+        </div>
+        <div class="rounded-lg bg-[#f5f5f7] p-5 text-sm leading-6 text-slate-700">
+          Select <span class="font-semibold text-[#1d1d1f]">OpenAI (Organization Admin API)</span> or <span class="font-semibold text-[#1d1d1f]">Anthropic (Organization Admin API only)</span>.
+        </div>
+        <div class="rounded-lg bg-[#f5f5f7] p-5 text-sm leading-6 text-slate-700">
+          Paste the matching provider Admin API key into the Power BI credential prompt. The connector uses Power BI Key authentication and does not store API keys in connector source files.
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-rule bg-[#f5f5f7] py-20">
+    <div class="mx-auto grid max-w-7xl gap-10 px-4 sm:px-6 lg:grid-cols-[0.85fr_1.15fr] lg:px-8">
+      <div>
+        <p class="text-sm font-semibold uppercase tracking-[0.18em] text-slate-500">Provider requirements</p>
+        <h2 class="mt-4 text-4xl font-semibold tracking-normal text-[#1d1d1f]">
+          Use organization admin credentials.
+        </h2>
+      </div>
+      <div class="grid gap-3">
+        <article class="rounded-lg bg-white p-5 shadow-[0_10px_30px_rgba(0,0,0,0.04)]">
+          <h3 class="font-semibold text-[#1d1d1f]">OpenAI</h3>
+          <p class="mt-2 text-sm leading-6 text-slate-600">Requires an OpenAI Admin API key with access to organization usage and cost endpoints. Runtime project keys are not sufficient for organization usage reporting.</p>
+        </article>
+        <article class="rounded-lg bg-white p-5 shadow-[0_10px_30px_rgba(0,0,0,0.04)]">
+          <h3 class="font-semibold text-[#1d1d1f]">Anthropic</h3>
+          <p class="mt-2 text-sm leading-6 text-slate-600">Requires an Anthropic organization account, an admin role, and an Admin API key that starts with sk-ant-admin. Standard sk-ant-api keys and individual Anthropic accounts cannot access usage and cost reports.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-rule bg-white py-20">
+    <div class="mx-auto grid max-w-7xl gap-10 px-4 sm:px-6 lg:grid-cols-[0.85fr_1.15fr] lg:px-8">
+      <div>
+        <p class="text-sm font-semibold uppercase tracking-[0.18em] text-slate-500">Tables</p>
+        <h2 class="mt-4 text-4xl font-semibold tracking-normal text-[#1d1d1f]">
+          Load the tables your report needs.
+        </h2>
+      </div>
+      <div class="grid gap-3">
+        {[
+          ['Usage', 'Daily provider, date, total tokens, input tokens, output tokens, and requests.'],
+          ['Costs', 'Daily provider, date, and cost in USD.'],
+          ['Models', 'Daily usage by model, including token and request measures.'],
+          ['UsageByApiKey', 'Daily usage by provider API key identifier.'],
+          ['UsageByProject', 'Daily usage by provider project or workspace identifier.'],
+          ['UsageByServiceTier', 'Daily usage by service tier when returned by the provider API.']
+        ].map(([name, description]) => (
+          <article class="rounded-lg bg-[#f5f5f7] p-5">
+            <h3 class="font-semibold text-[#1d1d1f]">{name}</h3>
+            <p class="mt-2 text-sm leading-6 text-slate-600">{description}</p>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section-rule bg-[#1d1d1f] py-20 text-white">
+    <div class="mx-auto grid max-w-7xl gap-8 px-4 sm:px-6 lg:grid-cols-[1fr_auto] lg:items-center lg:px-8">
+      <div>
+        <p class="text-sm font-semibold uppercase tracking-[0.18em] text-white/50">Need help?</p>
+        <h2 class="mt-4 text-4xl font-semibold tracking-normal">Bring LLM usage into your reporting layer.</h2>
+        <p class="mt-4 max-w-2xl text-sm leading-6 text-white/70">
+          Reach out if you have questions about installation, provider admin keys, or how to model token usage and cost in Power BI.
+        </p>
+      </div>
+      <div class="flex flex-col gap-3 sm:flex-row">
+        <a class="inline-flex h-12 items-center justify-center rounded-lg bg-white px-6 text-sm font-semibold text-[#1d1d1f] transition hover:bg-slate-100" href="/download/llm-usage-monitor.mez" download>
+          Download .mez
+        </a>
+        <a class="inline-flex h-12 items-center justify-center rounded-lg border border-white/25 px-6 text-sm font-semibold text-white transition hover:border-white" href="mailto:info@zaratuk.ca?subject=LLM%20Usage%20Monitor%20question">
+          Ask a question
+        </a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

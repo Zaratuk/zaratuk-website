@@ -4,6 +4,7 @@ import VisualPreview from '@components/VisualPreview.astro';
 const { product } = Astro.props;
 const isDataHealth = product.slug === 'data-health-panel';
 const isPipelineHealth = product.slug === 'pipeline-health-monitor';
+const isLlmUsage = product.slug === 'llm-usage-monitor';
 ---
 
 {isPipelineHealth ? (
@@ -47,6 +48,64 @@ const isPipelineHealth = product.slug === 'pipeline-health-monitor';
           alt="Screenshot of the Data Health Panel Power BI custom visual showing a score, KPI cards, and issue list"
           loading="eager"
         />
+      </div>
+    </div>
+  </div>
+) : isLlmUsage ? (
+  <div class="overflow-hidden rounded-lg border border-black/10 bg-white shadow-[0_24px_80px_rgba(0,0,0,0.10)]">
+    <div class="flex items-center justify-between border-b border-black/10 px-4 py-3">
+      <div class="flex items-center gap-3">
+        <img class="h-10 w-10 rounded-xl border border-black/10 bg-white" src={product.iconUrl} alt={`${product.name} icon`} />
+        <div>
+          <p class="text-xs font-semibold uppercase tracking-[0.18em] text-slate-500">LLMUsageMonitor.mez</p>
+          <p class="mt-1 text-xs text-slate-500">Power BI custom connector</p>
+        </div>
+      </div>
+      <span class="h-2.5 w-2.5 rounded-full bg-forest-400"></span>
+    </div>
+    <div class="bg-[#f8fafc] p-3 sm:p-5">
+      <div class="rounded-lg border border-black/10 bg-white p-5">
+        <div class="flex flex-wrap items-center justify-between gap-3">
+          <div>
+            <p class="text-xs font-semibold uppercase tracking-[0.18em] text-forest-700">Usage overview</p>
+            <h3 class="mt-2 text-2xl font-semibold text-[#1d1d1f]">LLM token usage</h3>
+          </div>
+          <span class="rounded-lg bg-emerald-50 px-3 py-1 text-xs font-semibold text-forest-700">OpenAI + Anthropic</span>
+        </div>
+        <div class="mt-6 grid gap-3 sm:grid-cols-3">
+          {[
+            ['2.84M', 'Total tokens', 'text-forest-700'],
+            ['$143.18', 'Cost USD', 'text-amber-600'],
+            ['41.2K', 'Requests', 'text-slate-800']
+          ].map(([value, label, color]) => (
+            <div class="rounded-lg bg-[#f5f5f7] p-4">
+              <p class={`text-2xl font-semibold ${color}`}>{value}</p>
+              <p class="mt-1 text-xs font-medium text-slate-500">{label}</p>
+            </div>
+          ))}
+        </div>
+        <div class="mt-5 overflow-hidden rounded-lg border border-black/10">
+          <div class="grid grid-cols-[1.1fr_0.8fr_0.8fr_0.8fr] bg-slate-50 px-4 py-3 text-xs font-semibold text-slate-500">
+            <span>Model</span>
+            <span>Tokens</span>
+            <span>Cost</span>
+            <span>Trend</span>
+          </div>
+          {[
+            ['gpt-4.1', '1.18M', '$72.40', 'w-[78%]'],
+            ['claude-sonnet', '890K', '$44.08', 'w-[58%]'],
+            ['gpt-4.1-mini', '770K', '$26.70', 'w-[42%]']
+          ].map(([model, tokens, cost, width]) => (
+            <div class="grid grid-cols-[1.1fr_0.8fr_0.8fr_0.8fr] items-center border-t border-black/10 px-4 py-3 text-xs text-slate-700">
+              <span class="font-semibold text-[#1d1d1f]">{model}</span>
+              <span>{tokens}</span>
+              <span>{cost}</span>
+              <span class="h-1.5 rounded-full bg-slate-100">
+                <span class={`block h-1.5 rounded-full bg-forest-400 ${width}`}></span>
+              </span>
+            </div>
+          ))}
+        </div>
       </div>
     </div>
   </div>

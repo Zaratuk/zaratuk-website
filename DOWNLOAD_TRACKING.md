@@ -1,10 +1,10 @@
 # Download Tracking
 
-The website tracks `.pbiviz` downloads through Cloudflare Pages Functions.
+The website tracks product package downloads through Cloudflare Pages Functions.
 
 ## How It Works
 
-- Product download links point to `/download/<file>.pbiviz`.
+- Product download links point to `/download/<file>`.
 - `functions/download/[filename].js` increments counters, then serves the real file from `public/downloads/`.
 - Counts are stored in a Cloudflare KV namespace named `DOWNLOAD_COUNTS`.
 - An optional Workers Analytics Engine binding named `DOWNLOAD_EVENTS` can collect event-level records.
@@ -41,6 +41,7 @@ The endpoint returns totals and daily counts for:
 
 - Data Health Panel
 - Pipeline Health Monitor
+- LLM Usage Monitor
 
 ## Notes
 

@@ -2,22 +2,28 @@
 import BaseLayout from '@layouts/BaseLayout.astro';
 import ProductCard from '@components/ProductCard.astro';
 import products from '@data/products.json';
+
+const sortedProducts = [...products].sort((a, b) => {
+  const aComingSoon = a.status?.toLowerCase() === 'coming soon';
+  const bComingSoon = b.status?.toLowerCase() === 'coming soon';
+  return Number(aComingSoon) - Number(bComingSoon);
+});
 ---
 
 <BaseLayout
-  title="Power BI Visual Products | Zaratük Consulting"
-  description="Browse installable Power BI visuals from Zaratük Consulting for data quality, pipeline monitoring, validation, and reporting clarity."
+  title="Power BI Products | Zaratük Consulting"
+  description="Browse installable Power BI visuals and connectors from Zaratük Consulting for data quality, pipeline monitoring, LLM usage visibility, and operational reporting clarity."
 >
   <section class="bg-[#f5f5f7] py-16 sm:py-24">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <div class="mx-auto max-w-4xl text-center">
         <p class="text-sm font-semibold uppercase tracking-[0.18em] text-slate-500">Product catalog</p>
         <h1 class="mt-4 text-5xl font-semibold leading-[1.03] tracking-normal text-[#1d1d1f] sm:text-7xl">
-          Power BI Custom Visuals for the Builder of the Reports Everyone Relies On
+          Power BI Products for the Builder of the Reports Everyone Relies On
         </h1>
       </div>
       <div class="mt-14 grid gap-5 md:grid-cols-2">
-        {products.map((product) => <ProductCard product={product} />)}
+        {sortedProducts.map((product) => <ProductCard product={product} />)}
       </div>
     </div>
   </section>

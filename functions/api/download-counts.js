@@ -6,6 +6,10 @@ const PRODUCTS = [
   {
     key: 'pipeline-health-monitor',
     name: 'Pipeline Health Monitor'
+  },
+  {
+    key: 'llm-usage-monitor',
+    name: 'LLM Usage Monitor'
   }
 ];
 

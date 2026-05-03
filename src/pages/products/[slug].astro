@@ -30,6 +30,10 @@ const fieldRoles = product.fieldRoles ?? [];
 const formattingControls = product.formattingControls ?? [];
 const showFieldRoles = Boolean(product.showFieldRoles && fieldRoles.length);
 const showFormattingControls = Boolean(product.showFormattingControls && formattingControls.length);
+const downloadLabel = product.downloadLabel ?? 'Download pbiviz';
+const packageLabel = product.packageLabel ?? 'Get the visual';
+const inputSectionLabel = product.inputSectionLabel ?? 'Field buckets';
+const showScoreFormula = Boolean(product.scoreFormula);
 ---
 
 <BaseLayout
@@ -51,7 +55,7 @@ const showFormattingControls = Boolean(product.showFormattingControls && formatt
         <p class="mt-6 max-w-2xl text-xl leading-8 text-slate-600">{product.description}</p>
         <div class="mt-9 flex flex-col gap-3 sm:flex-row">
           <a class="inline-flex h-12 items-center justify-center rounded-lg bg-forest-950 px-6 text-sm font-semibold text-white transition hover:bg-forest-900" href={product.downloadUrl} download>
-            Download pbiviz
+            {downloadLabel}
           </a>
           {product.sampleDataUrl && (
             <a class="inline-flex h-12 items-center justify-center rounded-lg bg-white px-6 text-sm font-semibold text-[#1d1d1f] shadow-[inset_0_0_0_1px_rgba(0,0,0,0.08)] transition hover:shadow-[inset_0_0_0_1px_rgba(0,0,0,0.2)]" href={product.sampleDataUrl} download>
@@ -92,13 +96,15 @@ const showFormattingControls = Boolean(product.showFormattingControls && formatt
     <section class="section-rule bg-white py-20">
       <div class="mx-auto grid max-w-7xl gap-10 px-4 sm:px-6 lg:grid-cols-[0.85fr_1.15fr] lg:px-8">
         <div>
-          <p class="text-sm font-semibold uppercase tracking-[0.18em] text-slate-500">Field buckets</p>
+          <p class="text-sm font-semibold uppercase tracking-[0.18em] text-slate-500">{inputSectionLabel}</p>
           <h2 class="mt-4 text-4xl font-semibold tracking-normal text-[#1d1d1f]">
             {product.fieldRolesTitle ?? 'Purpose-built inputs.'}
           </h2>
-          <p class="mt-4 text-sm leading-6 text-slate-600">
-            Score formula: <span class="font-semibold text-forest-950">{product.scoreFormula}</span>
-          </p>
+          {showScoreFormula && (
+            <p class="mt-4 text-sm leading-6 text-slate-600">
+              Score formula: <span class="font-semibold text-forest-950">{product.scoreFormula}</span>
+            </p>
+          )}
         </div>
         <div class="grid gap-3">
           {fieldRoles.map((role) => (
@@ -167,7 +173,7 @@ const showFormattingControls = Boolean(product.showFormattingControls && formatt
   <section id="downloads" class="section-rule bg-[#1d1d1f] py-20 text-white">
     <div class="mx-auto grid max-w-7xl gap-8 px-4 sm:px-6 lg:grid-cols-[1fr_auto] lg:items-center lg:px-8">
       <div id="documentation">
-        <p class="text-sm font-semibold uppercase tracking-[0.18em] text-white/50">Get the visual</p>
+        <p class="text-sm font-semibold uppercase tracking-[0.18em] text-white/50">{packageLabel}</p>
         <h2 class="mt-4 text-4xl font-semibold tracking-normal">{product.ctaTitle ?? 'Get the visual.'}</h2>
         <p class="mt-4 max-w-2xl text-sm leading-6 text-white/70">
           {product.ctaText ?? 'Download the current package and review installation details.'}
@@ -175,7 +181,7 @@ const showFormattingControls = Boolean(product.showFormattingControls && formatt
       </div>
       <div id="appsource" class="flex flex-col gap-3 sm:flex-row">
         <a class="inline-flex h-12 items-center justify-center rounded-lg bg-white px-6 text-sm font-semibold text-[#1d1d1f] transition hover:bg-slate-100" href={product.downloadUrl} download>
-          Download pbiviz
+          {downloadLabel}
         </a>
         {product.sampleDataUrl && (
           <a class="inline-flex h-12 items-center justify-center rounded-lg border border-white/25 px-6 text-sm font-semibold text-white transition hover:border-white" href={product.sampleDataUrl} download>
@@ -185,9 +191,16 @@ const showFormattingControls = Boolean(product.showFormattingControls && formatt
         <a class="inline-flex h-12 items-center justify-center rounded-lg border border-white/25 px-6 text-sm font-semibold text-white transition hover:border-white" href={product.documentationUrl}>
           Documentation
         </a>
-        <a class="inline-flex h-12 items-center justify-center rounded-lg border border-white/25 px-6 text-sm font-semibold text-white transition hover:border-white" href={product.appSourceUrl}>
-          AppSource
-        </a>
+        {product.repositoryUrl && (
+          <a class="inline-flex h-12 items-center justify-center rounded-lg border border-white/25 px-6 text-sm font-semibold text-white transition hover:border-white" href={product.repositoryUrl}>
+            GitHub
+          </a>
+        )}
+        {product.appSourceUrl && (
+          <a class="inline-flex h-12 items-center justify-center rounded-lg border border-white/25 px-6 text-sm font-semibold text-white transition hover:border-white" href={product.appSourceUrl}>
+            AppSource
+          </a>
+        )}
       </div>
     </div>
   </section>
