@@ -71,8 +71,7 @@ summary::-webkit-details-marker {
   animation: card-rise 560ms cubic-bezier(0.21, 0.68, 0.22, 1) both;
 }
 
-.capacity-row,
-.mini-bar-row {
+.capacity-row {
   display: grid;
   grid-template-columns: minmax(0, 1fr) auto minmax(88px, 36%);
   align-items: center;
@@ -82,12 +81,7 @@ summary::-webkit-details-marker {
   font-weight: 600;
 }
 
-.mini-bar-row {
-  grid-template-columns: minmax(0, 0.8fr) minmax(92px, 1fr) auto;
-}
-
-.capacity-row span:first-child,
-.mini-bar-row span:first-child {
+.capacity-row span:first-child {
   min-width: 0;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -120,28 +114,7 @@ summary::-webkit-details-marker {
   background: #a4262c;
 }
 
-.insight-panel {
-  border-left: 2px solid #6bae6e;
-  background: #f8fafc;
-  padding: 1.25rem;
-}
-
-.insight-panel h3 {
-  color: #0f2d1f;
-  font-weight: 700;
-}
-
-.insight-panel p {
-  margin-top: 0.5rem;
-  color: #475569;
-  font-size: 0.875rem;
-  line-height: 1.55;
-}
-
 .service-card,
-.process-card,
-.reason-item,
-.faq-item,
 .cta-button {
   transition:
     border-color 180ms ease,
@@ -151,33 +124,14 @@ summary::-webkit-details-marker {
     transform 180ms ease;
 }
 
-.service-card:hover,
-.process-card:hover {
+.service-card:hover {
   border-color: rgba(46, 125, 70, 0.34);
   box-shadow: 0 18px 48px rgba(15, 45, 31, 0.1);
   transform: translateY(-3px);
 }
 
-.reason-item:hover,
-.faq-item:hover {
-  border-color: rgba(46, 125, 70, 0.24);
-}
-
 .cta-button:hover {
   transform: translateY(-2px);
-}
-
-.faq-item[open] .faq-icon {
-  background: #0f2d1f;
-  color: #ffffff;
-  transform: rotate(45deg);
-}
-
-.faq-icon {
-  transition:
-    background-color 180ms ease,
-    color 180ms ease,
-    transform 180ms ease;
 }
 
 @keyframes fade-up {
@@ -240,13 +194,6 @@ summary::-webkit-details-marker {
     grid-column: 1 / -1;
   }
 
-  .mini-bar-row {
-    grid-template-columns: minmax(0, 1fr) auto;
-  }
-
-  .mini-bar-row .capacity-meter {
-    grid-column: 1 / -1;
-  }
 }
 
 @media (prefers-reduced-motion: reduce) {
