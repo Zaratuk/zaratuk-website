@@ -33,7 +33,7 @@ const structuredDataJson = structuredData ? JSON.stringify(structuredData) : '';
     <meta name="twitter:card" content="summary" />
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
-    {structuredDataJson && <script type="application/ld+json" set:html={structuredDataJson} />}
+    {structuredDataJson && <script is:inline type="application/ld+json" set:html={structuredDataJson} />}
     <title>{title}</title>
   </head>
   <body>
@@ -44,7 +44,12 @@ const structuredDataJson = structuredData ? JSON.stringify(structuredData) : '';
     <Footer />
     <script>
       (() => {
-        const formatDownloads = (count) => `${count.toLocaleString()} ${count === 1 ? 'download' : 'downloads'}`;
+        type DownloadProductCount = {
+          key: string;
+          total: number;
+        };
+
+        const formatDownloads = (count: number) => `${count.toLocaleString()} ${count === 1 ? 'download' : 'downloads'}`;
 
         const renderDownloadCounts = async () => {
           const nodes = Array.from(document.querySelectorAll('[data-download-count]'));
@@ -64,11 +69,16 @@ const structuredDataJson = structuredData ? JSON.stringify(structuredData) : '';
               return;
             }
 
-            const data = await response.json();
-            const totalsByProduct = new Map((data.products ?? []).map((product) => [product.key, product.total]));
+            const data = await response.json() as { products?: DownloadProductCount[] };
+            const totalsByProduct = new Map((data.products ?? []).map((product: DownloadProductCount) => [product.key, product.total]));
 
             nodes.forEach((node) => {
               const productKey = node.getAttribute('data-download-count');
+
+              if (!productKey) {
+                return;
+              }
+
               const total = totalsByProduct.get(productKey);
 
               if (typeof total !== 'number') {

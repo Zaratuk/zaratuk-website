@@ -1,63 +1,421 @@
 ---
 import BaseLayout from '@layouts/BaseLayout.astro';
-import Hero from '@components/Hero.astro';
-import FeatureBlock from '@components/FeatureBlock.astro';
+
+const services = [
+  {
+    eyebrow: 'Power BI Visuals SDK',
+    title: 'Custom Power BI Visual Development',
+    body: 'Purpose-built visuals with the controls, calculations, and interaction patterns your operational teams actually need.'
+  },
+  {
+    eyebrow: 'Workforce analytics',
+    title: 'Workforce Capacity Planning Tools',
+    body: 'Capacity models for FTE planning, utilization, demand coverage, service volume, and cost impact inside Power BI.'
+  },
+  {
+    eyebrow: 'Decision modelling',
+    title: 'Scenario & What-if Modelling',
+    body: 'Interactive scenario controls that let leaders test changes without exporting data or rebuilding measures.'
+  },
+  {
+    eyebrow: 'Executive reporting',
+    title: 'Executive Operational Dashboards',
+    body: 'Focused views for service delivery, case operations, call centers, queues, staffing, and operational risk.'
+  }
+];
+
+const capacityFeatures = [
+  'Model FTE additions and removals by position role',
+  'Compare demand, capacity, gap, and utilization',
+  'Estimate cost impact when cost data is provided',
+  'Run directly inside Power BI with local visual state'
+];
+
+const reasons = [
+  'TypeScript and React custom visual development',
+  'Power BI Visuals SDK and pbiviz packaging experience',
+  'Clean enterprise UI for repeated operational use',
+  'Business logic built directly into the visual',
+  'No unnecessary backend unless the workflow requires it',
+  'Practical MVP-first delivery with calculation validation'
+];
+
+const process = [
+  {
+    step: '01',
+    title: 'Discover the workflow',
+    body: 'Clarify the decision, data roles, calculations, users, and reporting constraints.'
+  },
+  {
+    step: '02',
+    title: 'Prototype the visual',
+    body: 'Shape the interaction model and prove the interface before overbuilding.'
+  },
+  {
+    step: '03',
+    title: 'Build and validate',
+    body: 'Implement the visual, calculation module, Power BI lifecycle, and edge cases.'
+  },
+  {
+    step: '04',
+    title: 'Package for Power BI',
+    body: 'Prepare the pbiviz package, sample data, docs, and deployment handoff.'
+  }
+];
+
+const faqs = [
+  {
+    question: 'What is a Power BI custom visual?',
+    answer: 'A custom visual is a packaged Power BI component that extends the report canvas beyond built-in charts. It can include specialized layouts, controls, calculations, and interactions.'
+  },
+  {
+    question: 'When do I need a custom visual?',
+    answer: 'A custom visual makes sense when a business workflow needs scenario controls, domain-specific calculations, compact operational interfaces, or interactions that standard visuals cannot express clearly.'
+  },
+  {
+    question: 'Can this work without a backend?',
+    answer: 'Yes. Many MVP visuals can run fully inside Power BI with TypeScript, React, and local visual state. A backend is only worth adding when persistence, collaboration, licensing, or writeback is required.'
+  },
+  {
+    question: 'Can you build visuals for internal use?',
+    answer: 'Yes. Custom visuals can be built for internal organizational use, with the packaging and documentation needed for Power BI Desktop testing and controlled distribution.'
+  },
+  {
+    question: 'Can you help package the visual?',
+    answer: 'Yes. Delivery can include the pbiviz package, sample dataset, README, field mapping guidance, and support for the build/package workflow.'
+  }
+];
+
+const structuredData = {
+  '@context': 'https://schema.org',
+  '@type': 'ProfessionalService',
+  name: 'Zaratuk',
+  description: 'Custom Microsoft Power BI visual development for operational decision-making.',
+  areaServed: 'Remote',
+  email: 'info@zaratuk.ca',
+  serviceType: [
+    'Power BI custom visual development',
+    'Workforce capacity planning',
+    'Scenario modelling',
+    'Operational dashboards'
+  ]
+};
 ---
 
-<BaseLayout>
-  <Hero />
+<BaseLayout
+  title="Custom Power BI Visuals for Operational Decision-Making | Zaratuk"
+  description="Zaratuk builds custom Microsoft Power BI visuals for workforce planning, capacity modelling, scenario analysis, and executive operational reporting."
+  structuredData={structuredData}
+>
+  <section class="hero-grid-bg relative overflow-hidden bg-[#f7f9fb]">
+    <div class="mx-auto grid min-h-[calc(100vh-73px)] max-w-7xl items-center gap-10 px-4 py-12 sm:px-6 lg:grid-cols-[0.96fr_1.04fr] lg:px-8 lg:py-14">
+      <div class="max-w-3xl">
+        <p class="fade-up inline-flex items-center gap-2 rounded-md border border-forest-700/20 bg-white px-3 py-1.5 text-xs font-semibold uppercase tracking-[0.18em] text-forest-900 shadow-line">
+          <span class="h-1.5 w-8 rounded-full bg-powerbi-500"></span>
+          Microsoft Power BI Custom Visuals
+        </p>
+        <h1 class="fade-up mt-6 text-4xl font-semibold leading-[1.04] tracking-normal text-[#1d1d1f] [animation-delay:90ms] sm:text-5xl lg:text-[3.25rem] xl:text-6xl">
+          Custom Power BI visuals for operational decision-making
+        </h1>
+        <p class="fade-up mt-5 max-w-2xl text-lg leading-8 text-slate-600 [animation-delay:180ms]">
+          Zaratuk builds tailored Power BI visuals for capacity planning, scenario modelling, workforce analytics, and executive reporting when standard charts are not enough.
+        </p>
+        <div class="fade-up mt-7 flex flex-col gap-3 [animation-delay:270ms] sm:flex-row">
+          <a class="cta-button inline-flex h-12 items-center justify-center rounded-lg bg-forest-950 px-6 text-sm font-semibold text-white shadow-[0_16px_40px_rgba(15,45,31,0.18)] transition" href="mailto:info@zaratuk.ca?subject=Custom%20Power%20BI%20visual%20consultation">
+            Book a Consultation
+          </a>
+          <a class="cta-button inline-flex h-12 items-center justify-center rounded-lg border border-forest-950/20 bg-white px-6 text-sm font-semibold text-forest-950 transition" href="#services">
+            See What We Build
+          </a>
+        </div>
+        <dl class="fade-up mt-8 grid max-w-xl grid-cols-3 gap-3 [animation-delay:360ms]">
+          <div>
+            <dt class="text-xs font-semibold uppercase tracking-[0.14em] text-slate-500">Stack</dt>
+            <dd class="mt-1 text-sm font-semibold text-forest-950">TypeScript + React</dd>
+          </div>
+          <div>
+            <dt class="text-xs font-semibold uppercase tracking-[0.14em] text-slate-500">Runtime</dt>
+            <dd class="mt-1 text-sm font-semibold text-forest-950">Inside Power BI</dd>
+          </div>
+          <div>
+            <dt class="text-xs font-semibold uppercase tracking-[0.14em] text-slate-500">Focus</dt>
+            <dd class="mt-1 text-sm font-semibold text-forest-950">Operations</dd>
+          </div>
+        </dl>
+      </div>
 
-  <section id="visuals" class="section-rule bg-white py-20">
+      <div class="fade-up [animation-delay:210ms]">
+        <div class="dashboard-shell mx-auto max-w-2xl rounded-xl border border-black/10 bg-white shadow-[0_28px_90px_rgba(15,45,31,0.14)]">
+          <div class="flex items-center justify-between border-b border-black/10 px-4 py-3">
+            <div class="flex items-center gap-2">
+              <span class="h-2.5 w-2.5 rounded-full bg-slate-300"></span>
+              <span class="h-2.5 w-2.5 rounded-full bg-slate-300"></span>
+              <span class="h-2.5 w-2.5 rounded-full bg-powerbi-500"></span>
+            </div>
+            <span class="text-xs font-semibold text-slate-500">Capacity Planner.pbiviz</span>
+          </div>
+          <div class="grid gap-4 p-4 sm:p-5">
+            <div class="flex flex-wrap items-center justify-between gap-4">
+              <div>
+                <p class="text-xs font-semibold uppercase tracking-[0.16em] text-forest-700">Scenario Summary</p>
+                <h2 class="mt-1 text-xl font-semibold text-forest-950">Workforce Capacity Planner</h2>
+              </div>
+              <div class="rounded-md border border-forest-950/10 bg-emerald-50 px-3 py-2 text-xs font-semibold text-forest-900">Premium ready</div>
+            </div>
+
+            <div class="grid gap-3 sm:grid-cols-3">
+              <div class="kpi-card rounded-lg border border-black/10 bg-[#fbfcfd] p-4">
+                <p class="text-xs font-semibold text-slate-500">Scenario Capacity</p>
+                <strong class="mt-2 block text-2xl text-forest-950">8,420</strong>
+                <span class="mt-1 block text-xs font-semibold text-emerald-700">+520 vs current</span>
+              </div>
+              <div class="kpi-card rounded-lg border border-black/10 bg-[#fbfcfd] p-4 [animation-delay:120ms]">
+                <p class="text-xs font-semibold text-slate-500">Capacity Gap</p>
+                <strong class="mt-2 block text-2xl text-[#9f1d2d]">-180</strong>
+                <span class="mt-1 block text-xs font-semibold text-[#9f1d2d]">Shortfall</span>
+              </div>
+              <div class="kpi-card rounded-lg border border-black/10 bg-[#fbfcfd] p-4 [animation-delay:240ms]">
+                <p class="text-xs font-semibold text-slate-500">Utilization</p>
+                <strong class="mt-2 block text-2xl text-forest-950">102%</strong>
+                <span class="mt-1 block text-xs font-semibold text-slate-500">Scenario view</span>
+              </div>
+            </div>
+
+            <div class="rounded-lg border border-black/10 bg-[#fbfcfd] p-4">
+              <div class="mb-4 grid grid-cols-[1fr_auto_auto] gap-3 text-xs font-semibold uppercase tracking-[0.12em] text-slate-500">
+                <span>Department</span>
+                <span>Role</span>
+                <span>Coverage</span>
+              </div>
+              <div class="grid gap-3">
+                <div class="capacity-row">
+                  <span>Passports</span>
+                  <span>Officer</span>
+                  <span class="capacity-meter"><span class="capacity-fill shortfall-fill" style="--bar-scale: 0.86"></span></span>
+                </div>
+                <div class="capacity-row">
+                  <span>Citizenship</span>
+                  <span>Supervisor</span>
+                  <span class="capacity-meter"><span class="capacity-fill covered-fill" style="--bar-scale: 1"></span></span>
+                </div>
+                <div class="capacity-row">
+                  <span>Calls</span>
+                  <span>Agent</span>
+                  <span class="capacity-meter"><span class="capacity-fill shortfall-fill" style="--bar-scale: 0.74"></span></span>
+                </div>
+              </div>
+            </div>
+
+            <div class="grid gap-3 rounded-lg border border-black/10 bg-white p-4 sm:grid-cols-[1fr_auto] sm:items-center">
+              <div>
+                <p class="text-sm font-semibold text-forest-950">Scenario controls</p>
+                <p class="mt-1 text-sm leading-6 text-slate-600">Officer +2 FTE, Supervisor -1 FTE, Demand shock +10%</p>
+              </div>
+              <span class="rounded-md bg-forest-950 px-3 py-2 text-xs font-semibold text-white">Live recalculation</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-rule bg-white py-16 sm:py-20">
+    <div class="mx-auto grid max-w-7xl gap-10 px-4 sm:px-6 lg:grid-cols-[0.85fr_1.15fr] lg:px-8 lg:items-start">
+      <div>
+        <p class="text-sm font-semibold uppercase tracking-[0.18em] text-forest-700">The problem</p>
+        <h2 class="mt-4 text-3xl font-semibold tracking-normal text-[#1d1d1f] sm:text-4xl">
+          Standard Power BI charts are powerful. Some operational workflows need more.
+        </h2>
+      </div>
+      <div class="grid gap-4 md:grid-cols-3">
+        <article class="insight-panel">
+          <h3>Custom interactions</h3>
+          <p>Scenario controls, steppers, tabs, and role-level inputs can live inside the visual instead of outside the report.</p>
+        </article>
+        <article class="insight-panel">
+          <h3>Purpose-built calculations</h3>
+          <p>Domain formulas, guardrails, formatting, and data validation can be designed around a specific decision.</p>
+        </article>
+        <article class="insight-panel">
+          <h3>Operational interfaces</h3>
+          <p>Teams can scan capacity, risk, gaps, costs, and bottlenecks without reading a dense spreadsheet-style report.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="services" class="section-rule bg-[#f7f9fb] py-16 sm:py-20">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <div class="max-w-3xl">
         <p class="text-sm font-semibold uppercase tracking-[0.18em] text-forest-700">What we build</p>
-        <h2 class="mt-4 text-3xl font-semibold tracking-normal text-forest-950 sm:text-4xl">
-          Purpose-built Power BI visuals for the teams behind trusted reporting.
+        <h2 class="mt-4 text-3xl font-semibold tracking-normal text-[#1d1d1f] sm:text-4xl">
+          Custom visuals built around the business decision, not just the chart type.
         </h2>
       </div>
-      <div class="mt-10 grid gap-4 md:grid-cols-3">
-        <FeatureBlock
-          eyebrow="Power BI data health"
-          title="Data Health Signals"
-          body="Power BI visuals that surface missing values, stale records, duplicates, and category drift before they reach decision-makers."
-        />
-        <FeatureBlock
-          eyebrow="Operational pipeline monitoring"
-          title="Pipeline Health Monitoring"
-          body="Custom visuals that show failed runs, SLA misses, duration spikes, and pipeline status where report builders already work."
-        />
-        <FeatureBlock
-          eyebrow="Power BI reporting trust"
-          title="Operational Reporting Clarity"
-          body="Focused visuals that help data engineers, BI developers, and analysts explain data health and system reliability inside Power BI."
-        />
+      <div class="mt-10 grid gap-4 md:grid-cols-2 xl:grid-cols-4">
+        {services.map((service, index) => (
+          <article class="service-card fade-sequence rounded-xl border border-black/10 bg-white p-6 shadow-line" style={`--sequence-delay: ${index * 90}ms`}>
+            <p class="text-xs font-semibold uppercase tracking-[0.16em] text-forest-700">{service.eyebrow}</p>
+            <h3 class="mt-4 text-xl font-semibold text-forest-950">{service.title}</h3>
+            <p class="mt-3 text-sm leading-6 text-slate-600">{service.body}</p>
+          </article>
+        ))}
       </div>
     </div>
   </section>
 
-  <section class="section-rule bg-slate-50 py-20">
-    <div class="mx-auto grid max-w-7xl gap-10 px-4 sm:px-6 lg:grid-cols-[0.9fr_1.1fr] lg:px-8">
+  <section class="section-rule bg-white py-16 sm:py-20">
+    <div class="mx-auto grid max-w-7xl gap-10 px-4 sm:px-6 lg:grid-cols-[1.04fr_0.96fr] lg:px-8 lg:items-center">
+      <div class="rounded-xl border border-black/10 bg-[#f7f9fb] p-4 shadow-[0_18px_70px_rgba(15,45,31,0.08)] sm:p-6">
+        <div class="rounded-lg border border-black/10 bg-white">
+          <div class="border-b border-black/10 px-4 py-3">
+            <p class="text-xs font-semibold uppercase tracking-[0.16em] text-slate-500">Featured Example</p>
+          </div>
+          <div class="grid gap-4 p-4">
+            <div class="grid gap-3 sm:grid-cols-2">
+              <div class="rounded-lg bg-[#f7f9fb] p-4">
+                <span class="text-xs font-semibold text-slate-500">Total Demand</span>
+                <strong class="mt-2 block text-2xl text-forest-950">7,900</strong>
+              </div>
+              <div class="rounded-lg bg-[#f7f9fb] p-4">
+                <span class="text-xs font-semibold text-slate-500">Cost Impact</span>
+                <strong class="mt-2 block text-2xl text-[#7c2d12]">+$200k</strong>
+              </div>
+            </div>
+            <div class="rounded-lg bg-[#f7f9fb] p-4">
+              <div class="mb-3 flex items-center justify-between">
+                <span class="text-sm font-semibold text-forest-950">Coverage by department</span>
+                <span class="text-xs font-semibold text-slate-500">Scenario</span>
+              </div>
+              <div class="grid gap-3">
+                <div class="mini-bar-row">
+                  <span>Passports</span>
+                  <span class="capacity-meter"><span class="capacity-fill shortfall-fill" style="--bar-scale: 0.88"></span></span>
+                  <strong>88%</strong>
+                </div>
+                <div class="mini-bar-row">
+                  <span>Notarial</span>
+                  <span class="capacity-meter"><span class="capacity-fill covered-fill" style="--bar-scale: 1"></span></span>
+                  <strong>116%</strong>
+                </div>
+                <div class="mini-bar-row">
+                  <span>Calls</span>
+                  <span class="capacity-meter"><span class="capacity-fill shortfall-fill" style="--bar-scale: 0.79"></span></span>
+                  <strong>79%</strong>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
       <div>
-        <p class="text-sm font-semibold uppercase tracking-[0.18em] text-forest-700">Why it matters</p>
-        <h2 class="mt-4 text-3xl font-semibold tracking-normal text-forest-950 sm:text-4xl">
-          Power BI depends on the quality of the data underneath it.
-        </h2>
-      </div>
-      <div class="grid gap-4">
-        <div class="border-l-2 border-forest-400 bg-white px-5 py-4">
-          <h3 class="font-semibold text-forest-950">Expose issues before they become report problems</h3>
-          <p class="mt-2 text-sm leading-6 text-slate-600">The numbers shown to managers and analysts are only the final layer. Data engineers and analysts need fast ways to see missing values, duplicates, stale records, and category drift closer to the source of the report.</p>
-        </div>
-        <div class="border-l-2 border-forest-400 bg-white px-5 py-4">
-          <h3 class="font-semibold text-forest-950">Make Power BI useful for operational data checks</h3>
-          <p class="mt-2 text-sm leading-6 text-slate-600">Custom visuals can turn Power BI into a practical monitoring surface for data pipelines, semantic models, and operational datasets, not just a presentation layer for finished KPIs.</p>
-        </div>
-        <div class="border-l-2 border-forest-400 bg-white px-5 py-4">
-          <h3 class="font-semibold text-forest-950">Help technical teams capture data issues in context</h3>
-          <p class="mt-2 text-sm leading-6 text-slate-600">When checks live inside the report canvas, data engineers, BI developers, and analysts can identify problems while looking at the same fields, filters, and business context used by the report.</p>
-        </div>
+        <p class="text-sm font-semibold uppercase tracking-[0.18em] text-forest-700">Featured product example</p>
+        <h2 class="mt-4 text-3xl font-semibold tracking-normal text-[#1d1d1f] sm:text-4xl">Capacity Planner</h2>
+        <p class="mt-5 text-lg leading-8 text-slate-600">
+          A custom visual concept for workforce capacity scenarios. Users adjust staffing by role, compare demand against capacity, and see how utilization, gaps, and cost impact change immediately.
+        </p>
+        <ul class="mt-7 grid gap-3">
+          {capacityFeatures.map((feature) => (
+            <li class="flex gap-3 text-sm leading-6 text-slate-700">
+              <span class="mt-2 h-2 w-2 flex-none rounded-full bg-powerbi-500"></span>
+              <span>{feature}</span>
+            </li>
+          ))}
+        </ul>
       </div>
     </div>
   </section>
 
+  <section class="section-rule bg-[#f7f9fb] py-16 sm:py-20">
+    <div class="mx-auto grid max-w-7xl gap-10 px-4 sm:px-6 lg:grid-cols-[0.88fr_1.12fr] lg:px-8">
+      <div>
+        <p class="text-sm font-semibold uppercase tracking-[0.18em] text-forest-700">Why Zaratuk</p>
+        <h2 class="mt-4 text-3xl font-semibold tracking-normal text-[#1d1d1f] sm:text-4xl">
+          Senior engineering judgment for visuals that have to be trusted.
+        </h2>
+      </div>
+      <div class="grid gap-3 sm:grid-cols-2">
+        {reasons.map((reason) => (
+          <div class="reason-item rounded-lg border border-black/10 bg-white p-5 text-sm font-semibold leading-6 text-forest-950 shadow-line">
+            {reason}
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section-rule bg-white py-16 sm:py-20">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="max-w-3xl">
+        <p class="text-sm font-semibold uppercase tracking-[0.18em] text-forest-700">Process</p>
+        <h2 class="mt-4 text-3xl font-semibold tracking-normal text-[#1d1d1f] sm:text-4xl">
+          A focused path from workflow to packaged visual.
+        </h2>
+      </div>
+      <div class="mt-10 grid gap-4 md:grid-cols-4">
+        {process.map((item, index) => (
+          <article class="process-card fade-sequence rounded-xl border border-black/10 bg-white p-6 shadow-line" style={`--sequence-delay: ${index * 110}ms`}>
+            <span class="text-sm font-semibold text-powerbi-500">{item.step}</span>
+            <h3 class="mt-4 text-lg font-semibold text-forest-950">{item.title}</h3>
+            <p class="mt-3 text-sm leading-6 text-slate-600">{item.body}</p>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section-rule bg-forest-950 py-16 text-white sm:py-20">
+    <div class="mx-auto grid max-w-7xl gap-10 px-4 sm:px-6 lg:grid-cols-[1fr_auto] lg:items-center lg:px-8">
+      <div>
+        <p class="text-sm font-semibold uppercase tracking-[0.18em] text-powerbi-500">Start a conversation</p>
+        <h2 class="mt-4 max-w-3xl text-3xl font-semibold tracking-normal sm:text-4xl">
+          Have a Power BI workflow that deserves its own visual?
+        </h2>
+        <p class="mt-5 max-w-2xl text-base leading-7 text-white/70">
+          Share the operational decision, the data roles, and the kind of interaction your users need. A short note is enough to begin.
+        </p>
+      </div>
+      <div class="rounded-xl border border-white/15 bg-white/10 p-5">
+        <dl class="grid gap-4 text-sm">
+          <div>
+            <dt class="font-semibold text-white/60">Email</dt>
+            <dd class="mt-1"><a class="font-semibold text-white hover:text-powerbi-500" href="mailto:info@zaratuk.ca?subject=Custom%20Power%20BI%20visual%20consultation">info@zaratuk.ca</a></dd>
+          </div>
+          <div>
+            <dt class="font-semibold text-white/60">LinkedIn</dt>
+            <dd class="mt-1 text-white">Add LinkedIn URL</dd>
+          </div>
+          <div>
+            <dt class="font-semibold text-white/60">Location</dt>
+            <dd class="mt-1 text-white">Canada and remote delivery</dd>
+          </div>
+        </dl>
+        <a class="cta-button mt-6 inline-flex h-12 w-full items-center justify-center rounded-lg bg-powerbi-500 px-6 text-sm font-semibold text-forest-950 transition" href="mailto:info@zaratuk.ca?subject=Custom%20Power%20BI%20visual%20consultation">
+          Book a Consultation
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-rule bg-white py-16 sm:py-20">
+    <div class="mx-auto grid max-w-7xl gap-10 px-4 sm:px-6 lg:grid-cols-[0.78fr_1.22fr] lg:px-8">
+      <div>
+        <p class="text-sm font-semibold uppercase tracking-[0.18em] text-forest-700">FAQ</p>
+        <h2 class="mt-4 text-3xl font-semibold tracking-normal text-[#1d1d1f] sm:text-4xl">
+          Common questions before a custom visual build.
+        </h2>
+      </div>
+      <div class="grid gap-3">
+        {faqs.map((faq) => (
+          <details class="faq-item rounded-lg border border-black/10 bg-[#fbfcfd] p-5">
+            <summary class="flex cursor-pointer list-none items-center justify-between gap-4 text-left font-semibold text-forest-950">
+              <span>{faq.question}</span>
+              <span class="faq-icon flex h-7 w-7 flex-none items-center justify-center rounded-full border border-black/10 bg-white text-forest-950">+</span>
+            </summary>
+            <p class="mt-4 text-sm leading-6 text-slate-600">{faq.answer}</p>
+          </details>
+        ))}
+      </div>
+    </div>
+  </section>
 </BaseLayout>

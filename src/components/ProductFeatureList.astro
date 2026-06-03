@@ -1,5 +1,11 @@
 ---
-const { features } = Astro.props;
+interface ProductFeature {
+  title: string;
+  does: string;
+  matters: string;
+}
+
+const { features } = Astro.props as { features: ProductFeature[] };
 ---
 
 <div class="grid gap-3">

@@ -4,6 +4,10 @@ import ProductFeatureList from '@components/ProductFeatureList.astro';
 import ProductVisualPreview from '@components/ProductVisualPreview.astro';
 import products from '@data/products.json';
 
+type Product = (typeof products)[number] & {
+  repositoryUrl?: string;
+};
+
 export function getStaticPaths() {
   return products
     .filter((product) => product.status?.toLowerCase() !== 'coming soon')
@@ -13,7 +17,7 @@ export function getStaticPaths() {
     }));
 }
 
-const { product } = Astro.props;
+const { product } = Astro.props as { product: Product };
 const features = product.features.length
   ? product.features
   : [
