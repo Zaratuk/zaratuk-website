@@ -17,7 +17,7 @@ import BaseLayout from '@layouts/BaseLayout.astro';
           Have an idea for a custom visual?
         </h1>
         <p class="mt-6 max-w-2xl text-xl leading-8 text-slate-600">
-          Reach out with questions, product suggestions, or Power BI workflows where a purpose-built pbiviz could make help improve monitoring of your data assets.
+          Reach out with questions, product suggestions, or Power BI workflows where a purpose-built pbiviz could improve how your team makes operational decisions.
         </p>
         <div class="mt-9 flex flex-col gap-3 sm:flex-row">
           <a class="inline-flex h-12 items-center justify-center rounded-lg bg-forest-950 px-6 text-sm font-semibold text-white transition hover:bg-forest-900" href="mailto:info@zaratuk.ca?subject=Custom%20Power%20BI%20visual%20idea">
@@ -29,23 +29,62 @@ import BaseLayout from '@layouts/BaseLayout.astro';
         </div>
       </div>
 
-      <div class="rounded-lg border border-black/10 bg-white p-6 shadow-[0_24px_80px_rgba(0,0,0,0.08)]">
-        <p class="text-sm font-semibold uppercase tracking-[0.18em] text-slate-500">Good reasons to reach out</p>
-        <div class="mt-6 grid gap-3">
-          <div class="rounded-lg bg-slate-50 p-5">
-            <h2 class="font-semibold text-[#1d1d1f]">Suggestions for new visuals</h2>
-            <p class="mt-2 text-sm leading-6 text-slate-600">
-              Share a reporting pain point, validation need, operational signal, or AI compute metric you wish Power BI handled better.
-            </p>
-          </div>
-          <div class="rounded-lg bg-slate-50 p-5">
-            <h2 class="font-semibold text-[#1d1d1f]">Custom pbiviz product work</h2>
-            <p class="mt-2 text-sm leading-6 text-slate-600">
-              Talk through a custom visual for your team, especially when standard visuals do not capture the logic behind your operations.
-            </p>
-          </div>
+      <form class="rounded-lg border border-black/10 bg-white p-6 shadow-[0_24px_80px_rgba(0,0,0,0.08)]" action="/api/contact" method="post" data-contact-form>
+        <div>
+          <p class="text-sm font-semibold uppercase tracking-[0.18em] text-slate-500">Send a message</p>
+          <h2 class="mt-3 text-2xl font-semibold tracking-normal text-[#1d1d1f]">Tell me what you want Power BI to do.</h2>
         </div>
-      </div>
+
+        <div class="mt-6 grid gap-4">
+          <label class="grid gap-2 text-sm font-semibold text-[#1d1d1f]">
+            Name
+            <input class="h-11 rounded-lg border border-black/10 bg-white px-3 text-sm font-medium text-[#1d1d1f] outline-none transition placeholder:text-slate-400 focus:border-forest-700 focus:ring-4 focus:ring-emerald-100" name="name" type="text" autocomplete="name" maxlength="120" required placeholder="Your name" />
+          </label>
+
+          <label class="grid gap-2 text-sm font-semibold text-[#1d1d1f]">
+            Email
+            <input class="h-11 rounded-lg border border-black/10 bg-white px-3 text-sm font-medium text-[#1d1d1f] outline-none transition placeholder:text-slate-400 focus:border-forest-700 focus:ring-4 focus:ring-emerald-100" name="email" type="email" autocomplete="email" maxlength="254" required placeholder="you@example.com" />
+          </label>
+
+          <label class="grid gap-2 text-sm font-semibold text-[#1d1d1f]">
+            Organization <span class="font-medium text-slate-500">(optional)</span>
+            <input class="h-11 rounded-lg border border-black/10 bg-white px-3 text-sm font-medium text-[#1d1d1f] outline-none transition placeholder:text-slate-400 focus:border-forest-700 focus:ring-4 focus:ring-emerald-100" name="organization" type="text" autocomplete="organization" maxlength="160" placeholder="Team or organization" />
+          </label>
+
+          <label class="grid gap-2 text-sm font-semibold text-[#1d1d1f]">
+            Topic
+            <select class="h-11 rounded-lg border border-black/10 bg-white px-3 text-sm font-medium text-[#1d1d1f] outline-none transition focus:border-forest-700 focus:ring-4 focus:ring-emerald-100" name="topic">
+              <option>Custom Power BI visual</option>
+              <option>Capacity Planner</option>
+              <option>Product support</option>
+              <option>Partnership</option>
+              <option>General question</option>
+            </select>
+          </label>
+
+          <label class="grid gap-2 text-sm font-semibold text-[#1d1d1f]">
+            Message
+            <textarea class="min-h-36 resize-y rounded-lg border border-black/10 bg-white px-3 py-3 text-sm font-medium leading-6 text-[#1d1d1f] outline-none transition placeholder:text-slate-400 focus:border-forest-700 focus:ring-4 focus:ring-emerald-100" name="message" maxlength="4000" minlength="10" required placeholder="Briefly describe the workflow, fields, decision, or custom visual idea."></textarea>
+          </label>
+
+          <label class="hidden" aria-hidden="true">
+            Website
+            <input name="companyWebsite" type="text" tabindex="-1" autocomplete="off" />
+          </label>
+          <input name="sourcePage" type="hidden" value="/contact/" />
+        </div>
+
+        <p class="mt-4 hidden rounded-lg border px-4 py-3 text-sm leading-6" data-contact-status role="status" aria-live="polite"></p>
+
+        <div class="mt-5 flex flex-col gap-3 sm:flex-row sm:items-center">
+          <button class="inline-flex h-12 items-center justify-center rounded-lg bg-forest-950 px-6 text-sm font-semibold text-white transition hover:bg-forest-900 disabled:cursor-not-allowed disabled:bg-slate-400" type="submit" data-contact-submit>
+            Send message
+          </button>
+          <p class="text-xs leading-5 text-slate-500">
+            Submissions are stored securely for follow-up. Do not include confidential production data.
+          </p>
+        </div>
+      </form>
     </div>
   </section>
 
@@ -70,4 +109,94 @@ import BaseLayout from '@layouts/BaseLayout.astro';
       </div>
     </div>
   </section>
+
+  <script is:inline>
+    (() => {
+      const form = document.querySelector('[data-contact-form]');
+
+      if (!form) {
+        return;
+      }
+
+      const status = form.querySelector('[data-contact-status]');
+      const submit = form.querySelector('[data-contact-submit]');
+      const sourcePage = form.querySelector('input[name="sourcePage"]');
+
+      if (sourcePage) {
+        sourcePage.value = window.location.href;
+      }
+
+      const statusStyles = {
+        success: 'border-emerald-200 bg-emerald-50 text-forest-950',
+        error: 'border-red-200 bg-red-50 text-red-900',
+        pending: 'border-slate-200 bg-slate-50 text-slate-700'
+      };
+
+      const setStatus = (type, message) => {
+        if (!status) {
+          return;
+        }
+
+        status.hidden = false;
+        status.className = `mt-4 rounded-lg border px-4 py-3 text-sm leading-6 ${statusStyles[type] ?? statusStyles.pending}`;
+        status.textContent = message;
+      };
+
+      const pageStatus = new URLSearchParams(window.location.search).get('contact');
+
+      if (pageStatus === 'sent') {
+        setStatus('success', 'Thanks, your message has been received.');
+      } else if (pageStatus === 'error') {
+        setStatus('error', 'The message could not be sent. Please email info@zaratuk.ca instead.');
+      }
+
+      form.addEventListener('submit', async (event) => {
+        event.preventDefault();
+
+        if (!form.checkValidity()) {
+          form.reportValidity();
+          return;
+        }
+
+        setStatus('pending', 'Sending your message...');
+
+        if (submit) {
+          submit.disabled = true;
+        }
+
+        try {
+          const response = await fetch(form.action, {
+            method: 'POST',
+            headers: {
+              accept: 'application/json'
+            },
+            body: new FormData(form)
+          });
+          const data = await response.json().catch(() => ({}));
+
+          if (!response.ok || data.ok === false) {
+            const message = Array.isArray(data.errors) && data.errors.length
+              ? data.errors.join(' ')
+              : data.error || 'The message could not be sent. Please email info@zaratuk.ca instead.';
+            setStatus('error', message);
+            return;
+          }
+
+          form.reset();
+
+          if (sourcePage) {
+            sourcePage.value = window.location.href;
+          }
+
+          setStatus('success', data.message || 'Thanks, your message has been received.');
+        } catch {
+          setStatus('error', 'The message could not be sent. Please email info@zaratuk.ca instead.');
+        } finally {
+          if (submit) {
+            submit.disabled = false;
+          }
+        }
+      });
+    })();
+  </script>
 </BaseLayout>

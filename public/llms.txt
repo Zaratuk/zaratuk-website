@@ -23,7 +23,7 @@ Contact:
 
 - [Homepage](https://zaratuk.com/): Overview of Zaratük Consulting and its focus on custom Power BI visuals for data quality, validation, and operational reporting.
 - [Products](https://zaratuk.com/products/): Catalog of Power BI custom visual and connector products, including Data Health Panel, Pipeline Health Monitor, and LLM Usage Monitor.
-- [Contact](https://zaratuk.com/contact/): Contact page for product questions, feedback, and custom visual suggestions.
+- [Contact](https://zaratuk.com/contact/): Contact form for product questions, feedback, and custom visual suggestions.
 - [Privacy Policy](https://zaratuk.com/privacy/): Privacy policy for the website, downloadable Power BI custom visuals, connectors, downloads, and support communications.
 
 ## Products
