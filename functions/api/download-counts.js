@@ -8,6 +8,10 @@ const PRODUCTS = [
     name: 'Pipeline Health Monitor'
   },
   {
+    key: 'capacity-planner',
+    name: 'Workforce Capacity Planner'
+  },
+  {
     key: 'llm-usage-monitor',
     name: 'LLM Usage Monitor'
   }

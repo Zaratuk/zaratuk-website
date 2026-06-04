@@ -1,5 +1,112 @@
 [
   {
+    "slug": "capacity-planner",
+    "name": "Workforce Capacity Planner",
+    "fullName": "Workforce Capacity Planner (Power BI Visual)",
+    "tag": "Power BI Visual",
+    "category": "Workforce Planning",
+    "status": "MVP package - v1.0.0.0",
+    "pricing": "Free",
+    "description": "A Power BI custom visual for modelling workforce capacity, FTE scenarios, utilization, demand gaps, and cost impact by department and position role.",
+    "shortDescription": "Model demand, FTE, productivity, capacity gaps, utilization, and cost impact directly inside Power BI.",
+    "downloadUrl": "/download/capacity-planner.pbiviz",
+    "sampleDataUrl": "/downloads/capacity-planner-sample.csv",
+    "iconUrl": "/products/capacity-planner-zaratuk-icon.svg",
+    "appSourceUrl": "/products/capacity-planner/#appsource",
+    "documentationUrl": "https://github.com/Zaratuk/capacity_planner#readme",
+    "showHeroPreview": false,
+    "showFieldRoles": true,
+    "showFormattingControls": true,
+    "whatItDoesTitle": "A focused planner for staffing scenarios inside Power BI.",
+    "whatItDoesText": "Workforce Capacity Planner compares demand against current and scenario capacity by department and position role. Report users can add or remove FTE by role and immediately see how capacity, gap, utilization, required FTE, and cost impact change.",
+    "featuresTitle": "Designed for operational capacity decisions.",
+    "fieldRolesTitle": "Inputs aligned to workforce capacity planning.",
+    "formattingControlsTitle": "Controls for executive and planner layouts.",
+    "howToUseTitle": "Map demand and staffing fields, then test scenarios.",
+    "useCasesTitle": "Built for teams planning operational staffing.",
+    "ctaTitle": "Start modelling workforce capacity in Power BI.",
+    "ctaText": "Download the free MVP package and sample data to test Capacity Planner in Power BI Desktop.",
+    "fieldRoles": [
+      {
+        "name": "Position Role",
+        "limit": "Required",
+        "description": "Staffing role such as Officer, Supervisor, Agent, Admin, or Analyst."
+      },
+      {
+        "name": "Demand Volume",
+        "limit": "Required measure",
+        "description": "Number of workload units in the selected period."
+      },
+      {
+        "name": "Productivity per FTE",
+        "limit": "Required measure",
+        "description": "Demand units one FTE can complete in the selected period."
+      },
+      {
+        "name": "Current FTE",
+        "limit": "Required measure",
+        "description": "Current number of FTEs available."
+      },
+      {
+        "name": "Department",
+        "limit": "Optional",
+        "description": "Service line, program, queue, or department. When omitted, rows are grouped under Unassigned department."
+      },
+      {
+        "name": "Cost per FTE",
+        "limit": "Optional measure",
+        "description": "Estimated cost per FTE used for current cost, scenario cost, and cost impact."
+      }
+    ],
+    "formattingControls": [
+      "Layout modes: Compact, Executive, and Full planner.",
+      "Show or hide title, subtitle, executive cards, interpretation panel, and table.",
+      "Configure table density, sticky header, and maximum visible rows.",
+      "Customize card style, colors, bar style, font, spacing, and number formatting.",
+      "Premium mode enables demand shock modelling and advanced customization controls."
+    ],
+    "features": [
+      {
+        "title": "Scenario FTE Controls",
+        "does": "Adds or removes FTE by position role and clamps negative scenario FTE to zero.",
+        "matters": "Lets report users test staffing tradeoffs without changing the underlying dataset."
+      },
+      {
+        "title": "Capacity and Gap Calculations",
+        "does": "Calculates current capacity, scenario capacity, demand gap, required FTE, and utilization.",
+        "matters": "Turns operational staffing assumptions into a direct capacity signal."
+      },
+      {
+        "title": "Cost Impact",
+        "does": "Shows current cost, scenario cost, and cost impact when Cost per FTE is bound.",
+        "matters": "Adds a financial view without requiring cost data for teams that only need capacity modelling."
+      },
+      {
+        "title": "Capacity and Cost Views",
+        "does": "Splits the detail table into focused operational and cost views.",
+        "matters": "Reduces cognitive load compared with a single wide table."
+      },
+      {
+        "title": "Interpretation Panel",
+        "does": "Generates deterministic plain-language scenario interpretation inside the visual.",
+        "matters": "Helps executives and analysts explain the scenario without calling an external AI service."
+      },
+      {
+        "title": "Client-Side MVP",
+        "does": "Runs in Power BI without backend services, external APIs, writeback, authentication, or persistence.",
+        "matters": "Keeps the first version simple to test, review, and govern."
+      }
+    ],
+    "steps": [
+      "Import the Workforce Capacity Planner .pbiviz package into Power BI Desktop.",
+      "Add the visual to a report page.",
+      "Map Position Role, Demand Volume, Productivity per FTE, and Current FTE.",
+      "Optionally map Department and Cost per FTE.",
+      "Use the role steppers to add or remove FTE and review the recalculated summary, table, and interpretation."
+    ],
+    "useCases": ["Operations Leaders", "Workforce Planners", "BI Teams", "Public-Sector Programs"]
+  },
+  {
     "slug": "data-health-panel",
     "name": "Data Health Panel",
     "fullName": "Data Health Panel (Power BI Visual)",

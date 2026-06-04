@@ -40,6 +40,20 @@ const visualSources = [
         output: path.join(outputDir, 'pipeline-runs-no-sla.csv')
       }
     ]
+  },
+  {
+    name: 'Workforce Capacity Planner',
+    repoUrl: process.env.CAPACITY_PLANNER_REPO_URL ?? 'https://github.com/Zaratuk/capacity_planner.git',
+    token: process.env.CAPACITY_PLANNER_GITHUB_TOKEN ?? fallbackToken,
+    tokenHint: 'CAPACITY_PLANNER_GITHUB_TOKEN',
+    packageScript: 'build',
+    packageOutput: path.join(outputDir, 'capacity-planner.pbiviz'),
+    copies: [
+      {
+        source: 'sample-data/capacity-planner-sample.csv',
+        output: path.join(outputDir, 'capacity-planner-sample.csv')
+      }
+    ]
   }
 ];
 

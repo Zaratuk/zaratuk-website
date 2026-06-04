@@ -1,0 +1,360 @@
+---
+import BaseLayout from '@layouts/BaseLayout.astro';
+
+const productName = 'Workforce Capacity Planner';
+const description =
+  'A Power BI custom visual for modelling workforce capacity, FTE scenarios, utilization, demand gaps, and cost impact by department and position role.';
+
+const capabilities = [
+  'Model current capacity from current FTE and productivity per FTE.',
+  'Add or remove scenario FTE by position role with immediate recalculation.',
+  'Compare demand, current capacity, scenario capacity, gap, and utilization.',
+  'Estimate required FTE and cost impact when cost per FTE is available.',
+  'Use optional department grouping and optional cost fields.',
+  'Run without a backend, external API, authentication service, writeback, or database.'
+];
+
+const fieldRoles = [
+  {
+    name: 'Position Role',
+    type: 'Categorical',
+    requirement: 'Required',
+    example: 'Officer, Supervisor, Agent'
+  },
+  {
+    name: 'Demand Volume',
+    type: 'Numeric measure',
+    requirement: 'Required',
+    example: '1200'
+  },
+  {
+    name: 'Productivity per FTE',
+    type: 'Numeric measure',
+    requirement: 'Required',
+    example: '200'
+  },
+  {
+    name: 'Current FTE',
+    type: 'Numeric measure',
+    requirement: 'Required',
+    example: '5'
+  },
+  {
+    name: 'Department',
+    type: 'Categorical',
+    requirement: 'Optional',
+    example: 'Passport, Calls'
+  },
+  {
+    name: 'Cost per FTE',
+    type: 'Numeric measure',
+    requirement: 'Optional',
+    example: '100000'
+  }
+];
+
+const atAGlance = [
+  ['Type', 'Power BI custom visual'],
+  ['Publisher', 'Zaratuk'],
+  ['Version', '1.0.0.0'],
+  ['Pricing', 'Free MVP package'],
+  ['Data access', 'Runs inside Power BI'],
+  ['External services', 'None in MVP']
+];
+
+const details = [
+  ['Support', 'https://zaratuk-website.pages.dev/contact/'],
+  ['Privacy policy', 'https://zaratuk-website.pages.dev/privacy/'],
+  ['Documentation', 'https://github.com/Zaratuk/capacity_planner#readme'],
+  ['Source repository', 'https://github.com/Zaratuk/capacity_planner']
+];
+
+const structuredData = {
+  '@context': 'https://schema.org',
+  '@type': 'SoftwareApplication',
+  name: productName,
+  description,
+  applicationCategory: 'BusinessApplication',
+  operatingSystem: 'Microsoft Power BI Desktop and Power BI Service',
+  softwareVersion: '1.0.0.0',
+  downloadUrl: new URL('/download/capacity-planner.pbiviz', Astro.site).toString(),
+  softwareHelp: 'https://github.com/Zaratuk/capacity_planner#readme',
+  codeRepository: 'https://github.com/Zaratuk/capacity_planner',
+  offers: {
+    '@type': 'Offer',
+    price: '0',
+    priceCurrency: 'USD',
+    availability: 'https://schema.org/InStock'
+  },
+  publisher: {
+    '@type': 'Organization',
+    name: 'Zaratuk',
+    url: Astro.site?.toString()
+  }
+};
+---
+
+<BaseLayout
+  title={`${productName} | Zaratuk Power BI Visual`}
+  description={description}
+  structuredData={structuredData}
+>
+  <section class="bg-[#f5f7fa]">
+    <div class="mx-auto max-w-7xl px-4 py-10 sm:px-6 lg:px-8">
+      <a class="text-sm font-semibold text-slate-600 transition hover:text-forest-950" href="/products/">Products</a>
+      <span class="mx-2 text-slate-400">/</span>
+      <span class="text-sm font-semibold text-slate-500">{productName}</span>
+    </div>
+  </section>
+
+  <section class="section-rule bg-white">
+    <div class="mx-auto grid max-w-7xl gap-8 px-4 py-10 sm:px-6 lg:grid-cols-[1fr_22rem] lg:px-8">
+      <div class="grid gap-7 sm:grid-cols-[6rem_1fr]">
+        <div>
+          <div class="flex h-24 w-24 items-center justify-center rounded-[1.35rem] border border-black/10 bg-white shadow-[0_18px_48px_rgba(15,45,31,0.12)]">
+            <img class="h-20 w-20" src="/products/capacity-planner-zaratuk-icon.svg" alt={`${productName} icon`} loading="eager" />
+          </div>
+        </div>
+        <div>
+          <div class="flex flex-wrap gap-2">
+            <span class="rounded-md bg-slate-100 px-2.5 py-1 text-xs font-semibold text-slate-700">Power BI visual</span>
+            <span class="rounded-md bg-emerald-50 px-2.5 py-1 text-xs font-semibold text-forest-700">Workforce planning</span>
+            <span class="rounded-md bg-yellow-50 px-2.5 py-1 text-xs font-semibold text-yellow-800">MVP package</span>
+          </div>
+          <h1 class="mt-5 text-4xl font-semibold tracking-normal text-[#1d1d1f] sm:text-5xl">{productName}</h1>
+          <p class="mt-2 text-base font-semibold text-slate-600">by Zaratuk</p>
+          <p class="mt-5 max-w-3xl text-lg leading-8 text-slate-600">{description}</p>
+          <div class="mt-7 flex flex-col gap-3 sm:flex-row">
+            <a class="cta-button inline-flex h-11 items-center justify-center rounded-lg bg-forest-950 px-5 text-sm font-semibold text-white transition hover:bg-forest-900" href="/download/capacity-planner.pbiviz" download>
+              Download package
+            </a>
+            <a class="cta-button inline-flex h-11 items-center justify-center rounded-lg border border-black/10 bg-white px-5 text-sm font-semibold text-[#1d1d1f] transition hover:border-forest-700/40" href="/downloads/capacity-planner-sample.csv" download>
+              Download sample data
+            </a>
+            <a class="cta-button inline-flex h-11 items-center justify-center rounded-lg border border-black/10 bg-white px-5 text-sm font-semibold text-[#1d1d1f] transition hover:border-forest-700/40" href="mailto:info@zaratuk.ca?subject=Workforce%20Capacity%20Planner">
+              Contact publisher
+            </a>
+          </div>
+          <p class="mt-4 hidden text-sm font-semibold text-slate-500" data-download-count-wrapper>
+            <span data-download-count="capacity-planner">0 downloads</span>
+          </p>
+        </div>
+      </div>
+
+      <aside class="rounded-lg border border-black/10 bg-[#fbfcfd] p-5 shadow-[0_18px_60px_rgba(0,0,0,0.05)]">
+        <p class="text-sm font-semibold text-[#1d1d1f]">At a glance</p>
+        <dl class="mt-4 grid gap-3">
+          {atAGlance.map(([label, value]) => (
+            <div class="grid grid-cols-[7.5rem_1fr] gap-3 border-t border-black/10 pt-3 first:border-t-0 first:pt-0">
+              <dt class="text-xs font-semibold uppercase tracking-[0.12em] text-slate-500">{label}</dt>
+              <dd class="text-sm font-medium text-slate-700">{value}</dd>
+            </div>
+          ))}
+        </dl>
+      </aside>
+    </div>
+  </section>
+
+  <nav class="sticky top-[73px] z-20 border-y border-black/10 bg-white/90 backdrop-blur" aria-label="Product sections">
+    <div class="mx-auto flex max-w-7xl gap-6 overflow-x-auto px-4 sm:px-6 lg:px-8">
+      <a class="whitespace-nowrap border-b-2 border-forest-700 py-4 text-sm font-semibold text-forest-950" href="#overview">Overview</a>
+      <a class="whitespace-nowrap border-b-2 border-transparent py-4 text-sm font-semibold text-slate-600 transition hover:text-forest-950" href="#plans">Plans</a>
+      <a class="whitespace-nowrap border-b-2 border-transparent py-4 text-sm font-semibold text-slate-600 transition hover:text-forest-950" href="#details">Details + support</a>
+      <a class="whitespace-nowrap border-b-2 border-transparent py-4 text-sm font-semibold text-slate-600 transition hover:text-forest-950" href="#fields">Field mapping</a>
+    </div>
+  </nav>
+
+  <section id="overview" class="bg-[#f5f7fa] py-12 sm:py-16">
+    <div class="mx-auto grid max-w-7xl gap-8 px-4 sm:px-6 lg:grid-cols-[1fr_0.9fr] lg:px-8">
+      <div class="rounded-lg border border-black/10 bg-white p-6 shadow-[0_18px_60px_rgba(0,0,0,0.05)] sm:p-7">
+        <p class="text-sm font-semibold uppercase tracking-[0.18em] text-forest-700">Overview</p>
+        <h2 class="mt-4 text-3xl font-semibold tracking-normal text-[#1d1d1f]">Workforce capacity modelling directly inside Power BI.</h2>
+        <p class="mt-4 text-base leading-8 text-slate-600">
+          Capacity Planner helps operational teams compare current staffing capacity against demand, then test the effect of adding or removing FTE by role. It is built for service delivery, case management, call center, public-sector, HR, and workforce planning reports where standard charts do not provide enough interaction.
+        </p>
+        <ul class="mt-6 grid gap-3">
+          {capabilities.map((capability) => (
+            <li class="grid grid-cols-[1.35rem_1fr] gap-3 text-sm leading-6 text-slate-700">
+              <span class="mt-2 h-2 w-2 rounded-full bg-forest-700"></span>
+              <span>{capability}</span>
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      <div class="overflow-hidden rounded-lg border border-black/10 bg-white shadow-[0_24px_80px_rgba(0,0,0,0.08)]">
+        <div class="flex items-center justify-between border-b border-black/10 px-4 py-3">
+          <div>
+            <p class="text-sm font-semibold text-[#1d1d1f]">Workforce Capacity Planner</p>
+            <p class="mt-1 text-xs text-slate-500">Scenario dashboard mockup</p>
+          </div>
+          <span class="rounded-md bg-emerald-50 px-2.5 py-1 text-xs font-semibold text-forest-700">Inside Power BI</span>
+        </div>
+        <div class="bg-[#f8fafc] p-3 sm:p-5">
+          <div class="rounded-lg border border-black/10 bg-white p-4">
+            <div class="grid gap-3 sm:grid-cols-3">
+              {[
+                ['Demand', '7,900'],
+                ['Scenario capacity', '8,250'],
+                ['Gap', '+350']
+              ].map(([label, value]) => (
+                <div class="rounded-md border border-black/10 bg-[#fbfcfd] p-3">
+                  <p class="text-[0.68rem] font-semibold uppercase tracking-[0.14em] text-slate-500">{label}</p>
+                  <p class="mt-2 text-xl font-semibold text-[#1d1d1f]">{value}</p>
+                </div>
+              ))}
+            </div>
+            <div class="mt-4 grid gap-3">
+              {[
+                ['Officer', '+2', '88%', 'bg-forest-700'],
+                ['Supervisor', '0', '74%', 'bg-forest-400'],
+                ['Agent', '+1', '96%', 'bg-yellow-500']
+              ].map(([role, change, width, color]) => (
+                <div class="rounded-md border border-black/10 p-3">
+                  <div class="flex items-center justify-between gap-3">
+                    <div>
+                      <p class="text-sm font-semibold text-[#1d1d1f]">{role}</p>
+                      <p class="text-xs text-slate-500">Scenario FTE change {change}</p>
+                    </div>
+                    <div class="flex items-center gap-2 text-sm font-semibold">
+                      <span class="flex h-7 w-7 items-center justify-center rounded-md bg-slate-100 text-slate-700">-</span>
+                      <span class="min-w-8 text-center text-[#1d1d1f]">{change}</span>
+                      <span class="flex h-7 w-7 items-center justify-center rounded-md bg-slate-100 text-slate-700">+</span>
+                    </div>
+                  </div>
+                  <div class="mt-3 h-2 overflow-hidden rounded-full bg-slate-100">
+                    <div class={`h-full rounded-full ${color}`} style={`width: ${width}`}></div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-rule bg-white py-12 sm:py-16">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="mb-7 flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
+        <div>
+          <p class="text-sm font-semibold uppercase tracking-[0.18em] text-slate-500">Visual capabilities</p>
+          <h2 class="mt-3 text-3xl font-semibold tracking-normal text-[#1d1d1f]">Built for scenario planning workflows.</h2>
+        </div>
+        <span class="w-fit rounded-md bg-emerald-50 px-3 py-1.5 text-xs font-semibold text-forest-700">Certification audit: no external requests found</span>
+      </div>
+      <div class="grid gap-4 md:grid-cols-3">
+        {[
+          ['Scenario FTE controls', 'Add or remove FTE by role and recalculate capacity immediately.'],
+          ['Executive summary', 'Surface demand, capacity, gap, required FTE, utilization, and cost impact.'],
+          ['Capacity and cost views', 'Split operational coverage from cost analysis to reduce table clutter.'],
+          ['Friendly missing-field state', 'Required fields are clear; Department and Cost per FTE remain optional.'],
+          ['Premium-ready settings', 'Demand shocks and advanced formatting can be shown disabled in Free mode.'],
+          ['Local-only state', 'No backend, writeback, external service, database, or authentication dependency.']
+        ].map(([title, text]) => (
+          <article class="rounded-lg border border-black/10 bg-[#fbfcfd] p-5 transition hover:border-forest-700/30 hover:shadow-[0_18px_50px_rgba(15,45,31,0.08)]">
+            <h3 class="font-semibold text-[#1d1d1f]">{title}</h3>
+            <p class="mt-3 text-sm leading-6 text-slate-600">{text}</p>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section id="plans" class="section-rule bg-[#f5f7fa] py-12 sm:py-16">
+    <div class="mx-auto grid max-w-7xl gap-5 px-4 sm:px-6 lg:grid-cols-2 lg:px-8">
+      <article class="rounded-lg border border-black/10 bg-white p-6 shadow-[0_18px_60px_rgba(0,0,0,0.05)]">
+        <p class="text-sm font-semibold uppercase tracking-[0.18em] text-forest-700">Free</p>
+        <h2 class="mt-3 text-3xl font-semibold tracking-normal text-[#1d1d1f]">Core capacity modelling</h2>
+        <p class="mt-4 text-sm leading-6 text-slate-600">The current downloadable package includes the core planner: role FTE changes, executive cards, interpretation text, capacity table, cost view when cost data exists, and local scenario state.</p>
+      </article>
+      <article class="rounded-lg border border-black/10 bg-white p-6 shadow-[0_18px_60px_rgba(0,0,0,0.05)]">
+        <p class="text-sm font-semibold uppercase tracking-[0.18em] text-slate-500">Premium mode</p>
+        <h2 class="mt-3 text-3xl font-semibold tracking-normal text-[#1d1d1f]">Advanced controls shown clearly</h2>
+        <p class="mt-4 text-sm leading-6 text-slate-600">Premium modules such as demand shock modelling and advanced customization are visible with clear disabled messaging in Free mode. Premium mode is currently a visual setting, not secure license enforcement.</p>
+      </article>
+    </div>
+  </section>
+
+  <section id="fields" class="section-rule bg-white py-12 sm:py-16">
+    <div class="mx-auto grid max-w-7xl gap-8 px-4 sm:px-6 lg:grid-cols-[0.7fr_1.3fr] lg:px-8">
+      <div>
+        <p class="text-sm font-semibold uppercase tracking-[0.18em] text-slate-500">Field mapping</p>
+        <h2 class="mt-3 text-3xl font-semibold tracking-normal text-[#1d1d1f]">Required and optional inputs.</h2>
+        <p class="mt-4 text-sm leading-6 text-slate-600">Power BI can aggregate repeated department-role combinations before calculation. Demand and current FTE are summed; productivity and cost are averaged.</p>
+      </div>
+      <div class="min-w-0 overflow-x-auto rounded-lg border border-black/10">
+        <table class="w-full table-fixed bg-white text-left text-sm sm:min-w-[46rem] sm:table-auto">
+          <thead class="bg-slate-50 text-xs uppercase tracking-[0.12em] text-slate-500">
+            <tr>
+              <th class="px-4 py-3 font-semibold">Field</th>
+              <th class="px-4 py-3 font-semibold">Type</th>
+              <th class="px-4 py-3 font-semibold">Requirement</th>
+              <th class="px-4 py-3 font-semibold">Example</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-black/10">
+            {fieldRoles.map((role) => (
+              <tr>
+                <td class="px-4 py-3 font-semibold text-[#1d1d1f]">{role.name}</td>
+                <td class="px-4 py-3 text-slate-600">{role.type}</td>
+                <td class="px-4 py-3">
+                  <span class={`rounded-md px-2.5 py-1 text-xs font-semibold ${role.requirement === 'Required' ? 'bg-slate-100 text-slate-700' : 'bg-emerald-50 text-forest-700'}`}>{role.requirement}</span>
+                </td>
+                <td class="px-4 py-3 text-slate-600">{role.example}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <section id="details" class="section-rule bg-[#f5f7fa] py-12 sm:py-16">
+    <div class="mx-auto grid max-w-7xl gap-8 px-4 sm:px-6 lg:grid-cols-[1fr_1fr] lg:px-8">
+      <div class="min-w-0 rounded-lg border border-black/10 bg-white p-6 shadow-[0_18px_60px_rgba(0,0,0,0.05)]">
+        <p class="text-sm font-semibold uppercase tracking-[0.18em] text-slate-500">Details + support</p>
+        <h2 class="mt-3 text-3xl font-semibold tracking-normal text-[#1d1d1f]">Publisher information</h2>
+        <dl class="mt-6 grid gap-4">
+          {details.map(([label, value]) => (
+            <div class="border-t border-black/10 pt-4 first:border-t-0 first:pt-0">
+              <dt class="text-xs font-semibold uppercase tracking-[0.14em] text-slate-500">{label}</dt>
+              <dd class="mt-1 break-all text-sm font-semibold text-forest-950">
+                <a class="underline decoration-forest-400 underline-offset-4" href={value}>{value}</a>
+              </dd>
+            </div>
+          ))}
+        </dl>
+      </div>
+      <div class="min-w-0 rounded-lg border border-black/10 bg-white p-6 shadow-[0_18px_60px_rgba(0,0,0,0.05)]">
+        <p class="text-sm font-semibold uppercase tracking-[0.18em] text-slate-500">Important notes</p>
+        <h2 class="mt-3 text-3xl font-semibold tracking-normal text-[#1d1d1f]">Current MVP limits</h2>
+        <ul class="mt-6 grid gap-3 text-sm leading-6 text-slate-700">
+          <li>No scenario saving, writeback, backend, authentication, or collaboration.</li>
+          <li>No AppSource license enforcement yet.</li>
+          <li>Scenario adjustments reset when the visual reloads.</li>
+          <li>Cost impact is shown only when Cost per FTE is bound.</li>
+          <li>Microsoft certification is not claimed until AppSource review is complete.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section id="appsource" class="section-rule bg-[#1d1d1f] py-12 text-white sm:py-16">
+    <div class="mx-auto grid max-w-7xl gap-7 px-4 sm:px-6 lg:grid-cols-[1fr_auto] lg:items-center lg:px-8">
+      <div>
+        <p class="text-sm font-semibold uppercase tracking-[0.18em] text-white/50">Get the visual</p>
+        <h2 class="mt-3 text-3xl font-semibold tracking-normal">Test Capacity Planner in Power BI Desktop.</h2>
+        <p class="mt-4 max-w-2xl text-sm leading-6 text-white/70">Download the current package and sample data. AppSource submission assets are being prepared, so this page mirrors the information buyers will see in the marketplace.</p>
+      </div>
+      <div class="flex flex-col gap-3 sm:flex-row">
+        <a class="cta-button inline-flex h-12 items-center justify-center rounded-lg bg-white px-6 text-sm font-semibold text-[#1d1d1f] transition hover:bg-slate-100" href="/download/capacity-planner.pbiviz" download>
+          Download package
+        </a>
+        <a class="cta-button inline-flex h-12 items-center justify-center rounded-lg border border-white/25 px-6 text-sm font-semibold text-white transition hover:border-white" href="/downloads/capacity-planner-sample.csv" download>
+          Sample data
+        </a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

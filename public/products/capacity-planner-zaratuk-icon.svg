@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 96 96" role="img" aria-labelledby="title desc">
+  <title id="title">Workforce Capacity Planner icon</title>
+  <desc id="desc">A white product tile with a blue workforce planning mark.</desc>
+  <rect width="96" height="96" rx="20" fill="#ffffff"/>
+  <rect x="0.5" y="0.5" width="95" height="95" rx="19.5" fill="none" stroke="#d7dde5"/>
+  <path d="M25 67c0-10 8-18 18-18h10c10 0 18 8 18 18" fill="none" stroke="#0f5d8f" stroke-width="6" stroke-linecap="round"/>
+  <circle cx="38" cy="34" r="7" fill="#0f5d8f"/>
+  <circle cx="58" cy="34" r="7" fill="#0f5d8f"/>
+  <path d="M40 64c2-4 5-6 8-6s6 2 8 6" fill="none" stroke="#5a6f80" stroke-width="5" stroke-linecap="round"/>
+</svg>

@@ -1,0 +1,8 @@
+Department,Role,Demand,ProductivityPerFTE,CurrentFTE,CostPerFTE
+Passport,Officer,1200,200,5,100000
+Passport,Supervisor,1200,800,1,130000
+Citizenship,Officer,400,80,4,100000
+Citizenship,Supervisor,400,500,0.5,130000
+Notarial,Officer,700,300,2,100000
+Calls,Agent,2000,500,3,75000
+Calls,Supervisor,2000,1500,1,130000

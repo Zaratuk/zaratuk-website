@@ -9,6 +9,11 @@ const DOWNLOADS = {
     product: 'pipeline-health-monitor',
     name: 'Pipeline Health Monitor'
   },
+  'capacity-planner.pbiviz': {
+    filePath: '/downloads/capacity-planner.pbiviz',
+    product: 'capacity-planner',
+    name: 'Workforce Capacity Planner'
+  },
   'llm-usage-monitor.mez': {
     filePath: '/downloads/llm-usage-monitor.mez',
     product: 'llm-usage-monitor',
