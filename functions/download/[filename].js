@@ -14,6 +14,11 @@ const DOWNLOADS = {
     product: 'capacity-planner',
     name: 'Workforce Capacity Planner'
   },
+  'routeops-visual-powerbi.pbiviz': {
+    filePath: '/downloads/routeops-visual-powerbi.pbiviz',
+    product: 'routeops-visual-powerbi',
+    name: 'RouteOps Visual for Power BI'
+  },
   'product-margin-what-if-cards.pbiviz': {
     filePath: '/downloads/product-margin-what-if-cards.pbiviz',
     product: 'product-margin-what-if-cards',

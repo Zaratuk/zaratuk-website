@@ -107,6 +107,107 @@
     "useCases": ["Operations Leaders", "Workforce Planners", "BI Teams", "Public-Sector Programs"]
   },
   {
+    "slug": "routeops-visual-powerbi",
+    "name": "RouteOps Visual",
+    "fullName": "RouteOps Visual for Power BI",
+    "tag": "Power BI Visual",
+    "category": "Fleet & Delivery Operations",
+    "status": "MVP package - v1.0.0.0",
+    "pricing": "Freemium",
+    "description": "A Power BI custom visual for mapping and analyzing vehicles, deliveries, mobile assets, service stops, depots, routes, and operational exceptions using data already available in a Power BI model.",
+    "shortDescription": "Track vehicles, deliveries, mobile assets, stops, and operational exceptions directly inside Power BI.",
+    "downloadUrl": "/download/routeops-visual-powerbi.pbiviz",
+    "sampleDataUrl": "/downloads/routeops-fleet-delivery-sample.csv",
+    "iconUrl": "/products/routeops-visual-powerbi-zaratuk-icon.svg",
+    "appSourceUrl": "#appsource",
+    "documentationUrl": "https://github.com/Zaratuk/routeops-visual-powerbi#readme",
+    "repositoryUrl": "https://github.com/Zaratuk/routeops-visual-powerbi",
+    "showFieldRoles": true,
+    "showFormattingControls": true,
+    "whatItDoesTitle": "An operational map for fleet, delivery, and field-service visibility.",
+    "whatItDoesText": "RouteOps renders the latest location per entity on an SVG/D3 map, supports route and delivery context fields, and highlights operational exceptions such as stale GPS, offline assets, idle vehicles, delayed or failed deliveries, overdue work, delivery-window breaches, and SLA breaches.",
+    "featuresTitle": "Designed for operations teams watching mobile work.",
+    "fieldRolesTitle": "Inputs aligned to route and delivery operations.",
+    "formattingControlsTitle": "Controls for map density, exceptions, and premium overlays.",
+    "howToUseTitle": "Map operational locations, then review exceptions.",
+    "useCasesTitle": "Built for teams monitoring movement and service execution.",
+    "ctaTitle": "Start mapping route operations in Power BI.",
+    "ctaText": "Download the RouteOps visual package and sample fleet delivery data to test operational mapping in Power BI Desktop.",
+    "fieldRoles": [
+      {
+        "name": "Entity ID",
+        "limit": "Required",
+        "description": "Stable vehicle, asset, delivery, order, package, stop, or service-call identifier."
+      },
+      {
+        "name": "Latitude",
+        "limit": "Required measure",
+        "description": "WGS84 latitude for the entity, vehicle, asset, delivery, or stop location."
+      },
+      {
+        "name": "Longitude",
+        "limit": "Required measure",
+        "description": "WGS84 longitude for the entity, vehicle, asset, delivery, or stop location."
+      },
+      {
+        "name": "Timestamp",
+        "limit": "Required",
+        "description": "GPS, delivery, stop, or operational event timestamp used to identify latest positions."
+      },
+      {
+        "name": "Status",
+        "limit": "Optional",
+        "description": "Operational status used for marker color, exception visibility, and summary badges."
+      },
+      {
+        "name": "Route and delivery context",
+        "limit": "Optional",
+        "description": "Route ID, driver, depot, region, delivery ID, order ID, stop sequence, ETA, scheduled time, delivery window, SLA, and exception fields."
+      }
+    ],
+    "formattingControls": [
+      "Show latest entity locations with auto-zoom, labels, SVG tooltips, and summary badges.",
+      "Configure status colors, marker visibility, stale GPS, offline, idle, overdue, failed delivery, and delivery-window exception logic.",
+      "Use free/premium gates for route trails, playback hooks, geofences, sequencing, route deviation, SLA highlighting, heatmaps, and advanced exception views.",
+      "Render the MVP without external map tiles, API keys, telemetry, or custom backend calls."
+    ],
+    "features": [
+      {
+        "title": "Latest Location Map",
+        "does": "Shows the latest point for vehicles, assets, deliveries, stops, depots, and other mobile entities.",
+        "matters": "Keeps operational location awareness inside the same Power BI reports teams already use."
+      },
+      {
+        "title": "Operational Exception Logic",
+        "does": "Flags stale GPS, offline assets, idle vehicles, delayed deliveries, failed deliveries, overdue work, delivery-window breaches, and SLA breaches.",
+        "matters": "Helps teams move from raw telemetry rows to the exceptions that need attention."
+      },
+      {
+        "title": "Route and Delivery Context",
+        "does": "Accepts route, driver, stop, depot, warehouse, region, ETA, scheduled time, delivery window, and destination fields.",
+        "matters": "Lets one visual support fleet, courier, field-service, logistics, and mobile asset use cases."
+      },
+      {
+        "title": "No-Tile SVG Map MVP",
+        "does": "Renders a local SVG/D3 geospatial canvas without external map tiles or map-provider API keys.",
+        "matters": "Keeps operational data inside the Power BI visual sandbox for privacy-sensitive evaluation."
+      },
+      {
+        "title": "Freemium Operations Layer",
+        "does": "Provides core marker, label, tooltip, summary, and exception views in free mode, with premium hooks for trails, playback, geofences, sequencing, heatmaps, and advanced monitoring.",
+        "matters": "Creates a useful entry point while leaving room for deeper operational analytics."
+      }
+    ],
+    "steps": [
+      "Import the RouteOps Visual for Power BI .pbiviz package into Power BI Desktop.",
+      "Add the visual to a report page.",
+      "Map Entity ID, Latitude, Longitude, and Timestamp.",
+      "Optionally map Status, Route ID, Driver Name, Delivery ID, Stop Sequence, ETA, delivery-window, destination, and exception fields.",
+      "Review latest locations, summary badges, tooltips, and operational exception markers."
+    ],
+    "useCases": ["Fleet Operations", "Delivery Teams", "Field Service", "Logistics Analysts", "Operations Leaders"]
+  },
+  {
     "slug": "product-margin-what-if-cards",
     "name": "Product Margin What-If Cards",
     "fullName": "Product Margin What-If Cards (Power BI Visual)",

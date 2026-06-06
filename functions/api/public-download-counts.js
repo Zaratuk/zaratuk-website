@@ -12,6 +12,10 @@ const PRODUCTS = [
     name: 'Workforce Capacity Planner'
   },
   {
+    key: 'routeops-visual-powerbi',
+    name: 'RouteOps Visual for Power BI'
+  },
+  {
     key: 'product-margin-what-if-cards',
     name: 'Product Margin What-If Cards'
   },

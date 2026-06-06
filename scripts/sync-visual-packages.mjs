@@ -54,6 +54,20 @@ const visualSources = [
         output: path.join(outputDir, 'capacity-planner-sample.csv')
       }
     ]
+  },
+  {
+    name: 'RouteOps Visual for Power BI',
+    repoUrl: process.env.ROUTEOPS_VISUAL_REPO_URL ?? 'https://github.com/Zaratuk/routeops-visual-powerbi.git',
+    token: process.env.ROUTEOPS_VISUAL_GITHUB_TOKEN ?? fallbackToken,
+    tokenHint: 'ROUTEOPS_VISUAL_GITHUB_TOKEN',
+    packageScript: 'package',
+    packageOutput: path.join(outputDir, 'routeops-visual-powerbi.pbiviz'),
+    copies: [
+      {
+        source: 'sample-data/fleet_delivery_sample.csv',
+        output: path.join(outputDir, 'routeops-fleet-delivery-sample.csv')
+      }
+    ]
   }
 ];
 
