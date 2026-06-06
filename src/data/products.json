@@ -107,6 +107,112 @@
     "useCases": ["Operations Leaders", "Workforce Planners", "BI Teams", "Public-Sector Programs"]
   },
   {
+    "slug": "product-margin-what-if-cards",
+    "name": "Product Margin What-If Cards",
+    "fullName": "Product Margin What-If Cards (Power BI Visual)",
+    "tag": "Power BI Visual",
+    "category": "Product Profitability",
+    "status": "Free Edition - v1.0.0.12",
+    "pricing": "Freemium",
+    "description": "A Power BI custom visual for modelling product-level price, input costs, unit margin, break-even units, and profit impact with interactive what-if scenario cards.",
+    "shortDescription": "Model product price, input costs, margin, and per-unit profit scenarios directly inside Power BI.",
+    "downloadUrl": "/download/product-margin-what-if-cards.pbiviz",
+    "sampleDataUrl": "/downloads/product-margin-what-if-sample.csv",
+    "iconUrl": "/products/product-margin-what-if-cards-zaratuk-icon.svg",
+    "appSourceUrl": "#appsource",
+    "documentationUrl": "/products/product-margin-what-if-cards/#how-to-use",
+    "showFieldRoles": true,
+    "showFormattingControls": true,
+    "whatItDoesTitle": "A compact what-if model for product unit economics.",
+    "whatItDoesText": "Product Margin What-If Cards turns product price, unit cost, and individual cost inputs into scenario cards. Report users can adjust selling price and per-unit input costs, then immediately see how unit cost, unit margin, margin percent, break-even units, and profit impact change.",
+    "featuresTitle": "Designed for product margin decisions.",
+    "fieldRolesTitle": "Inputs aligned to product-level profitability.",
+    "formattingControlsTitle": "Controls for scenario cards and SKU visuals.",
+    "howToUseTitle": "Map product economics, then adjust assumptions.",
+    "useCasesTitle": "Built for teams managing product profitability.",
+    "ctaTitle": "Start modelling product margin scenarios in Power BI.",
+    "ctaText": "Download the free Product Margin What-If Cards package and sample data to test per-unit scenario analysis in Power BI Desktop.",
+    "fieldRoles": [
+      {
+        "name": "Product Name",
+        "limit": "Required",
+        "description": "Product, SKU, item, or service name used to render one card per product."
+      },
+      {
+        "name": "Selling Price",
+        "limit": "Required measure",
+        "description": "Baseline selling price per unit before scenario adjustments."
+      },
+      {
+        "name": "Unit Cost",
+        "limit": "Optional measure",
+        "description": "Baseline total unit cost used when detailed Cost Inputs are not mapped."
+      },
+      {
+        "name": "Cost Inputs",
+        "limit": "Optional measures",
+        "description": "Per-unit cost components such as material, packaging, shipping, labour, platform fee, advertising, tax, or other inputs."
+      },
+      {
+        "name": "Product Image",
+        "limit": "Optional",
+        "description": "SKU image supplied as an HTTPS image URL, data URL, or base64 image value."
+      },
+      {
+        "name": "Fixed Costs",
+        "limit": "Optional premium measure",
+        "description": "Fixed cost assumption used for break-even units when premium features are enabled."
+      }
+    ],
+    "formattingControls": [
+      "Configure card count, card size, spacing, image visibility, and compact, standard, or detailed layouts.",
+      "Adjust scenario selling price and individual input costs with visual-level sliders.",
+      "Show or hide core metrics, premium outputs, break-even units, scenario comparison, sensitivity analysis, and KPI cards.",
+      "Use conditional color feedback for positive and negative margin impact.",
+      "Render SKU image URLs from the Product Image field or fall back to data/base64 images and placeholders."
+    ],
+    "features": [
+      {
+        "title": "Per-Unit Scenario Cards",
+        "does": "Renders product cards with baseline and scenario selling price, unit cost, unit margin, margin percent, and profit impact.",
+        "matters": "Keeps product profitability modelling close to the report context instead of pushing analysts into a spreadsheet."
+      },
+      {
+        "title": "Individual Cost Input Sliders",
+        "does": "Lets report users adjust mapped input costs such as material, shipping, labour, fees, advertising, and tax independently.",
+        "matters": "Shows which assumption is actually moving unit margin rather than treating cost as one opaque number."
+      },
+      {
+        "title": "Live Margin Feedback",
+        "does": "Updates KPI cards, scenario values, cost split bars, and positive or negative color feedback as assumptions change.",
+        "matters": "Makes margin pressure visible while users are still exploring the scenario."
+      },
+      {
+        "title": "Premium-Ready Analysis",
+        "does": "Includes gated premium paths for more product cards, more cost inputs, break-even units, target margin price solving, scenario comparison, and sensitivity analysis.",
+        "matters": "Supports a useful free tier today while leaving room for advanced monetized workflows."
+      },
+      {
+        "title": "SKU Image Support",
+        "does": "Displays product imagery from HTTPS URLs, data URLs, base64 image values, or a branded placeholder fallback.",
+        "matters": "Helps commercial and ecommerce teams recognize products quickly in dense report pages."
+      },
+      {
+        "title": "Client-Side Visual",
+        "does": "Runs scenario calculations inside the Power BI visual runtime without Zaratuk backend services, writeback, or scenario persistence.",
+        "matters": "Keeps the MVP straightforward for teams that want to test the visual inside governed Power BI reports."
+      }
+    ],
+    "steps": [
+      "Import the Product Margin What-If Cards .pbiviz package into Power BI Desktop.",
+      "Add the visual to a report page.",
+      "Map Product Name, Selling Price, and either Unit Cost or one or more Cost Inputs.",
+      "Optionally map Product ID, Category, Product Image, and Fixed Costs.",
+      "Use the scenario sliders to adjust selling price and input costs, then review margin, break-even, and profit impact."
+    ],
+    "useCases": ["Product Managers", "Ecommerce Operators", "Finance Teams", "Pricing Analysts", "Category Managers"]
+  },
+  {
     "slug": "data-health-panel",
     "name": "Data Health Panel",
     "fullName": "Data Health Panel (Power BI Visual)",

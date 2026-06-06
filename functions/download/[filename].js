@@ -14,6 +14,11 @@ const DOWNLOADS = {
     product: 'capacity-planner',
     name: 'Workforce Capacity Planner'
   },
+  'product-margin-what-if-cards.pbiviz': {
+    filePath: '/downloads/product-margin-what-if-cards.pbiviz',
+    product: 'product-margin-what-if-cards',
+    name: 'Product Margin What-If Cards'
+  },
   'llm-usage-monitor.mez': {
     filePath: '/downloads/llm-usage-monitor.mez',
     product: 'llm-usage-monitor',

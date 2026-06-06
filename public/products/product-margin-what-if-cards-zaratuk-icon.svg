@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 300" role="img" aria-labelledby="title desc">
+  <title id="title">Product Margin What-If Cards icon</title>
+  <desc id="desc">A Zaratuk branded product margin card icon with cost bars and a Z mark.</desc>
+  <rect width="300" height="300" rx="48" fill="#f7f8f3"/>
+  <rect x="42" y="42" width="216" height="216" rx="30" fill="#ffffff" stroke="#dfe5d7" stroke-width="5"/>
+  <path d="M74 86h108l-82 94h94v34H66v-27l82-94H74V86z" fill="#174334"/>
+  <circle cx="221" cy="86" r="18" fill="#7aa441"/>
+  <rect x="74" y="228" width="152" height="12" rx="6" fill="#dfe5d7"/>
+  <rect x="74" y="228" width="56" height="12" rx="6" fill="#2f8f5b"/>
+  <rect x="137" y="228" width="42" height="12" rx="6" fill="#c77a18"/>
+  <rect x="186" y="228" width="40" height="12" rx="6" fill="#9bcfbd"/>
+  <rect x="74" y="196" width="38" height="16" rx="8" fill="#eaf1df"/>
+  <rect x="124" y="196" width="50" height="16" rx="8" fill="#eaf1df"/>
+  <rect x="186" y="196" width="40" height="16" rx="8" fill="#eaf1df"/>
+</svg>

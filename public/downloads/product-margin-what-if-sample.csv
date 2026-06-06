@@ -1,0 +1,7 @@
+ProductID,ProductName,Category,ImageData,SellingPrice,UnitCost,MaterialCost,PackagingCost,ShippingCost,LabourCost,PlatformFee,AdvertisingCost,Tax,FixedCosts
+SKU-100,Espresso Mug,Home,,20,9,,,,,,,,250
+SKU-120,Bamboo Storage Set,Home,,34,,12,3,4,2,2,1,0.5,420
+SKU-205,Travel Bottle,Outdoor,,28,14,,,,,,,,300
+SKU-330,Desk Lamp,Office,,58,,22,4,7,5,3,2,1,850
+SKU-410,Notebook Pack,Office,,16,7,,,,,,,,180
+SKU-520,Premium Tote,Fashion,,42,,16,2,5,4,3,4,0.8,500

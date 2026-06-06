@@ -12,6 +12,10 @@ const PRODUCTS = [
     name: 'Workforce Capacity Planner'
   },
   {
+    key: 'product-margin-what-if-cards',
+    name: 'Product Margin What-If Cards'
+  },
+  {
     key: 'llm-usage-monitor',
     name: 'LLM Usage Monitor'
   }
