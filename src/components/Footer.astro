@@ -1,4 +1,5 @@
 ---
+import Icon from './Icon.astro';
 import ScatterLogo from './ScatterLogo.astro';
 ---
 
@@ -12,18 +13,42 @@ import ScatterLogo from './ScatterLogo.astro';
     </div>
     <div class="grid grid-cols-2 gap-8 text-sm sm:grid-cols-3">
       <div class="space-y-3">
-        <p class="font-semibold text-forest-950">Products</p>
-        <a class="block text-slate-600 hover:text-forest-950" href="/products/">Catalog</a>
+        <p class="inline-flex items-center gap-2 font-semibold text-forest-950">
+          <Icon name="products" class="h-4 w-4 text-forest-700" />
+          Products
+        </p>
+        <a class="flex items-center gap-2 text-slate-600 hover:text-forest-950" href="/products/">
+          <Icon name="storefront" class="h-4 w-4" />
+          Catalog
+        </a>
       </div>
       <div class="space-y-3">
-        <p class="font-semibold text-forest-950">Resources</p>
-        <a class="block text-slate-600 hover:text-forest-950" href="/products/data-health-panel/#appsource">AppSource</a>
-        <a class="block text-slate-600 hover:text-forest-950" href="/privacy/">Privacy policy</a>
+        <p class="inline-flex items-center gap-2 font-semibold text-forest-950">
+          <Icon name="article" class="h-4 w-4 text-forest-700" />
+          Resources
+        </p>
+        <a class="flex items-center gap-2 text-slate-600 hover:text-forest-950" href="/products/data-health-panel/#appsource">
+          <Icon name="storefront" class="h-4 w-4" />
+          AppSource
+        </a>
+        <a class="flex items-center gap-2 text-slate-600 hover:text-forest-950" href="/privacy/">
+          <Icon name="privacy" class="h-4 w-4" />
+          Privacy policy
+        </a>
       </div>
       <div class="space-y-3">
-        <p class="font-semibold text-forest-950">Contact</p>
-        <a class="block text-slate-600 hover:text-forest-950" href="/contact/">Contact page</a>
-        <a class="block text-slate-600 hover:text-forest-950" href="mailto:info@zaratuk.ca">info@zaratuk.ca</a>
+        <p class="inline-flex items-center gap-2 font-semibold text-forest-950">
+          <Icon name="contact" class="h-4 w-4 text-forest-700" />
+          Contact
+        </p>
+        <a class="flex items-center gap-2 text-slate-600 hover:text-forest-950" href="/contact/">
+          <Icon name="send" class="h-4 w-4" />
+          Contact page
+        </a>
+        <a class="flex items-center gap-2 text-slate-600 hover:text-forest-950" href="mailto:info@zaratuk.ca">
+          <Icon name="contact" class="h-4 w-4" />
+          info@zaratuk.ca
+        </a>
       </div>
     </div>
   </div>

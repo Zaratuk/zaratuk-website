@@ -1,16 +1,20 @@
 ---
+import Icon from '@components/Icon.astro';
 import BaseLayout from '@layouts/BaseLayout.astro';
 
 const services = [
   {
+    icon: 'products',
     title: 'Custom Power BI visuals',
     body: 'Purpose-built pbiviz components with the controls, calculations, and interface your workflow needs.'
   },
   {
+    icon: 'analytics',
     title: 'Capacity planning tools',
     body: 'Scenario models for demand, FTE, productivity, utilization, gap, and cost impact.'
   },
   {
+    icon: 'monitoring',
     title: 'Executive decision views',
     body: 'Compact operational dashboards that make bottlenecks and tradeoffs easier to explain.'
   }
@@ -61,24 +65,35 @@ const structuredData = {
             Zaratuk builds tailored Power BI visuals for capacity planning, scenario modelling, workforce analytics, and executive reporting when standard charts are not enough.
           </p>
           <div class="fade-up mt-6 flex flex-col gap-3 [animation-delay:270ms] sm:flex-row">
-            <a class="cta-button inline-flex h-12 items-center justify-center rounded-full bg-forest-950 px-6 text-sm font-semibold text-white shadow-[0_16px_40px_rgba(15,45,31,0.18)] transition" href="mailto:info@zaratuk.ca?subject=Custom%20Power%20BI%20visual%20consultation">
+            <a class="cta-button inline-flex h-12 items-center justify-center gap-2 rounded-full bg-forest-950 px-6 text-sm font-semibold text-white shadow-[0_16px_40px_rgba(15,45,31,0.18)] transition" href="mailto:info@zaratuk.ca?subject=Custom%20Power%20BI%20visual%20consultation">
+              <Icon name="send" class="h-4 w-4" />
               Start a project
             </a>
-            <a class="cta-button inline-flex h-12 items-center justify-center rounded-full border border-forest-950/20 bg-white/70 px-6 text-sm font-semibold text-forest-950 transition hover:bg-white" href="#offer">
+            <a class="cta-button inline-flex h-12 items-center justify-center gap-2 rounded-full border border-forest-950/20 bg-white/70 px-6 text-sm font-semibold text-forest-950 transition hover:bg-white" href="#offer">
+              <Icon name="build" class="h-4 w-4" />
               See what we build
             </a>
           </div>
           <dl class="fade-up mt-8 grid max-w-2xl gap-4 [animation-delay:360ms] sm:grid-cols-3">
             <div>
-              <dt class="text-xs font-semibold uppercase tracking-[0.14em] text-slate-500">Stack</dt>
+              <dt class="inline-flex items-center gap-1.5 text-xs font-semibold uppercase tracking-[0.14em] text-slate-500">
+                <Icon name="code" class="h-3.5 w-3.5" />
+                Stack
+              </dt>
               <dd class="mt-1 text-sm font-semibold text-forest-950">TypeScript + React</dd>
             </div>
             <div>
-              <dt class="text-xs font-semibold uppercase tracking-[0.14em] text-slate-500">Runtime</dt>
+              <dt class="inline-flex items-center gap-1.5 text-xs font-semibold uppercase tracking-[0.14em] text-slate-500">
+                <Icon name="privacy" class="h-3.5 w-3.5" />
+                Runtime
+              </dt>
               <dd class="mt-1 text-sm font-semibold text-forest-950">Inside Power BI</dd>
             </div>
             <div>
-              <dt class="text-xs font-semibold uppercase tracking-[0.14em] text-slate-500">Focus</dt>
+              <dt class="inline-flex items-center gap-1.5 text-xs font-semibold uppercase tracking-[0.14em] text-slate-500">
+                <Icon name="target" class="h-3.5 w-3.5" />
+                Focus
+              </dt>
               <dd class="mt-1 text-sm font-semibold text-forest-950">Operations</dd>
             </div>
           </dl>
@@ -89,7 +104,10 @@ const structuredData = {
             <div class="laptop-screen">
               <div class="flex items-center justify-between border-b border-black/10 px-4 py-3">
                 <div>
-                  <p class="text-xs font-semibold uppercase tracking-[0.18em] text-slate-500">Power BI</p>
+                  <p class="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.18em] text-slate-500">
+                    <Icon name="products" class="h-4 w-4 text-forest-700" />
+                    Power BI
+                  </p>
                   <p class="mt-1 text-sm font-semibold text-[#1d1d1f]">Capacity Planner</p>
                 </div>
                 <div class="flex items-end gap-1.5" aria-hidden="true">
@@ -158,7 +176,10 @@ const structuredData = {
       <div class="grid gap-4 sm:grid-cols-3">
         {services.map((service, index) => (
           <article class="service-card fade-sequence rounded-xl border border-black/10 bg-[#fbfcfd] p-5 shadow-line" style={`--sequence-delay: ${index * 90}ms`}>
-            <h3 class="text-lg font-semibold text-forest-950">{service.title}</h3>
+            <span class="grid h-11 w-11 place-items-center rounded-lg bg-[#e7f0da] text-forest-700" aria-hidden="true">
+              <Icon name={service.icon} class="h-5 w-5" />
+            </span>
+            <h3 class="mt-5 text-lg font-semibold text-forest-950">{service.title}</h3>
             <p class="mt-3 text-sm leading-6 text-slate-600">{service.body}</p>
           </article>
         ))}
@@ -177,7 +198,8 @@ const structuredData = {
           Send the workflow, fields, and decision you want to support. A short note is enough to begin.
         </p>
       </div>
-      <a class="cta-button inline-flex h-12 items-center justify-center rounded-lg bg-powerbi-500 px-6 text-sm font-semibold text-forest-950 transition" href="mailto:info@zaratuk.ca?subject=Custom%20Power%20BI%20visual%20consultation">
+      <a class="cta-button inline-flex h-12 items-center justify-center gap-2 rounded-lg bg-powerbi-500 px-6 text-sm font-semibold text-forest-950 transition" href="mailto:info@zaratuk.ca?subject=Custom%20Power%20BI%20visual%20consultation">
+        <Icon name="contact" class="h-4 w-4" />
         Email info@zaratuk.ca
       </a>
     </div>
