@@ -1,181 +1,165 @@
 ---
-import VisualPreview from '@components/VisualPreview.astro';
-
 const { product } = Astro.props;
-const isDataHealth = product.slug === 'data-health-panel';
-const isPipelineHealth = product.slug === 'pipeline-health-monitor';
-const isProductMargin = product.slug === 'product-margin-what-if-cards';
-const isRouteOps = product.slug === 'routeops-visual-powerbi';
+const slug = String(product.slug);
+
+type MetricTone = 'good' | 'warn' | 'bad';
+type PreviewMetric = {
+  label: string;
+  value: string;
+  note: string;
+  tone?: MetricTone;
+};
+type PreviewConfig = {
+  eyebrow: string;
+  metrics: PreviewMetric[];
+};
+
+const metricSets: Record<string, PreviewConfig> = {
+  'routeops-visual-powerbi': {
+    eyebrow: 'Live preview',
+    metrics: [
+      { label: 'Entities', value: '128', note: 'vehicles, stops, assets' },
+      { label: 'On route', value: '91%', note: 'active', tone: 'good' },
+      { label: 'Delayed', value: '9', note: 'window risk', tone: 'warn' },
+      { label: 'Offline', value: '4', note: 'stale GPS', tone: 'bad' }
+    ]
+  },
+  'product-margin-what-if-cards': {
+    eyebrow: 'Live scenario',
+    metrics: [
+      { label: 'Unit cost', value: '$27', note: 'base $34' },
+      { label: 'Margin %', value: '64%', note: 'base 41%', tone: 'good' },
+      { label: 'Impact', value: '+98%', note: 'vs baseline', tone: 'good' },
+      { label: 'Inputs', value: '3', note: 'active sliders' }
+    ]
+  },
+  'data-health-panel': {
+    eyebrow: 'Live preview',
+    metrics: [
+      { label: 'Health score', value: '71', note: 'needs attention', tone: 'warn' },
+      { label: 'Completeness', value: '82', note: 'fields checked', tone: 'good' },
+      { label: 'Freshness', value: '30', note: 'stale signal', tone: 'bad' },
+      { label: 'Validity', value: '94', note: 'categories', tone: 'good' }
+    ]
+  },
+  'pipeline-health-monitor': {
+    eyebrow: 'Live preview',
+    metrics: [
+      { label: 'Pipelines', value: '12', note: 'monitored' },
+      { label: 'Healthy', value: '9', note: 'latest run ok', tone: 'good' },
+      { label: 'Late', value: '2', note: 'SLA risk', tone: 'warn' },
+      { label: 'Failed', value: '1', note: 'needs review', tone: 'bad' }
+    ]
+  },
+  'llm-usage-monitor': {
+    eyebrow: 'Connector preview',
+    metrics: [
+      { label: 'Requests', value: '42k', note: 'daily rows' },
+      { label: 'Cost', value: '$318', note: 'tracked', tone: 'warn' },
+      { label: 'Tokens', value: '18.2M', note: 'input/output' },
+      { label: 'Models', value: '6', note: 'active' }
+    ]
+  }
+};
+
+const preview = metricSets[slug] ?? {
+  eyebrow: 'Live preview',
+  metrics: [
+    { label: 'Signals', value: '12', note: 'ready' },
+    { label: 'Healthy', value: '91%', note: 'active', tone: 'good' },
+    { label: 'Warnings', value: '3', note: 'review', tone: 'warn' },
+    { label: 'Errors', value: '0', note: 'clear', tone: 'good' }
+  ]
+};
+
+const valueToneClass: Record<MetricTone, string> = {
+  good: 'text-forest-700',
+  warn: 'text-amber-700',
+  bad: 'text-red-700'
+};
+const metricValueClass = (tone?: MetricTone) => tone ? valueToneClass[tone] : 'text-[#1d1d1f]';
 ---
 
-{isPipelineHealth ? (
-  <div class="rounded-lg border border-black/10 bg-white shadow-[0_24px_80px_rgba(0,0,0,0.08)]">
-    <div class="flex items-center justify-between border-b border-black/10 px-5 py-4">
-      <div class="flex items-center gap-3">
-        <img class="h-10 w-10 rounded-xl" src={product.iconUrl} alt={`${product.name} icon`} />
-        <div>
-          <p class="text-xs font-semibold uppercase tracking-[0.18em] text-slate-500">{product.name}</p>
-          <p class="mt-1 text-xs text-slate-500">Operational pipeline status</p>
-        </div>
-      </div>
-      <span class="h-2.5 w-2.5 rounded-full bg-forest-400"></span>
+<aside class="rounded-lg border border-black/10 bg-white p-6 shadow-[0_18px_60px_rgba(0,0,0,0.06)]">
+  <div class="flex items-center justify-between gap-4">
+    <div>
+      <p class="text-sm font-semibold uppercase tracking-[0.16em] text-slate-500">{preview.eyebrow}</p>
+      <p class="mt-1 text-xs font-medium text-slate-500">{product.name}</p>
     </div>
-    <div class="bg-[#f5f5f7] p-3 sm:p-5">
-      <div class="overflow-x-auto rounded-lg border border-black/10 bg-white">
-        <img
-          class="block w-[58rem] max-w-none md:w-full"
-          src="/products/pipeline-health-monitor-screenshot.svg"
-          alt="Screenshot of Pipeline Health Monitor showing pipeline names, status indicators, last run times, durations, SLA status, and trend sparklines"
-          loading="eager"
-        />
-      </div>
-    </div>
+    <img class="h-10 w-10 rounded-xl shadow-[0_8px_24px_rgba(0,0,0,0.10)]" src={product.iconUrl} alt={`${product.name} icon`} loading="eager" />
   </div>
-) : isRouteOps ? (
-  <div class="overflow-hidden rounded-lg border border-black/10 bg-white shadow-[0_24px_80px_rgba(0,0,0,0.10)]">
-    <div class="flex items-center justify-between border-b border-black/10 px-5 py-4">
-      <div class="flex items-center gap-3">
-        <img class="h-10 w-10 rounded-xl" src={product.iconUrl} alt={`${product.name} icon`} />
-        <div>
-          <p class="text-xs font-semibold uppercase tracking-[0.18em] text-slate-500">{product.name}</p>
-          <p class="mt-1 text-xs text-slate-500">Fleet and delivery operations</p>
-        </div>
+
+  <div class="mt-5 grid grid-cols-2 gap-x-6 gap-y-5">
+    {preview.metrics.map((metric) => (
+      <div>
+        <p class="text-xs font-semibold uppercase tracking-[0.12em] text-slate-500">{metric.label}</p>
+        <p class={`mt-1 text-3xl font-semibold tracking-normal ${metricValueClass(metric.tone)}`}>{metric.value}</p>
+        <p class="mt-1 text-sm leading-5 text-slate-600">{metric.note}</p>
       </div>
-      <span class="rounded-lg bg-amber-50 px-3 py-1 text-xs font-semibold text-amber-800">4 exceptions</span>
-    </div>
-    <div class="bg-[#f5f5f7] p-3 sm:p-5">
-      <div class="grid gap-4 rounded-lg border border-black/10 bg-white p-5 shadow-[0_18px_60px_rgba(0,0,0,0.06)] lg:grid-cols-[1.35fr_0.65fr]">
-        <div class="relative min-h-[25rem] overflow-hidden rounded-lg bg-[#eef2ec]">
-          <svg class="absolute inset-0 h-full w-full" viewBox="0 0 640 430" role="img" aria-label="RouteOps map preview">
-            <rect width="640" height="430" fill="#eef2ec"/>
-            <path d="M42 77c80 44 156 56 232 38 96-22 191-4 319 62" fill="none" stroke="#d8ded4" stroke-width="24" stroke-linecap="round"/>
-            <path d="M77 318c86-90 152-123 229-99 84 27 144 5 243-78" fill="none" stroke="#d8ded4" stroke-width="20" stroke-linecap="round"/>
-            <path d="M132 383c33-90 73-148 121-174 66-35 151-12 255-71" fill="none" stroke="#cdd8cf" stroke-width="8" stroke-linecap="round" stroke-dasharray="12 15"/>
-            <path d="M91 330c80-70 148-93 221-68 69 24 130 7 204-51" fill="none" stroke="#174334" stroke-width="7" stroke-linecap="round"/>
-            <path d="M103 82c91 38 165 45 229 22 79-28 142-4 236 62" fill="none" stroke="#2f8f5b" stroke-width="7" stroke-linecap="round"/>
-          </svg>
-          <div class="absolute left-[13%] top-[68%] grid h-12 w-12 place-items-center rounded-full bg-forest-950 text-sm font-semibold text-white shadow-[0_12px_30px_rgba(23,67,52,0.35)]">V1</div>
-          <div class="absolute left-[36%] top-[49%] grid h-11 w-11 place-items-center rounded-full bg-forest-700 text-sm font-semibold text-white shadow-[0_12px_30px_rgba(23,67,52,0.25)]">D2</div>
-          <div class="absolute left-[68%] top-[34%] grid h-11 w-11 place-items-center rounded-full bg-amber-600 text-sm font-semibold text-white shadow-[0_12px_30px_rgba(180,83,9,0.25)]">S4</div>
-          <div class="absolute left-[79%] top-[45%] grid h-12 w-12 place-items-center rounded-full bg-red-600 text-sm font-semibold text-white shadow-[0_12px_30px_rgba(185,28,28,0.28)]">X</div>
-          <div class="absolute left-[17%] top-[16%] rounded-lg bg-white/90 px-3 py-2 text-xs font-semibold text-slate-700 shadow-[0_10px_30px_rgba(0,0,0,0.08)]">
-            Latest route position
-          </div>
-        </div>
-        <div class="grid content-start gap-3">
-          <div class="rounded-lg bg-[#f2f1ec] p-4">
-            <p class="text-xs font-semibold uppercase tracking-[0.16em] text-slate-600">Entities</p>
-            <p class="mt-2 text-3xl font-semibold text-[#1d1d1f]">128</p>
-            <p class="mt-1 text-sm text-slate-600">vehicles, stops, assets</p>
-          </div>
-          <div class="rounded-lg bg-amber-50 p-4">
-            <p class="text-xs font-semibold uppercase tracking-[0.16em] text-amber-800">Delayed</p>
-            <p class="mt-2 text-3xl font-semibold text-amber-800">9</p>
-            <p class="mt-1 text-sm text-amber-900/70">delivery window risk</p>
-          </div>
-          <div class="rounded-lg bg-red-50 p-4">
-            <p class="text-xs font-semibold uppercase tracking-[0.16em] text-red-800">Offline</p>
-            <p class="mt-2 text-3xl font-semibold text-red-700">4</p>
-            <p class="mt-1 text-sm text-red-900/70">stale GPS signal</p>
-          </div>
-          <div class="rounded-lg bg-emerald-50 p-4">
-            <p class="text-xs font-semibold uppercase tracking-[0.16em] text-forest-700">On Route</p>
-            <p class="mt-2 text-3xl font-semibold text-forest-700">91%</p>
-          </div>
-        </div>
-      </div>
-    </div>
+    ))}
   </div>
-) : isProductMargin ? (
-  <div class="overflow-hidden rounded-lg border border-black/10 bg-white shadow-[0_24px_80px_rgba(0,0,0,0.10)]">
-    <div class="flex items-center justify-between border-b border-black/10 px-5 py-4">
-      <div class="flex items-center gap-3">
-        <img class="h-10 w-10 rounded-xl" src={product.iconUrl} alt={`${product.name} icon`} />
-        <div>
-          <p class="text-xs font-semibold uppercase tracking-[0.18em] text-slate-500">{product.name}</p>
-          <p class="mt-1 text-xs text-slate-500">Unit economics scenario</p>
-        </div>
+
+  {slug === 'product-margin-what-if-cards' ? (
+    <div class="mt-8 rounded-lg bg-[#eef2ec] p-5">
+      <div class="flex h-3 overflow-hidden rounded-full bg-white">
+        <span class="w-[14%] bg-blue-500"></span>
+        <span class="w-[22%] bg-forest-600"></span>
+        <span class="w-[18%] bg-amber-700"></span>
+        <span class="w-[46%] bg-teal-200"></span>
       </div>
-      <span class="rounded-lg bg-emerald-50 px-3 py-1 text-xs font-semibold text-forest-700">Margin up</span>
-    </div>
-    <div class="bg-[#f5f5f7] p-3 sm:p-5">
-      <div class="rounded-lg border-l-4 border-forest-700 bg-white p-5 shadow-[0_18px_60px_rgba(0,0,0,0.06)]">
-        <div class="flex flex-wrap items-start justify-between gap-4">
-          <div class="flex items-center gap-4">
-            <div class="flex h-14 w-14 items-center justify-center rounded-2xl bg-[#e8f0e1] text-lg font-semibold text-forest-800">DL</div>
-            <div>
-              <p class="text-2xl font-semibold tracking-normal text-[#1d1d1f]">Desk Lamp</p>
-              <p class="mt-1 text-sm text-slate-600">Selling price: <span class="font-semibold text-[#1d1d1f]">$58</span> · Scenario: <span class="font-semibold text-[#1d1d1f]">$74</span></p>
-            </div>
-          </div>
-          <span class="rounded-full bg-[#e7f0da] px-4 py-1 text-sm font-semibold text-forest-700">Margin up</span>
-        </div>
-        <div class="mt-6 grid gap-3 sm:grid-cols-4">
-          <div class="rounded-lg bg-[#f2f1ec] p-4">
-            <p class="text-xs font-semibold uppercase tracking-[0.16em] text-slate-600">Unit cost</p>
-            <p class="mt-2 text-3xl font-semibold text-[#1d1d1f]">$27</p>
-            <p class="mt-1 text-sm text-slate-600">Base $34</p>
-          </div>
-          <div class="rounded-lg bg-[#f2f1ec] p-4">
-            <p class="text-xs font-semibold uppercase tracking-[0.16em] text-slate-600">Unit margin</p>
-            <p class="mt-2 text-3xl font-semibold text-[#1d1d1f]">$48</p>
-            <p class="mt-1 text-sm text-slate-600">Base $24</p>
-          </div>
-          <div class="rounded-lg bg-[#f2f1ec] p-4">
-            <p class="text-xs font-semibold uppercase tracking-[0.16em] text-slate-600">Margin %</p>
-            <p class="mt-2 text-3xl font-semibold text-forest-700">64%</p>
-            <p class="mt-1 text-sm text-slate-600">Base 41%</p>
-          </div>
-          <div class="rounded-lg bg-[#f2f1ec] p-4">
-            <p class="text-xs font-semibold uppercase tracking-[0.16em] text-slate-600">Impact</p>
-            <p class="mt-2 text-3xl font-semibold text-forest-700">+98%</p>
-            <p class="mt-1 text-sm text-slate-600">vs baseline</p>
-          </div>
-        </div>
-        <div class="mt-6 flex h-3 overflow-hidden rounded-full bg-slate-200">
-          <span class="w-[12%] bg-blue-500"></span>
-          <span class="w-[19%] bg-forest-600"></span>
-          <span class="w-[21%] bg-amber-700"></span>
-          <span class="w-[48%] bg-teal-200"></span>
-        </div>
-        <div class="mt-6 grid gap-4">
-          <div>
-            <div class="mb-2 flex justify-between text-sm font-medium text-slate-700"><span>Shipping cost</span><span>Base $5 · $7</span></div>
-            <div class="h-2 rounded-full bg-slate-200"><div class="h-2 w-[27%] rounded-full bg-blue-500"></div></div>
-          </div>
-          <div>
-            <div class="mb-2 flex justify-between text-sm font-medium text-slate-700"><span>Labour cost</span><span>Base $11 · $5</span></div>
-            <div class="h-2 rounded-full bg-slate-200"><div class="h-2 w-[44%] rounded-full bg-forest-600"></div></div>
-          </div>
-          <div>
-            <div class="mb-2 flex justify-between text-sm font-medium text-slate-700"><span>Material cost</span><span>Base $11 · $11</span></div>
-            <div class="h-2 rounded-full bg-slate-200"><div class="h-2 w-[31%] rounded-full bg-amber-700"></div></div>
-          </div>
-        </div>
+      <div class="mt-5 grid gap-3">
+        <div class="h-2 rounded-full bg-white"><div class="h-2 w-[32%] rounded-full bg-blue-500"></div></div>
+        <div class="h-2 rounded-full bg-white"><div class="h-2 w-[58%] rounded-full bg-forest-600"></div></div>
+        <div class="h-2 rounded-full bg-white"><div class="h-2 w-[42%] rounded-full bg-amber-700"></div></div>
       </div>
     </div>
-  </div>
-) : isDataHealth ? (
-  <div class="overflow-hidden rounded-lg border border-black/10 bg-white shadow-[0_24px_80px_rgba(0,0,0,0.10)]">
-    <div class="flex items-center justify-between border-b border-black/10 px-4 py-3">
-      <div class="flex gap-2">
-        <span class="h-2.5 w-2.5 rounded-full bg-slate-300"></span>
-        <span class="h-2.5 w-2.5 rounded-full bg-slate-300"></span>
-        <span class="h-2.5 w-2.5 rounded-full bg-forest-400"></span>
+  ) : slug === 'data-health-panel' ? (
+    <div class="mt-8 rounded-lg bg-[#eef2ec] p-5">
+      <div class="grid grid-cols-[1fr_auto] items-center gap-4">
+        <div class="h-2 rounded-full bg-white"><div class="h-2 w-[71%] rounded-full bg-amber-600"></div></div>
+        <span class="text-xs font-semibold text-amber-800">Needs attention</span>
       </div>
-      <span class="text-xs font-medium text-slate-500">Data Health Panel.pbiviz</span>
-    </div>
-    <div class="bg-[#f8fafc] p-3 sm:p-5">
-      <div class="overflow-x-auto rounded-lg border border-black/10 bg-white">
-        <img
-          class="block w-[58rem] max-w-none md:w-full"
-          src="/products/data-health-panel-screenshot.png"
-          alt="Screenshot of the Data Health Panel Power BI custom visual showing a score, KPI cards, and issue list"
-          loading="eager"
-        />
+      <div class="mt-4 grid gap-2">
+        <span class="h-2 w-[82%] rounded-full bg-forest-600"></span>
+        <span class="h-2 w-[30%] rounded-full bg-red-500"></span>
+        <span class="h-2 w-[94%] rounded-full bg-forest-600"></span>
       </div>
     </div>
-  </div>
-) : (
-  <VisualPreview />
-)}
+  ) : slug === 'pipeline-health-monitor' ? (
+    <div class="mt-8 rounded-lg bg-[#eef2ec] p-5">
+      <div class="flex items-end gap-2">
+        <span class="h-12 flex-1 rounded-t bg-forest-600"></span>
+        <span class="h-8 flex-1 rounded-t bg-forest-500"></span>
+        <span class="h-16 flex-1 rounded-t bg-amber-500"></span>
+        <span class="h-9 flex-1 rounded-t bg-forest-600"></span>
+        <span class="h-5 flex-1 rounded-t bg-red-500"></span>
+      </div>
+      <div class="mt-4 h-2 rounded-full bg-white"><div class="h-2 w-[75%] rounded-full bg-forest-600"></div></div>
+    </div>
+  ) : slug === 'llm-usage-monitor' ? (
+    <div class="mt-8 rounded-lg bg-[#eef2ec] p-5">
+      <div class="grid grid-cols-4 items-end gap-2">
+        <span class="h-14 rounded-t bg-forest-700"></span>
+        <span class="h-20 rounded-t bg-amber-600"></span>
+        <span class="h-10 rounded-t bg-forest-500"></span>
+        <span class="h-16 rounded-t bg-slate-400"></span>
+      </div>
+      <div class="mt-4 grid grid-cols-3 gap-2">
+        <span class="h-2 rounded-full bg-forest-700"></span>
+        <span class="h-2 rounded-full bg-amber-600"></span>
+        <span class="h-2 rounded-full bg-slate-400"></span>
+      </div>
+    </div>
+  ) : (
+    <div class="mt-8 rounded-lg bg-[#eef2ec] p-5">
+      <svg class="h-24 w-full" viewBox="0 0 320 96" role="img" aria-label="Route preview">
+        <path d="M32 57h69l42-24 54 30 91-34" fill="none" stroke="#b7c6b6" stroke-width="6" stroke-linecap="round"/>
+        <path d="M32 57h69l42-24" fill="none" stroke="#4f8f2f" stroke-width="4" stroke-linecap="round"/>
+        <path d="M143 33l54 30" fill="none" stroke="#4f8f2f" stroke-width="4" stroke-linecap="round" stroke-dasharray="8 10"/>
+        <circle cx="32" cy="57" r="11" fill="#4f8f2f"/>
+        <circle cx="143" cy="33" r="11" fill="#4f8f2f"/>
+        <circle cx="288" cy="29" r="11" fill="#a9472d"/>
+      </svg>
+    </div>
+  )}
+</aside>
