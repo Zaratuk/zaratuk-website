@@ -1,15 +1,50 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 300" role="img" aria-labelledby="title desc">
   <title id="title">Product Margin What-If Cards icon</title>
-  <desc id="desc">A Zaratuk branded product margin card icon with cost bars and a Z mark.</desc>
-  <rect width="300" height="300" rx="48" fill="#f7f8f3"/>
-  <rect x="42" y="42" width="216" height="216" rx="30" fill="#ffffff" stroke="#dfe5d7" stroke-width="5"/>
-  <path d="M74 86h108l-82 94h94v34H66v-27l82-94H74V86z" fill="#174334"/>
-  <circle cx="221" cy="86" r="18" fill="#7aa441"/>
-  <rect x="74" y="228" width="152" height="12" rx="6" fill="#dfe5d7"/>
-  <rect x="74" y="228" width="56" height="12" rx="6" fill="#2f8f5b"/>
-  <rect x="137" y="228" width="42" height="12" rx="6" fill="#c77a18"/>
-  <rect x="186" y="228" width="40" height="12" rx="6" fill="#9bcfbd"/>
-  <rect x="74" y="196" width="38" height="16" rx="8" fill="#eaf1df"/>
-  <rect x="124" y="196" width="50" height="16" rx="8" fill="#eaf1df"/>
-  <rect x="186" y="196" width="40" height="16" rx="8" fill="#eaf1df"/>
+  <desc id="desc">A Zaratuk branded product margin scenario icon with a product box, margin chart, and what-if slider.</desc>
+  <defs>
+    <linearGradient id="margin-bg" x1="38" x2="262" y1="36" y2="264" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#fffefa"/>
+      <stop offset="1" stop-color="#f8f6ee"/>
+    </linearGradient>
+    <linearGradient id="margin-green" x1="92" x2="212" y1="76" y2="226" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#0d715f"/>
+      <stop offset="1" stop-color="#174334"/>
+    </linearGradient>
+    <linearGradient id="margin-sage" x1="98" x2="214" y1="164" y2="236" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#cfeadd"/>
+      <stop offset="1" stop-color="#35a98f"/>
+    </linearGradient>
+    <filter id="soft-shadow" x="-14%" y="-14%" width="128%" height="128%" color-interpolation-filters="sRGB">
+      <feDropShadow dx="0" dy="8" stdDeviation="10" flood-color="#174334" flood-opacity=".13"/>
+    </filter>
+  </defs>
+
+  <rect x="9" y="9" width="282" height="282" rx="48" fill="url(#margin-bg)" stroke="#e1e4d9" stroke-width="3"/>
+  <circle cx="150" cy="116" r="58" fill="#eaf3ed"/>
+
+  <g filter="url(#soft-shadow)">
+    <path d="M151 66l45 25-45 26-45-26 45-25z" fill="#168b74"/>
+    <path d="M106 91l45 26v57l-45-27V91z" fill="#08705f"/>
+    <path d="M151 117l45-26v57l-45 26v-57z" fill="#0f5f4c"/>
+    <path d="M128 78l45 25-13 8-45-26 13-7z" fill="#fffefa"/>
+    <path d="M128 78l45 25v20l-12 7v-19l-45-26 12-7z" fill="#e7f0ea"/>
+    <rect x="169" y="132" width="23" height="12" rx="3" fill="#f8f6ee"/>
+  </g>
+
+  <g filter="url(#soft-shadow)">
+    <rect x="70" y="154" width="160" height="88" rx="18" fill="#fbfdf9" stroke="#c9dacc" stroke-width="4"/>
+    <path d="M97 200c28-7 51-18 72-38 9 3 21 2 34-6" fill="none" stroke="url(#margin-green)" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M197 147l15-4-4 15" fill="none" stroke="#0f6655" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+    <circle cx="95" cy="200" r="8" fill="#0d8a72"/>
+
+    <rect x="118" y="197" width="13" height="27" rx="3" fill="#bfe1d3"/>
+    <rect x="143" y="188" width="13" height="36" rx="3" fill="#89cdb6"/>
+    <rect x="168" y="179" width="13" height="45" rx="3" fill="#4db49a"/>
+    <rect x="193" y="167" width="13" height="57" rx="3" fill="#0d8a72"/>
+
+    <rect x="86" y="228" width="128" height="8" rx="4" fill="#c9dacc"/>
+    <rect x="86" y="228" width="68" height="8" rx="4" fill="url(#margin-green)"/>
+    <circle cx="154" cy="232" r="17" fill="#ffffff"/>
+    <circle cx="154" cy="232" r="12" fill="#f2c811"/>
+  </g>
 </svg>
