@@ -13,7 +13,7 @@
     "sampleDataUrl": "/downloads/capacity-planner-sample.csv",
     "iconUrl": "/products/capacity-planner-zaratuk-icon.svg",
     "appSourceUrl": "/products/capacity-planner/#appsource",
-    "documentationUrl": "https://github.com/Zaratuk/capacity_planner#readme",
+    "documentationUrl": "/products/capacity-planner/#overview",
     "showHeroPreview": false,
     "showFieldRoles": true,
     "showFormattingControls": true,
@@ -120,8 +120,7 @@
     "sampleDataUrl": "/downloads/routeops-fleet-delivery-sample.csv",
     "iconUrl": "/products/routeops-visual-powerbi-zaratuk-icon.svg",
     "appSourceUrl": "#appsource",
-    "documentationUrl": "https://github.com/Zaratuk/routeops-visual-powerbi#readme",
-    "repositoryUrl": "https://github.com/Zaratuk/routeops-visual-powerbi",
+    "documentationUrl": "/products/routeops-visual-powerbi/#how-to-use",
     "showFieldRoles": true,
     "showFormattingControls": true,
     "whatItDoesTitle": "An operational map for fleet, delivery, and field-service visibility.",
@@ -423,7 +422,7 @@
     "sampleDataUrl": "/downloads/pipeline-runs.csv",
     "iconUrl": "/products/pipeline-health-monitor-zaratuk-icon.svg",
     "appSourceUrl": "#appsource",
-    "documentationUrl": "https://github.com/Zaratuk/Data_Pipeline_Health#readme",
+    "documentationUrl": "/products/pipeline-health-monitor/#how-to-use",
     "scoreFormula": "Latest Duration > Average Prior Completed Duration x 1.5",
     "showFieldRoles": true,
     "showFormattingControls": true,
@@ -575,7 +574,7 @@
           "description": "Checks mobile manifest issues where monitored mobile files are present."
         },
         {
-          "name": "GitHub access control issues",
+          "name": "Repository access control issues",
           "description": "Monitors repository access and source-code security controls."
         }
       ]

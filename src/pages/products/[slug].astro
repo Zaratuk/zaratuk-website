@@ -1,12 +1,11 @@
 ---
 import Icon from '@components/Icon.astro';
+import PowerBiIcon from '@components/PowerBiIcon.astro';
 import BaseLayout from '@layouts/BaseLayout.astro';
 import ProductVisualPreview from '@components/ProductVisualPreview.astro';
 import products from '@data/products.json';
 
-type Product = (typeof products)[number] & {
-  repositoryUrl?: string;
-};
+type Product = (typeof products)[number];
 
 export function getStaticPaths() {
   return products
@@ -48,11 +47,10 @@ const heroBody = product.description;
 const footerLinks = [
   { href: product.documentationUrl, label: 'Docs' },
   product.appSourceUrl ? { href: product.appSourceUrl, label: 'AppSource' } : undefined,
-  product.repositoryUrl ? { href: product.repositoryUrl, label: 'GitHub' } : undefined,
   { href: '/privacy/', label: 'Privacy policy' }
 ].filter(Boolean) as Array<{ href: string; label: string }>;
 const fallbackFeatureIcons = ['analytics', 'monitoring', 'route', 'settings', 'privacy', 'bolt'];
-const useCaseIcons = ['target', 'products', 'route', 'monitoring', 'analytics', 'build'];
+const isPowerBiProduct = product.tag?.toLowerCase().includes('power bi');
 const textIncludes = (value: string, pattern: RegExp) => pattern.test(value.toLowerCase());
 const featureIcon = (title: string, index: number) => {
   if (textIncludes(title, /route|delivery|fleet|map|location|gps|geo/)) return 'route';
@@ -76,15 +74,8 @@ const fieldRoleIcon = (role: { name: string; description?: string }) => {
 const footerLinkIcon = (label: string) => {
   if (textIncludes(label, /doc/)) return 'article';
   if (textIncludes(label, /appsource/)) return 'storefront';
-  if (textIncludes(label, /github/)) return 'code';
   if (textIncludes(label, /privacy/)) return 'privacy';
   return 'arrowRight';
-};
-const useCaseIcon = (label: string, index: number) => {
-  if (textIncludes(label, /fleet|delivery|field|logistics|route/)) return 'route';
-  if (textIncludes(label, /bi|analyst|report|finance|ops/)) return 'analytics';
-  if (textIncludes(label, /leader|executive|manager/)) return 'target';
-  return useCaseIcons[index % useCaseIcons.length];
 };
 
 const productStructuredData = {
@@ -96,7 +87,6 @@ const productStructuredData = {
   operatingSystem: 'Microsoft Power BI Desktop',
   softwareHelp: new URL(product.documentationUrl, Astro.site).toString(),
   downloadUrl: new URL(product.downloadUrl, Astro.site).toString(),
-  codeRepository: product.repositoryUrl,
   offers: {
     '@type': 'Offer',
     price: product.pricing?.toLowerCase() === 'free' ? '0' : undefined,
@@ -130,7 +120,7 @@ const productStructuredData = {
     <div class="mx-auto max-w-7xl px-4 py-14 sm:px-6 sm:py-20 lg:px-8">
       <div class="flex flex-wrap gap-2">
         <span class="inline-flex items-center gap-2 rounded-full border border-black/10 bg-white px-3 py-1.5 text-sm font-semibold text-slate-600">
-          <Icon name="products" class="h-4 w-4" />
+          {isPowerBiProduct ? <PowerBiIcon class="h-4 w-4 rounded-[0.2rem]" /> : <Icon name="products" class="h-4 w-4" />}
           {product.tag}
         </span>
         <span class="inline-flex items-center gap-2 rounded-full border border-black/10 bg-white px-3 py-1.5 text-sm font-semibold text-forest-700">
@@ -168,17 +158,10 @@ const productStructuredData = {
                 Sample data
               </a>
             )}
-            {product.repositoryUrl ? (
-              <a class="inline-flex h-12 items-center justify-center gap-3 rounded-lg border border-black/10 bg-white px-5 text-sm font-semibold text-[#1d1d1f] shadow-[0_10px_30px_rgba(0,0,0,0.04)] transition hover:border-forest-700" href={product.repositoryUrl}>
-                <Icon name="code" class="h-4 w-4 text-forest-700" />
-                GitHub
-              </a>
-            ) : (
-              <a class="inline-flex h-12 items-center justify-center gap-3 rounded-lg border border-black/10 bg-white px-5 text-sm font-semibold text-[#1d1d1f] shadow-[0_10px_30px_rgba(0,0,0,0.04)] transition hover:border-forest-700" href={product.documentationUrl}>
-                <Icon name="article" class="h-4 w-4 text-forest-700" />
-                Docs
-              </a>
-            )}
+            <a class="inline-flex h-12 items-center justify-center gap-3 rounded-lg border border-black/10 bg-white px-5 text-sm font-semibold text-[#1d1d1f] shadow-[0_10px_30px_rgba(0,0,0,0.04)] transition hover:border-forest-700" href={product.documentationUrl}>
+              <Icon name="article" class="h-4 w-4 text-forest-700" />
+              Docs
+            </a>
           </div>
           <p class="mt-4 hidden text-sm font-semibold text-slate-500" data-download-count-wrapper>
             <span data-download-count={product.slug}>0 downloads</span>
@@ -294,9 +277,8 @@ const productStructuredData = {
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <p class="text-sm font-semibold uppercase tracking-[0.18em] text-slate-500">Use cases</p>
       <div class="mt-5 flex flex-wrap gap-3">
-        {product.useCases.map((useCase, index) => (
-          <span class="inline-flex items-center gap-3 rounded-full border border-black/10 bg-white px-5 py-3 text-sm font-semibold text-slate-700">
-            <Icon name={useCaseIcon(useCase, index)} class="h-4 w-4 text-forest-700" />
+        {product.useCases.map((useCase) => (
+          <span class="inline-flex items-center rounded-full border border-black/10 bg-white px-5 py-3 text-sm font-semibold text-slate-700">
             {useCase}
           </span>
         ))}

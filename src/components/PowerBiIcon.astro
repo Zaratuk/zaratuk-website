@@ -1,0 +1,19 @@
+---
+interface Props {
+  alt?: string;
+  class?: string;
+}
+
+const {
+  alt = '',
+  class: className = 'h-4 w-4'
+} = Astro.props as Props;
+---
+
+<img
+  class={className}
+  src="/brand/power-bi-icon.svg"
+  alt={alt}
+  loading="lazy"
+  decoding="async"
+/>
