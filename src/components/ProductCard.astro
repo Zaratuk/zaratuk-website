@@ -14,8 +14,7 @@ const isPowerBiProduct = product.tag?.toLowerCase().includes('power bi');
         {isPowerBiProduct ? <PowerBiIcon class="h-4 w-4 shrink-0 rounded-[0.2rem]" /> : <Icon name="products" class="h-3.5 w-3.5" />}
         {product.tag}
       </span>
-      <span class="inline-flex items-center gap-1.5 rounded-lg bg-emerald-50 px-2.5 py-1 text-xs font-semibold text-forest-700">
-        <Icon name="target" class="h-3.5 w-3.5" />
+      <span class="inline-flex rounded-lg bg-emerald-50 px-2.5 py-1 text-xs font-semibold text-forest-700">
         {product.category}
       </span>
       {product.pricing && (
